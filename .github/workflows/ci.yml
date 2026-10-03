@@ -52,9 +52,47 @@ jobs:
           for f in app/assets/fonts/space-grotesk.woff2 app/assets/fonts/jetbrains-mono.woff2; do
             test -s "$f" || { echo "missing font: $f"; exit 1; }
           done
-          # No CDN font link may appear in the served HTML.
           if grep -q 'fonts.googleapis.com\|fonts.gstatic.com' app/index.html app/css/app.css; then
             echo "external font reference found, fonts must be self-hosted"
             exit 1
           fi
           echo "fonts ok"
+
+  browser-flows:
+    name: Browser flows against a real page
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # The learner-facing promises: mastery actually removes a problem from
+      # rotation, releasing it returns it, and a backup restores everything.
+      # None of that is visible by rendering the page, so it is driven for real.
+      - name: Install Playwright
+        run: |
+          npm i --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Serve the app
+        run: python3 -m http.server 8788 --directory app &
+
+      - name: Wait for the server
+        run: |
+          for i in $(seq 1 20); do
+            if curl -sf http://localhost:8788/ >/dev/null; then echo "up"; exit 0; fi
+            sleep 1
+          done
+          echo "server did not start"; exit 1
+
+      - name: Mastery, release, export and import
+        run: node tools/flows.js
+
+      - name: Every problem renders in every language
+        run: node tools/e2e.js
+
+      - name: Responsive screenshots and overflow
+        run: node tools/shots.js

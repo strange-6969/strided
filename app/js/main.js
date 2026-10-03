@@ -859,3 +859,9 @@ window.__strided = {
     return !!DATA;
   },
 };
+
+/* Test surface for the flows that promise the learner their data is never
+   trapped. Exposed deliberately rather than hidden: the backup path is the one
+   feature a user cannot verify by looking at the screen. */
+window.__importBackup = importJson;
+window.__resetAll = resetAll;

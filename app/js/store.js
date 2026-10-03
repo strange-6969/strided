@@ -1,7 +1,7 @@
 /* Store: localStorage-backed progress. No backend, no account.
    Export and import are first class so a learner is never trapped. */
 
-import { initialCard, schedule, applyXp, markActivity, computeStreak, isoDay, isDue } from './srs.js';
+import { initialCard, schedule, applyXp, markActivity, computeStreak, isoDay, isDue, addDays } from './srs.js';
 
 const KEY = 'strided.v1';
 
@@ -74,10 +74,24 @@ export function recordAttempt(problemId, grade) {
   return next;
 }
 
+/* Returning a mastered problem must put it back into rotation, not merely
+   clear the flag. Clearing `frozen` alone leaves `due` null, and a card with no
+   due date is never due, so the learner would never see it again. It has to be
+   scheduled for tomorrow. The lapse is recorded on purpose: mastery that is
+   released has to be earned again rather than restored for free. */
 export function unfreeze(problemId) {
   const prev = state.cards[problemId];
   if (!prev) return;
-  const cards = { ...state.cards, [problemId]: { ...prev, frozen: false, step: -1, due: null, lapses: prev.lapses + 1 } };
+  const cards = {
+    ...state.cards,
+    [problemId]: {
+      ...prev,
+      frozen: false,
+      step: -1,
+      due: addDays(new Date(), 1),
+      lapses: prev.lapses + 1,
+    },
+  };
   state = { ...state, cards };
   emit();
 }
