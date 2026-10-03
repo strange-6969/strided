@@ -25,6 +25,15 @@ jobs:
       - name: Spaced repetition suite
         run: python3 tools/test_srs.py
 
+      # Needs the network and the gh token, so it runs on a schedule and on
+      # demand rather than blocking every push.
+      - name: Rebuild the sheet catalog
+        if: github.event_name != 'push'
+        run: python3 tools/build_catalog.py
+
+      - name: Catalog extractor regressions
+        run: python3 tools/test_catalog.py
+
       - name: Build the dependency spine
         run: python3 tools/build_spine.py
 
@@ -34,7 +43,7 @@ jobs:
       # Catches a template hole or a typo'd import before it reaches a deploy.
       - name: Module syntax
         run: |
-          for f in app/js/*.js tools/shots.js tools/e2e.js tools/prod_check.js tools/flows.js tools/map_test.js; do
+          for f in app/js/*.js tools/*.js; do
             node --check "$f"
           done
 

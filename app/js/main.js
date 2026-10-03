@@ -6,12 +6,15 @@ const root = document.getElementById('root');
 
 let DATA = null;
 let SPINE = null;
+let CATALOG = null;
 
 const app = {
   view: 'today',
   problemId: null,
   pattern: null,
   difficulty: 'all',
+  catalogTopic: 'all',
+  catalogDiff: 'all',
   openTiers: {},
   hintIndex: -1,
   timerStart: null,
@@ -80,6 +83,7 @@ function rail(s) {
     ['today', 'Today', due || null],
     ['learn', 'Learn', null],
     ['map', 'Map', null],
+    ['catalog', 'Sheet', null],
     ['practice', 'Practice', null],
     ['patterns', 'Patterns', null],
     ['progress', 'Progress', null],
@@ -133,6 +137,7 @@ function mobileNav() {
     ['today', 'Today', '◈'],
     ['learn', 'Learn', '▤'],
     ['map', 'Map', '⌗'],
+    ['catalog', 'Sheet', '≡'],
     ['practice', 'Practice', '▷'],
     ['patterns', 'Patterns', '◇'],
     ['progress', 'Progress', '◑'],
@@ -283,6 +288,84 @@ function viewMap(s) {
     }</p>
     <p style="margin-top:8px">What that does <strong>not</strong> mean is problem-for-problem parity with the sheet. The sheet lists roughly 474 questions; this app writes up ${problemsTotal} of them, with a three-rung ladder and five escalating hints each. Coverage here means the topic spine is complete, not that every listed question has a walkthrough.</p>
     <p style="margin-top:8px">Each topic's count is its own authored total, so progress here is progress through the material on this site rather than a claim about the whole sheet.</p>
+  </div>`;
+}
+
+/* ---------- sheet catalog ---------- */
+
+/* The catalog is the whole sheet as a browsable index. What it deliberately
+   does not do is pretend every row has a walkthrough: a row either carries an
+   authored ladder and is clickable, or it is counted as catalog-only. */
+function viewCatalog(s) {
+  if (!CATALOG) {
+    return `<header class="topbar"><div><h1>Sheet</h1><p>Loading the catalog</p></div></header>`;
+  }
+
+  const authoredByTopic = {};
+  for (const l of SPINE.links) {
+    authoredByTopic[l.topic] = (authoredByTopic[l.topic] || 0) + 1;
+  }
+
+  let rows = CATALOG.problems;
+  if (app.catalogTopic !== 'all') rows = rows.filter((p) => p.topic === app.catalogTopic);
+  if (app.catalogDiff !== 'all') rows = rows.filter((p) => p.difficulty === app.catalogDiff);
+
+  const topics = Object.entries(CATALOG.byTopic).sort((a, b) => b[1] - a[1]);
+  const diffs = ['Easy', 'Medium', 'Hard'];
+  const authoredTotal = SPINE.links.length;
+
+  /* Long lists need a component other than one long divide-y list, so the rows
+     become a scan-able two column grid. */
+  return `
+  <header class="topbar">
+    <div>
+      <h1>Sheet</h1>
+      <p>${CATALOG.problems.length} problems across ${topics.length} topics, in dependency order. ${authoredTotal} have a written walkthrough</p>
+    </div>
+    <div class="statline">
+      <div class="stat"><span class="n">${CATALOG.problems.length}</span><span class="k">on the sheet</span></div>
+      <div class="stat"><span class="n">${authoredTotal}</span><span class="k">written up</span></div>
+    </div>
+  </header>
+
+  <div class="filters">
+    <button data-cat-topic="all" aria-pressed="${app.catalogTopic === 'all'}">All topics</button>
+    ${topics
+      .map(
+        ([id, n]) =>
+          `<button data-cat-topic="${id}" aria-pressed="${app.catalogTopic === id}">${esc(
+            PATTERN_BY_ID[id] ? PATTERN_BY_ID[id].name : id
+          )} ${n}</button>`
+      )
+      .join('')}
+  </div>
+  <div class="filters">
+    ${['all', ...diffs]
+      .map(
+        (d) =>
+          `<button data-cat-diff="${d}" aria-pressed="${app.catalogDiff === d}">${d === 'all' ? 'All levels' : d}</button>`
+      )
+      .join('')}
+  </div>
+
+  <div class="catlist">
+    ${rows
+      .map((p) => {
+        const authored = (authoredByTopic[p.topic] || 0) > 0;
+        return `
+      <div class="catrow${authored ? '' : ' is-bare'}">
+        <span class="cat-title">${esc(p.title)}</span>
+        <span class="cat-topic">${esc(PATTERN_BY_ID[p.topic] ? PATTERN_BY_ID[p.topic].name : p.topic)}</span>
+        <span class="cat-diff" data-d="${p.difficulty}">${p.difficulty}</span>
+      </div>`;
+      })
+      .join('')}
+  </div>
+
+  <div class="note">
+    <h4>What this index is</h4>
+    <p>Every problem on the Striver A2Z sheet, extracted from public solution mirrors and ordered by the same dependency graph as the <strong>Map</strong>. Titles, topic placement and difficulty bands only: no solution code and no LeetCode content is reproduced here.</p>
+    <p style="margin-top:8px">A row marked in plain text belongs to a topic that has at least one written walkthrough. It does not mean that specific row has one: <strong>${authoredTotal}</strong> problems are written up in full, against <strong>${CATALOG.problems.length}</strong> on the sheet. Use <strong>Map</strong> to see which topics have material, and the topic filters here to plan the rest.</p>
   </div>`;
 }
 
@@ -783,6 +866,7 @@ function render() {
     main = viewProblem(PROBLEM_BY_ID[app.problemId], s);
   } else if (app.view === 'learn') main = viewLearn(s);
   else if (app.view === 'map') main = viewMap(s);
+  else if (app.view === 'catalog') main = viewCatalog(s);
   else if (app.view === 'practice') main = viewPractice(s);
   else if (app.view === 'patterns') main = viewPatterns(s);
   else if (app.view === 'progress') main = viewProgress(s);
@@ -812,7 +896,7 @@ function startTimer() {
 /* ---------- events ---------- */
 
 document.addEventListener('click', (e) => {
-  const t = e.target.closest('[data-nav],[data-open],[data-lang],[data-diff],[data-pattern],[data-topic],[data-pattern-clear],[data-tier-toggle],[data-hint],[data-grade],[data-back],[data-act],[data-unfreeze]');
+  const t = e.target.closest('[data-nav],[data-open],[data-lang],[data-diff],[data-pattern],[data-topic],[data-cat-topic],[data-cat-diff],[data-pattern-clear],[data-tier-toggle],[data-hint],[data-grade],[data-back],[data-act],[data-unfreeze]');
   if (!t) return;
 
   if (t.dataset.nav) {
@@ -849,6 +933,16 @@ document.addEventListener('click', (e) => {
 
   if (t.dataset.diff) {
     app.difficulty = t.dataset.diff;
+    return render();
+  }
+
+  if (t.dataset.catTopic) {
+    app.catalogTopic = t.dataset.catTopic;
+    return render();
+  }
+
+  if (t.dataset.catDiff) {
+    app.catalogDiff = t.dataset.catDiff;
     return render();
   }
 
@@ -973,9 +1067,10 @@ subscribe(render);
 root.innerHTML = `<div class="empty" style="margin:40px auto;max-width:340px"><h4>Loading problems</h4><p>Fetching the dataset.</p></div>`;
 
 loadData()
-  .then(({ problems, spine }) => {
+  .then(({ problems, spine, catalog }) => {
     DATA = problems;
     SPINE = spine;
+    CATALOG = catalog;
     PATTERN_BY_ID = Object.fromEntries(DATA.patterns.map((p) => [p.id, p]));
     CARD_BY_PATTERN = Object.fromEntries(DATA.syntaxCards.map((c) => [c.pattern, c]));
     PROBLEM_BY_ID = Object.fromEntries(DATA.problems.map((p) => [p.id, p]));
@@ -1009,6 +1104,9 @@ window.__strided = {
   },
   get spine() {
     return SPINE;
+  },
+  get catalog() {
+    return CATALOG;
   },
   spineStatus: () => (SPINE ? spineStatus() : null),
 };

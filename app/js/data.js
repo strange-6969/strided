@@ -9,21 +9,28 @@ let inflight = null;
 const SOURCES = [
   { key: 'problems', url: '/data/problems.json' },
   { key: 'spine', url: '/data/spine.json' },
+  { key: 'catalog', url: '/data/catalog.json' },
 ];
 
 export async function loadData() {
   if (cache) return cache;
   if (!inflight) {
-    inflight = Promise.all(
-      SOURCES.map((s) =>
-        fetch(s.url, { cache: 'no-cache' }).then((r) => {
-          if (!r.ok) throw new Error(`${s.key} request failed: ${r.status}`);
-          return r.json();
-        })
-      )
-    )
-      .then(([problems, spine]) => {
-        cache = { problems, spine };
+    /* The catalog is large and useful but not required to render, so a failure
+       to fetch it degrades to "catalog unavailable" rather than taking the
+       whole app down. The other two are load-bearing and must succeed. */
+    const essential = SOURCES.filter((s) => s.key !== 'catalog').map((s) =>
+      fetch(s.url, { cache: 'no-cache' }).then((r) => {
+        if (!r.ok) throw new Error(`${s.key} request failed: ${r.status}`);
+        return r.json();
+      })
+    );
+    const catalog = fetch(SOURCES[2].url, { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : null))
+      .catch(() => null);
+
+    inflight = Promise.all([Promise.all(essential), catalog])
+      .then(([[problems, spine], catalogJson]) => {
+        cache = { problems, spine, catalog: catalogJson };
         return cache;
       })
       .catch((err) => {

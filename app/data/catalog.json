@@ -1,0 +1,7320 @@
+{
+  "_meta": {
+    "source": "Striver A2Z DSA sheet, extracted from public solution mirrors",
+    "mirrors": [
+      "Codensity30/Strivers-A2Z-DSA-Sheet",
+      "dhruv-yadav-nitj/striver-a2z-dsa",
+      "sumitgirwal/Strivers-A2Z-DSA-Sheet",
+      "megh-bari/Striver-A2Z-DSA-Sheet"
+    ],
+    "note": "Titles and topic placement only. No solution code and no LeetCode content is reproduced. Problems marked platform tuf are Striver's own basics and pattern drills, not LeetCode questions.",
+    "filesScanned": 961,
+    "dropped": 7,
+    "unmapped": 6,
+    "mergedDuplicates": 157
+  },
+  "problems": [
+    {
+      "title": "Check if array is sorted and rotated",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find element present only once",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Largest element in array",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Linear search",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest subarray with given sum",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Max consecutive 1's",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Missing number",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Move 0's to end",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Remove duplicates from sorted array",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Rotate array left by 1place",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Rotate array left&right by k places",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Second largest element in array",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Union of 2 sorted arrays",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "finding intersection",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "finding union",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "isSorted",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "left rotate by one",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "longest subarray with sum k",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "longest subarray with sum k pos neg",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "maximum conseutive ones",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "move zero",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "remove duplicate from sorted array",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "second largest element",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "singleNumber",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "3 sum",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count inversions",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Largest subarray with 0sum",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest subarray with sum k containg +ves and ves",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MERGE INTERVALS",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Majority element",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Maximum product subarray",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Merge 2 sorted array without space",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Merge overlapping subinterval",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Pascal triangle",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Repeating and missing numbers",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Reverse pairs",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Subarrays with xor k",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "count inversion",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "find missing and repeating number",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "largest subarray with sum zero",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "mege overlapping subintervals",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "merge two sorted array without extra space",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "number of subarray with xor zero",
+      "topic": "arrays",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "2 sum problem",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ARRAY LEADERS",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BEST TIME TO BUY SELL STOCK",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "CONTIGUOUS ARRAY",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Check If array is sorted",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find how many times array is rotated",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find peak element",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find single element in sorted array",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find the minimum element in sorted rotated array",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find x in sorted array",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "First and last position",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "GRUMPY BOOKSTORE OWNER",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement lower bound",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement lower upper bound",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "KTH ELEMENT",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Kadane's algorithm",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LARGEST SUBARR WITH ZERO SUM",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LONGEST CONSECUTIVE SUBSEQ",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LONGEST SUBARR WITH SUM K",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Leaders in array",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest consecutive subsequence",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MAX PRODUCT SUBARR",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MAX SUM SUBARRAY",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MERGE SORTED ARR",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MISSING REPEATING",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MOVE ZEROS TO END",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Matrix median",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Next permutation",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Number of occurences",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Number of subarray sum equal k",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PASCAL TRIANG",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PRINT MAX SUM SUBARR",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Peak element in matrix",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "REMOVE DUPLICATES SORTED ARR",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "REV PAIRS",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ROTATE ARRAY D PLACES",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Rearange elements by sign",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Rotate matrix",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Row with maximum number of 1's",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SET MATRIX ZERO",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SORT 0S 1S 2S",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SPIRAL MATRIX",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SPIRAL MATRIX IV",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBARR SUM EQ K",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBARR WITH XOR X",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUM CLOSEST",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Search in rotated sorted array",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Search in rotated sorted array with duplicates",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Search in rowwise sorted matrix",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Search in sorted matrix",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Search insert position",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Set matrix 0's",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sort 0 1",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Spiral traversal",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Stock buy sell",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "UNION FIND",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "bs to find x in sorted array",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "count occurence in array",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "count sub array with given sum",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "find how many time has array been rotated",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "find the first and last occurance in sorted array",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "floor ceil in sorted array",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "leaders in array prob",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "longest consequtive sequence",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "lower bound",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "maximum subarray",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "median in a row wise sorted matrix",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "minimum in rotated sorted array",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "peak element in 2D mat p",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "rearrange array by sign",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "rotate matrix by 90deg",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "row with maximum ones",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "search a 2D matrix",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "search a 2D matrix p",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "single element in sorted array",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "sortArrayOf0 1",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "upper bound",
+      "topic": "arrays",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Array String",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "CPP STL",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Data Types",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "For loops",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "If Else statements",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern1",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern10",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern11",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern12",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern13",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern14",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern15",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern16",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern17",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern18",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern19",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern2",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern20",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern21",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern22",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern3",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern4",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern5",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern6",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern7",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern8",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Pattern9",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Switch Statement",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "Time Complexity",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "User Input Output",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "While loops",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "patterns",
+      "topic": "basics",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "tuf"
+    },
+    {
+      "title": "D MATRIX BS HARD",
+      "topic": "binarysearch",
+      "difficulty": "Hard",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "AGGRESSIVE COWS",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Aggresive cows",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BOOK ALLOCATION PROBLEM",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Book allocation",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "CEIL FLOOR",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Capacity to ship packages",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "D MATRIX BINARY SEARCH",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "FIRST LAST INDEX",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find smallest integer",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "GAS STATIONS",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Gas station",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "KOKO EATING BANANAS",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "KTH MISSING POS",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Koko eating banana",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Kth element of two sorted arrays",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Kth missing number",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MAX 1S ROW",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MEDIAN IN MATRIX",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MEDIAN OF TWO SORTED ARR",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MIN DAYS M BOUQETS",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MIN IN ROTATED ARRAY",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Median of two sorted arrays",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum days to make boquets",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "NTH ROOT",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Nth root of integer",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PAINTERS PARTITION",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PEAK ELEMENT",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ROTATION",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SEARCH ROT SORTED",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SHIP PACKAGES",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SINGLE ELEMENT",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SMALLEST DIVISOR",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SPLIT LARGEST",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SQRT",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Split array largest",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Square root of number",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "allocate books",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "capacity to ship package within D days",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "find nth root of m",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "find sqrt of integer",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "find the smallest divisor",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "koto eating banana",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "kth element of two sorted array",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "kth missing positive number",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "median of two sorted array",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "min n0 of days to make m bouquets",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "minimise maximum distance between gas station",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "painters partition and split array largest sum",
+      "topic": "binarysearch",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "one liner code",
+      "topic": "bitmanipulation",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ALL DIV OF A NUM",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Bit Manipulation",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "CHECK ITH BIT",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "COUNT BITS TO FLIP A TO B",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "COUNT SET BITS",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Check for odd even",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Check for the ith bit",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Check for the power of",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count set bit from numbers 1 to n",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DIVIDE TWO INT",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Divide two numbers using bit maipulation",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Exceptionally odd",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum bit flips",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "POWER OF TWO",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PRIME FACTORISATION",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SET UNSET RIGHTMOST UNSET",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SIEVE",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Set the righmost unset bit",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Swap two numbers without temporary variable",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "TWO NUMBERS WITH ODD OCCURENCE",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "XOR L TO R",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "XOR of numbers from L to R",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "divide two integers",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "find xor of num from L to R",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "kth bit set ot not",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "min bit flips to convert number",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "number odd even",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "set ith bit",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "set unset the rightmost bit",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "single number",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "single number II",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "single number III",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "swap two numbers",
+      "topic": "bitmanipulation",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Intro to BST",
+      "topic": "bst",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum value in BST",
+      "topic": "bst",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Search in BST",
+      "topic": "bst",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BFS TRAVERSALS",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BINARY TREE RIGHT SIDE VIEW",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BST Iterator",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Build BST from Preorder Traversal",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "CONSTRUCT BINARY TREE FROM PRE IN TRAVERSAL",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "CONVERT SORTED ARR TO BST",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "COUNT GOOD NODES",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Ceil in BST",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DFS TRAVERSALS",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Delete from BST",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Floor in BST",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "INVERT BINARY TREE",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Insert into BST",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Kth smallest element in BST",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LCA in BST",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Largest BST in Binary Tree",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MAX DEPTH OF BINARY TREE",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MAX PATH SUM",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Recover BST",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SERIALISE DESERIALISE",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBTREE OF ANOTHER TREE",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Two Sum in BST",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Validate BST",
+      "topic": "bst",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find the nth fibonacci number",
+      "topic": "dynamicprogramming",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "01 Knapsack",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BURST BALLOON",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Best time to buy and sell stock",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Best time to buy and sell stock uoto k transaction",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Best time to buy and sell stock upto 2 transaction",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Best time to buy and sell stocks",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Burst Ballons",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Buy and sell stocks with cooldown",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Buy and sell stocks with transaction fee",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "CHOCO PICKUP",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Climbing Stairs",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Coin Change",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count number of subsets with sum K",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count square submatrices",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DELETE OPERATIONG MAKE STRING SAME",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DISTINCT SUBSEQ",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DP SQUARE COUNT SUBMATRICS",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Distinct Subsequences",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "EDIT DISTANCE",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Frog Jump",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Frog K Jumps",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "House Robber",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LIS 01 IMPLEMENT",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LIS 02 PRINT LIS",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LIS 03 LARGEST DIV SUBSET",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LIS 04 NUMBER LIS",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LIS 05 BITONIC",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LIS 06 LONGEST STRING CHAIN",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LONGEST COMMON SUBSEQ",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LONGEST PALINDROMIC SUBSEQ",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Largest Divisible Subset",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest Bitonic Subsequence",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest Common Subsequence",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest Common Substring",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest Increasing Subsequence",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest Palindromic Subsequence",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MCM",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MCM 01 MCM",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MCM 02 MIN COST TO CUT STICK",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MIN FALLING PATH SUM",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MIN INSERTIONS TO MAKE STRING PALINDROME",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MIN PATH SUM TRIANGLE",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MINIMAL COST",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Maximal Square",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum Falling Path Sum",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum Path Sum",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum Path in Triangle",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum Sum Partition",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum cost to cut stick",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum steps to make other string",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum steps to make string palindrome",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "NINJAS TRAINING",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Ninja Training",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Number of LIS",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PRINT LONGEST COMMON SUBSEQ",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Palindorme Partionting",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Partition array for maximum sum",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Partition array in two equal sum subsets",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Partition with given difference",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Print LIS",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Print the LCS",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Rod Cutting Problem",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SHORTEST COMMON SUPERSEQ",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "STOCKS",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSEQ 01 SUBSET SUM PROBLEM",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSEQ 02 PARTITION EQUAL SUBSET SUM",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSEQ 03 PARTITION ARR TO MIN SUM DIFF",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSEQ 04 COUNT SUBSET EQ TO GIVEN SUM",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSEQ 05 PARTN WITH GIVEN DIFF",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSEQ 06 COIN CHANGE",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSEQ 07 TARGET SUM",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSEQ 08 COIN CHANGE2",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSEQ 09 KNAPSACK",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSEQ 10 ROD CUTTING",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Shortest Common Supersequence",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Subset sum equal to k",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Target Sum",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Unbounded Knapsack",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Unique Paths",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Wildcard Matching",
+      "topic": "dynamicprogramming",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BFS",
+      "topic": "graphs",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count the number of graphs",
+      "topic": "graphs",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DFS",
+      "topic": "graphs",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Graph Representation",
+      "topic": "graphs",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "01 Matrix",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ALIENS DICTIONARY",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Account Merge",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Alien Dictonary",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BELLMAN FORD",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BINARY MAZE SHORTEST PATH",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Bellman Ford Algorithm",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Bipartite Graph",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Bridges in graph",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "CHEAPEST FLIGHT K STOPS",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "COURSE SCHEDULE",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Cheapest Flights with K stops",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count the number of provinces",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Course Scheduler",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DIRECTED GRAPH CYCLE BFS",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DIRECTED GRAPH CYCLE DFS",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DISJOINT SET IMPLEMENTATION",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DJIKSTRA ALGORITHM",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Detect Cycle in Directed Graph",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Detect Cycle in Undirected Graph",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Dijkstra's Algorithm",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Distinct Islands",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ENCLAVES",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "EVENTUAL SAFE STATES",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "FLOOD FILL",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "FLOYD WARSHALL",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find Eventual Safe State",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find city with smallest number of neighbours",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Flood Fill Algorithm",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Floyd Warshall Algorithm",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Kahn's Algorithm",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Kruskal's Algorithm",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MAKE A LARGE ISLAND",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MIN MULTIPLICATIONS TO REACH END",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MINIMUM EFFORT PATH",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MOST STONES REMOVED WITHIN SAME ROW",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MST KRUSKAL ALGO",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MST PRIMS ALGORITHM",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Making Large Island",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Most stones removed",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "NETWORK DELAY",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "NUM WAYS TO ARRIVE AT DESTINATION",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "NUMBER PROVINCES",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Network Delay Time",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Number of Enclaves",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Number of Operations to make Network",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Number of islands",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Number of ways to arrive the destination with minimum distance",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "OPERATIONS TO MAKE NETWORK CONNECTED",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Path with minimum effort",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Prim's Algorithm",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Rotten Oranges",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SHORTEST PATH UG",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SMALLEST DISTANCE THRESHOLD",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Shortest Path in binary matrix",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Shortest path in DAG",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Shortest path in Undirected Graph having unit distance",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Strongly Connected Components",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Surrounded Regions",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Swim in rising water",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "TOPOLOGICAL SORT BFS KAHNS ALGO",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "TOPOLOGICAL SORT DFS",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Topological Sorting",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "UNDIRECTED GRAPH CYCLE BFS",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "UNDIRECTED GRAPH CYCLE DFS",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Word Ladder",
+      "topic": "graphs",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Assign Cookies",
+      "topic": "greedy",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Fractional Knapsack",
+      "topic": "greedy",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Lemonade Exchange",
+      "topic": "greedy",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Valid Parenthesis String",
+      "topic": "greedy",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "find minimum number of coins",
+      "topic": "greedy",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "lemonade change",
+      "topic": "greedy",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Candy",
+      "topic": "greedy",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Insert Interval",
+      "topic": "greedy",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Job Sequencing Problem",
+      "topic": "greedy",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum Platforms",
+      "topic": "greedy",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "N Meetings in one room",
+      "topic": "greedy",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Non Overlapping Intervals",
+      "topic": "greedy",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SHORTEST JOB FIRST",
+      "topic": "greedy",
+      "difficulty": "Hard",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "jump game II",
+      "topic": "greedy",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "jump game i",
+      "topic": "greedy",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "JOB SEQ PROBLEM",
+      "topic": "greedy",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Jump Game",
+      "topic": "greedy",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MIN NUMBER PLATFORMS",
+      "topic": "greedy",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "N MEETINGS",
+      "topic": "greedy",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PAGE FAULT",
+      "topic": "greedy",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Counting frequencies of array elements",
+      "topic": "hashing",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find the highest lowest frequency element",
+      "topic": "hashing",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "hash",
+      "topic": "hashing",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Check if array is heap",
+      "topic": "heap",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Convert min heap to max heap",
+      "topic": "heap",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "INTRO IMPLEMENT",
+      "topic": "heap",
+      "difficulty": "Easy",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement min heap",
+      "topic": "heap",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Design Twitter",
+      "topic": "heap",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Kth largest element in stream",
+      "topic": "heap",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Maximum K sum combinations",
+      "topic": "heap",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Median in a stream",
+      "topic": "heap",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum Cost to join n ropes",
+      "topic": "heap",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Top K frequent elements",
+      "topic": "heap",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Arrange by rank",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DIVIDE ARR IN SETS OF K CONSEC NUMBERS",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Divide array into sets of K consecutive number",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "HEAP SORT",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "K MOST FREQUENT",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "KTH LARGEST",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "KTH LARGEST IN STREAM",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Kth largest element",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Kth smallest element",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MAX COMBINATION SUM",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MEDIAN DATA STREAM",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MERGE K LINKEDLISTS",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MERGE K SORTED ARR",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MIN COST OF ROPE",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Merge K sorted Lists",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Merge K sorted arrays",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "REPLACE WITH RANK",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Task Scheduler",
+      "topic": "heap",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Intro to linked list",
+      "topic": "linkedlist",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LFU CACHE",
+      "topic": "linkedlist",
+      "difficulty": "Easy",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PALINDROME",
+      "topic": "linkedlist",
+      "difficulty": "Easy",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Copy LL with random pointers",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DLL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Detect loop in LL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Flatten LL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Reverse k node in groups",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Rotate LL k times",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SORT LIST",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "add 1 to a linkedList",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "add two numbers in linkedList",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "conver array to LL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "copy linkedList with random pointer",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "delete all occurence of given key in DLL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "delete node in a linkedList",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "delete the middle node of linkedList",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "deletion in LL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "find length of loop",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "find pais of sum in DLL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "flatten linkedList",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "insertion in LL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "insertion of two LL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "length of LL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "middle of the linkedList",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "odd even linkedList",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "palindrome linked list",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "remove duplicates from sorted DLL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "remove nth node from end of list",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "reverse doubly linkedList",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "reverse linkedList",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "reverse nodes in kth group",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "rotate LL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "search in LL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "sort linked list 0s 1s 2s",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "starting node in a loop of LL",
+      "topic": "linkedlist",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ADD TWO NUMBERS",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Add 1 to LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Add two LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "CLONE LIST",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Check for palindrome LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count nodes in loop",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count the number of nodes linked list",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DETECT CYCLE",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DETECT CYCLE II",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Delete mid of LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Delete node in DLL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Delete nodes from dll",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Delete nth node from back",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Deleting node in linked list",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "FLATTEN DLL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Find mid of LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "INSERT GCD IN LINKED LIST",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "INSERT NODE DLL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "INTERSECTION OF LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Insert node in DLL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Inserting node to linked list",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Introduction to Double LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LENGTH OF CYCLE",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ODD EVEN GROUPING",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Odd even LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PAIRS IN DLL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Pair sum in dll",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "REMOVE DUPLICATES DLL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "REMOVE NODES DLL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "REMOVE NTH NODE",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "REVERSE NODES IN GROUP OF K",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ROTATE LIST",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Remove duplicates from dll",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Reverse DLL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Reverse LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SPLIT LINKED LIST IN PARTS",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Search element in linked list",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sort 0 1 2 in LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sort LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Start of cycle in LL",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "TORTOISE HAIR METHOD",
+      "topic": "linkedlist",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ALL DIVISORS",
+      "topic": "math",
+      "difficulty": "Easy",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "COUNT PRIMES",
+      "topic": "math",
+      "difficulty": "Easy",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Check Palindrome",
+      "topic": "math",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count Digits",
+      "topic": "math",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "GCD Or HCF",
+      "topic": "math",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Reverse a Number",
+      "topic": "math",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "maths",
+      "topic": "math",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "All divisors of number",
+      "topic": "math",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Fast Power",
+      "topic": "math",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Prime factorization using Sieve",
+      "topic": "math",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Prime factors of number",
+      "topic": "math",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sieve of Eratosthenes",
+      "topic": "math",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "all divisor number",
+      "topic": "math",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "power exponentiation",
+      "topic": "math",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "prime number",
+      "topic": "math",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "print prime factor of a number",
+      "topic": "math",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Check if a string is palindrome or not",
+      "topic": "recursion",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Factorial of N numbers",
+      "topic": "recursion",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Fibonacci Number",
+      "topic": "recursion",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Print 1 to N using recursion",
+      "topic": "recursion",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Print N to 1 using recursion",
+      "topic": "recursion",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Print name N times using recursion",
+      "topic": "recursion",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Reverse an array",
+      "topic": "recursion",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sum of first N numbers",
+      "topic": "recursion",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Understand recursion by print something N times",
+      "topic": "recursion",
+      "difficulty": "Easy",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "recursion prob",
+      "topic": "recursion",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "M Coloring Problems",
+      "topic": "recursion",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "N QUEEN",
+      "topic": "recursion",
+      "difficulty": "Hard",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PALINDROME PARTITIONING",
+      "topic": "recursion",
+      "difficulty": "Hard",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Rat in maze",
+      "topic": "recursion",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sudoku solver",
+      "topic": "recursion",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BETTER STRING",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Combination Sum",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count distinct substrings",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count good numbers",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count subsets with sum equal to k",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "GENERATE ALL BIN STRINGS",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "GENERATE PARANTHESES",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Genereate all valid parenthesis",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement atoi via recursion",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Letter combinations of phone",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "M coloring problem",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "N queens",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PHONE NUMBER",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Palindrome partioning",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Power set",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "RAT IN A MAZE",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "REVERSE STACK",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Reverse stack using recursion",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSET SUM",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSETS",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sort stack using recursion",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Subset",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "WORD SEARCH",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Word Break",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Word search in grid",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "combination sum II",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "count the subsequence with sum k",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "pow x n",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "print any one subsequence whose sum is k",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "print subsequence whose sum is k",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "subset sum II",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "subset(power set)",
+      "topic": "recursion",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count the number of substrings with exactly K unique characters",
+      "topic": "slidingwindow",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest Substring with at most K unique characters",
+      "topic": "slidingwindow",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum Window Substring",
+      "topic": "slidingwindow",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "longest substring with at most k distinct characters",
+      "topic": "slidingwindow",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "subarrays with k different integers",
+      "topic": "slidingwindow",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BINARY SUBARR WITH GOAL",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Binary Subarrays with Sum",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "COUNT K UNIQ ELEM SUBARRAY",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count the number of nice subarrays",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "FRUITS BASKETS",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Fruit into Baskets",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LONGEST K UNIQ CHARS SUBSTRING",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LONGEST REP CHARS REPLACE",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LONGEST SUBSTR REP CHARS",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest Repeating Character",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest Substring Without Repeating Characters",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MAX CONSEC ONES",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MAX POINTS OBTAINED FROM CARDS",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MIN WINDOW SUBSTRING",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Maximum Points you can obtaln form the card",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "NICE SUBARRAY",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Number of Substrings Containing all 3 characters",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUBSTRING CONTAINING ALL THREE CHARS",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "count number of nice subarrays",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "intro",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "longest repeating character replacement",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "max consecutive ones iii",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "maximum points you can obtain from cards",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "number of substrings containing all three characters",
+      "topic": "slidingwindow",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "BUBBLE SORT",
+      "topic": "sorting",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Bubble Sort Algorithm",
+      "topic": "sorting",
+      "difficulty": "Medium",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "INSERTION SORT",
+      "topic": "sorting",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Insertion Sort Algorithm",
+      "topic": "sorting",
+      "difficulty": "Medium",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MERGE SORT",
+      "topic": "sorting",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "QUICK SORT",
+      "topic": "sorting",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SELECTION SORT",
+      "topic": "sorting",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Selection Sort Algorithm",
+      "topic": "sorting",
+      "difficulty": "Medium",
+      "seenIn": [
+        "sumitgirwal/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "sorting",
+      "topic": "sorting",
+      "difficulty": "Medium",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement min stack",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement queue using array",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement queue using stacks",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement stack using array",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement stack using linked list",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement stack using queue",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Infix to postfix",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Infix to prefix",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Largest Rectangle in Histogram",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MAXIMAL RECTANGLE",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Next Greater Element",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Postfix to infix",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Postfix to prefix",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Prefix to infix",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Prefix to postfix",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "REMOVE K DIGITS",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUM OF SUBARRAY RANGES",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sliding window maximum",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sum of subarray minimum",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Valid Parenthesis",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "asteroid collison",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "implement queue using LL",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "implement stack using LL",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "lru cache(imp)",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "nearest smallest element",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "next greater element II",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "online stock span",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "recursion",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "the celebrity problem",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "trapping rain water",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "valid parentheses",
+      "topic": "stack",
+      "difficulty": "Easy",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ASTEROID COLLISION",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Asteroids Collision",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "CRAWLER LOG FOLDER",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Celebrity Problem",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "INFIX POSTFIX",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "INFIX PREFIX",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LRU Cache",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MIN STACK",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Maximal Rectangle in binary matrix",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "NEXT SMALLER",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "NUMBER OF NGES TO THE RIGHT",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "POSTFIX INFIX",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "POSTFIX PREFIX",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PREFIX INFIX",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "PREFIX POSTFIX",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Previous Smaller Element",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "QUEUE USING STACK",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Remove K elements",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SLIDING WINDOW MAX",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "STACK USING LINKEDLIST",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "STACK USING ONE QUEUE",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "STACK USING TWO QUEUE",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "STOCK SPAN",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUM OF SUBARRAY MINIMUMS",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Stock span problem",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sum of range of all subarray",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Trapping Rainwater",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "VALID PARANTHESES",
+      "topic": "stack",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Check for rotated string",
+      "topic": "strings",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Isomorphic string",
+      "topic": "strings",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Largest odd number in string",
+      "topic": "strings",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest common prefix",
+      "topic": "strings",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Remove outer parenthesis",
+      "topic": "strings",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Reverse words in string",
+      "topic": "strings",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Valid anagram",
+      "topic": "strings",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count and Say",
+      "topic": "strings",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "KMP or Z string matching algo",
+      "topic": "strings",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest Happy Prefix",
+      "topic": "strings",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Minimum number of insertions to make parenthesis valid",
+      "topic": "strings",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Shortest Palindrome",
+      "topic": "strings",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "CHECK ROTATION",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "COUNT PALINDROMIC SUBSEQ",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "COUNT SAY",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "COUNT SUBSTRS",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count the number of substrings with k unique characters",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "FIND INDEX OF FIRST OCCURENCE",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement atoi",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "KMP PATTERN MATCHING",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LARGEST ODD NUM IN STRING",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LONGEST PALINDROMIC SUBSTR",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Longest palindromic substring",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MAX SCORE FROM REMOVING SUBSTR",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "MIN ADD TO MAKE PARANTHESES",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Max nesting depth of parenthesis",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "RABIN KARP REPEATED STRING MATCH",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "REMOVE OUTER PARANTH",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "REV WORDS",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "ROMAN TO INT",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Roman to Integer",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SORT CHARS BY FREQ",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "SUM OF BEAUTY OF ALL SUBSTR",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sort characters by frequency",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Sum of beauty of all substrings",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "VALID ANAGRAMS",
+      "topic": "strings",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "All nodes at distance K",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "All root to leaf paths",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Balanced Binary Tree",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Check children sum property",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Construct BT from inorder and postorder",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Construct BT from inorder and preorder",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count nodes in complete binary tree",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Diameter of Binary Tree",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Flatten Binary Tree",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Lowest Common Ancestor",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Max width of binary tree",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Min time to burn binary tree",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Morris Inorder Traversal",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Morris Preorder Traversal",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Serialize and Deserialize",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "binary tree inorder traversal",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "binary tree level order traversal",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "binary tree maximum path sum",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "binary tree postorder traversal",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "binary tree preorder traversal",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "iterative inorder traversal of binary tree",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "iterative preorder traversal of binary tree",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "maximum depth of binary tree",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "maximum width of binary tree",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "post order traversal of binary tree using 1 stack",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "post order traversal of binary tree using 2 stack",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "pre post in order in one traversal",
+      "topic": "trees",
+      "difficulty": "Hard",
+      "seenIn": [
+        "megh-bari/Striver-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "All in one traversal",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Binary Tree representation",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Bottom View",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Boundary Traversal",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Height of binary tree",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Inorder Traversal",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Introduction to trees",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Iterative Inorder Traversal",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Iterative Postorder",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Iterative Preorder Traversal",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Left or Right View",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Level Order Traversal",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Maximum Path Sum",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Postorder Traversal",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Preorder Traversal",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Same Tree",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Symmetric Tree",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Top View",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Vertical Order Traversal",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Zig Zag Traversal",
+      "topic": "trees",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Bitwise basic operations",
+      "topic": "tries",
+      "difficulty": "Easy",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Complete String",
+      "topic": "tries",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Count distinct subsitrings",
+      "topic": "tries",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DESIGN ADD SEARCH DATA STRUCTURE",
+      "topic": "tries",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "DP ON TRIES MIN VALID SUBSTRING",
+      "topic": "tries",
+      "difficulty": "Medium",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement Trie",
+      "topic": "tries",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Implement Trie (Prefix Tree)",
+      "topic": "tries",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "Maximum XOR of two numbers",
+      "topic": "tries",
+      "difficulty": "Medium",
+      "seenIn": [
+        "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    }
+  ],
+  "byTopic": {
+    "arrays": 120,
+    "basics": 32,
+    "binarysearch": 49,
+    "bitmanipulation": 34,
+    "bst": 26,
+    "dynamicprogramming": 81,
+    "graphs": 70,
+    "greedy": 20,
+    "hashing": 3,
+    "heap": 28,
+    "linkedlist": 77,
+    "math": 16,
+    "recursion": 47,
+    "slidingwindow": 29,
+    "sorting": 9,
+    "stack": 59,
+    "strings": 36,
+    "trees": 47,
+    "tries": 8
+  },
+  "byDifficulty": {
+    "Easy": 137,
+    "Hard": 119,
+    "Medium": 535
+  }
+}

@@ -63,6 +63,26 @@ const SHOTS = [
     },
   },
   {
+    name: 'desktop-catalog',
+    w: 1280,
+    h: 1000,
+    steps: async (p) => {
+      await p.click('[data-nav="catalog"]');
+      await p.waitForTimeout(500);
+      await p.evaluate(() => window.scrollTo(0, 0));
+    },
+  },
+  {
+    name: 'mobile-catalog',
+    w: 390,
+    h: 844,
+    steps: async (p) => {
+      await p.click('.mobilenav [data-nav="catalog"]');
+      await p.waitForTimeout(500);
+      await p.evaluate(() => window.scrollTo(0, 0));
+    },
+  },
+  {
     name: 'mobile-today',
     w: 390,
     h: 844,

@@ -5,11 +5,13 @@
   "description": "DSA practice tracker with a complexity ladder, syntax cards, and spaced review.",
   "scripts": {
     "start": "python3 -m http.server 8788 --directory app",
-    "test": "python3 tools/test_srs.py && python3 tools/build_spine.py && python3 tools/validate_dataset.py",
+    "test": "python3 tools/test_srs.py && python3 tools/build_catalog.py && python3 tools/build_spine.py && python3 tools/test_catalog.py && python3 tools/validate_dataset.py",
     "test:srs": "python3 tools/test_srs.py",
+    "test:catalog": "python3 tools/test_catalog.py",
     "test:data": "python3 tools/validate_dataset.py",
+    "catalog": "python3 tools/build_catalog.py",
     "spine": "python3 tools/build_spine.py",
     "shots": "node tools/shots.js",
-    "expand": "python3 tools/expand_dataset.py"
+    "expand": "python3 tools/author_batch1.py"
   }
 }

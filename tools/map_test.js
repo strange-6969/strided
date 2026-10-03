@@ -135,6 +135,32 @@ const note = (ok, msg) => {
     note(false, 'no clickable map node found');
   }
 
+  // ---------- the sheet catalog index ----------
+  await page.click('[data-nav="catalog"]');
+  await page.waitForTimeout(400);
+  const cat = await page.evaluate(() => window.__strided.catalog);
+  note(!!cat, 'catalog loaded');
+  if (cat) {
+    note(cat.problems.length > 400, `catalog is substantial (${cat.problems.length} problems)`);
+    const rows = await page.$$eval('.catrow', (els) => els.length);
+    note(rows === cat.problems.length, `every catalog row renders (${rows}/${cat.problems.length})`);
+
+    // filtering must actually narrow the list
+    await page.click('[data-cat-diff="Hard"]');
+    await page.waitForTimeout(300);
+    const hardRows = await page.$$eval('.catrow', (els) => els.length);
+    note(hardRows === cat.byDifficulty.Hard,
+      `difficulty filter narrows to the Hard band (${hardRows}/${cat.byDifficulty.Hard})`);
+
+    await page.click('[data-cat-diff="all"]');
+    await page.waitForTimeout(200);
+    await page.click('[data-cat-topic="graphs"]');
+    await page.waitForTimeout(300);
+    const graphRows = await page.$$eval('.catrow', (els) => els.length);
+    note(graphRows === cat.byTopic.graphs,
+      `topic filter narrows to graphs (${graphRows}/${cat.byTopic.graphs})`);
+  }
+
   const real = errors.filter((e) => !/favicon/i.test(e));
   note(real.length === 0, `no page errors (${real.length})`);
   real.forEach((e) => console.log('    !', e));
