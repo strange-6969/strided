@@ -50,10 +50,20 @@ const BASE = process.env.STRIDED_URL || 'http://localhost:8788/';
     const links = await page.$$eval('.link', (els) => els.length);
     if (links < 1) fails.push(`${p.id}: no external links`);
 
-    // every rung opens and shows code in all three languages
+    // every rung opens and shows code in all three languages.
+    // The language control now lives in Profile, so route there to change it
+    // rather than clicking a sidebar toggle that no longer exists.
     for (const lang of ['java', 'python', 'cpp']) {
-      await page.click(`[data-lang="${lang}"]`);
-      await page.waitForTimeout(40);
+      await page.click('[data-nav="profile"]');
+      await page.waitForTimeout(60);
+      await page.click(`[data-set-lang="${lang}"]`);
+      await page.waitForTimeout(80);
+      // Profile has no back control, so return through Learn and reopen the same
+      // problem: the code assertion below still has to be looking at it.
+      await page.click('[data-nav="learn"]');
+      await page.waitForTimeout(60);
+      await page.click(`[data-open="${p.id}"]`);
+      await page.waitForTimeout(140);
       const bodies = await page.$$eval('.rung-body', (els) => els.length);
       if (bodies < 1) {
         // brute rung should be open by default; if not, open one
@@ -68,6 +78,9 @@ const BASE = process.env.STRIDED_URL || 'http://localhost:8788/';
       const hole = code.match(/undefined|NaN|\[object Object\]/);
       if (hole) fails.push(`${p.id}/${lang}: code contains ${hole[0]}`);
     }
+
+    const backOnProblem = await page.$('.rung');
+    if (!backOnProblem) fails.push(`${p.id}: language switch lost the problem view`);
 
     // syntax card present for this pattern
     const hasSyntax = await page.evaluate(() =>
