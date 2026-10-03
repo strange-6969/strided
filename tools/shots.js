@@ -1,7 +1,9 @@
 const { chromium } = require('playwright');
 
-const OUT = '/home/strange/Projects/strided/tools/shots';
-const BASE = 'http://localhost:8788/';
+const path = require('path');
+const fs = require('fs');
+const OUT = path.join(__dirname, 'shots');
+const BASE = process.env.STRIDED_URL || 'http://localhost:8788/';
 
 const SHOTS = [
   { name: 'desktop-today', w: 1280, h: 900, steps: async () => {} },
@@ -61,7 +63,6 @@ const SHOTS = [
 ];
 
 (async () => {
-  const fs = require('fs');
   fs.mkdirSync(OUT, { recursive: true });
   const browser = await chromium.launch();
   const errors = [];

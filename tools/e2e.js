@@ -3,7 +3,7 @@
    Fails loudly rather than trusting the dataset validator alone. */
 
 const { chromium } = require('playwright');
-const BASE = 'http://localhost:8788/';
+const BASE = process.env.STRIDED_URL || 'http://localhost:8788/';
 
 (async () => {
   const browser = await chromium.launch();

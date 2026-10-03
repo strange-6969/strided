@@ -2,6 +2,8 @@
    that it returns 200. */
 
 const { chromium } = require('playwright');
+const path = require('path');
+const OUT = path.join(__dirname, 'shots');
 const BASE = process.env.STRIDED_URL || 'https://strided-nithin2668nk-8034.vercel.app';
 
 (async () => {
@@ -62,7 +64,8 @@ const BASE = process.env.STRIDED_URL || 'https://strided-nithin2668nk-8034.verce
   const xp = await page.evaluate(() => window.__strided.getState().xp);
   console.log('xp persisted:', xp);
 
-  await page.screenshot({ path: '/home/strange/Projects/strided/tools/shots/production.png' });
+  require('fs').mkdirSync(OUT, { recursive: true });
+  await page.screenshot({ path: path.join(OUT, 'production.png') });
 
   const real = errors.filter((e) => !/favicon/i.test(e));
   console.log('errors      :', real.length ? real : 'none');

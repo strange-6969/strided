@@ -1,7 +1,10 @@
-import json, subprocess, textwrap, sys
+import pathlib, subprocess, textwrap, sys
 
-SRS = '/home/strange/Projects/strided/app/js/srs.js'
-js = open(SRS).read()
+# Resolved from this file, not hardcoded: an absolute home path made the suite
+# pass only on the machine that wrote it, and fail everywhere else.
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+SRS = ROOT / "app" / "js" / "srs.js"
+js = SRS.read_text()
 TODAY = "new Date('2026-10-03T00:00:00')"
 
 TESTS = [

@@ -8,7 +8,8 @@ space cost plus a note on why the trade was worth making.
 import json
 import pathlib
 
-DATA = pathlib.Path("/home/strange/Projects/strided/app/data/problems.json")
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+DATA = ROOT / "app" / "data" / "problems.json"
 
 NEW_SYNTAX_CARDS = [
     {
