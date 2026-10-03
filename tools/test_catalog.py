@@ -102,6 +102,40 @@ def main() -> int:
         got = bc.difficulty_of(path, leaf)
         check(got == want, f"difficulty_of({path.split('/')[1]}) -> {got} (want {want})")
 
+    # 6b. merging must never collapse genuinely different problems
+    #
+    # Each of these pairs looks similar but is a different question. An earlier
+    # bag-of-words comparison merged all of them, which would have deleted real
+    # entries from the index.
+    distinct = [
+        ("Print 1 to N using recursion", "Print N to 1 using recursion"),
+        ("Merge 2 sorted array without space", "Merge K sorted arrays"),
+        ("Kadane's algorithm", "Kahn's Algorithm"),
+        ("Longest Palindromic Subsequence", "Longest Palindromic Substring"),
+        ("Spiral Matrix", "Spiral Matrix IV"),
+        ("Implement lower bound", "Implement upper bound"),
+        ("Directed Graph Cycle BFS", "Undirected Graph Cycle BFS"),
+        ("Longest Palindromic Subsequence", "Longest Palindromic Substring"),
+        ("longest subarray with sum k", "longest subarray with sum k pos neg"),
+        ("Pattern 1", "Pattern 10"),
+        ("Single Number", "Single Number II"),
+        ("Binary Tree Maximum Path Sum", "Binary Tree Minimum Path Sum"),
+    ]
+    for a, b in distinct:
+        check(not bc.same_problem(a, b), f"kept distinct: {a!r} vs {b!r}")
+
+    # 6c. abbreviations and typos of one problem do merge
+    same = [
+        ("Koko eating bananas", "koto eating banana"),
+        ("flatten linked list", "Flatten LL"),
+        ("reverse linked list", "Reverse LL"),
+        ("median of two sorted arrays", "median of two sorted array"),
+        ("longest subarray with sum k", "LONGEST SUBARR WITH SUM K"),
+        ("odd even linked list", "Odd even LL"),
+    ]
+    for a, b in same:
+        check(bc.same_problem(a, b), f"merged as one problem: {a!r} vs {b!r}")
+
     # 7. the built artifact is coherent
     cat_path = bc.ROOT / "app" / "data" / "catalog.json"
     if not cat_path.exists():
@@ -129,6 +163,19 @@ def main() -> int:
     diffs = cat["byDifficulty"]
     for band in ("Easy", "Medium", "Hard"):
         check(diffs.get(band, 0) > 50, f"{band} band populated ({diffs.get(band, 0)})")
+
+    # 7b. the artifact must not claim to be exactly the sheet when it is a
+    # superset. That claim is what the UI reads, so it has to be honest.
+    check(cat["_meta"].get("isTheSheetExactly") is False,
+          "artifact declares it is a superset, not the sheet itself")
+    check(cat["_meta"].get("publishedTotals", {}).get("total") == 474,
+          "artifact records the published sheet total for comparison")
+
+    # 7c. no two rows are the same problem after normalisation
+    keys2 = [bc.same_problem(a["title"], b["title"]) for i, a in enumerate(problems)
+             for b in problems[i + 1:]]
+    dupes = sum(1 for v in keys2 if v)
+    check(dupes == 0, f"no residual duplicate rows in the built catalog ({dupes} pairs)")
 
     # 8. every catalog topic must exist on the spine
     spine = json.loads((cat_path.parent / "spine.json").read_text())

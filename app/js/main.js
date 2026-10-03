@@ -313,17 +313,19 @@ function viewCatalog(s) {
   const topics = Object.entries(CATALOG.byTopic).sort((a, b) => b[1] - a[1]);
   const diffs = ['Easy', 'Medium', 'Hard'];
   const authoredTotal = SPINE.links.length;
+  const published = CATALOG._meta.publishedTotals;
+  const isExact = CATALOG._meta.isTheSheetExactly;
 
   /* Long lists need a component other than one long divide-y list, so the rows
      become a scan-able two column grid. */
   return `
   <header class="topbar">
     <div>
-      <h1>Sheet</h1>
+      <h1>Sheet index</h1>
       <p>${CATALOG.problems.length} problems across ${topics.length} topics, in dependency order. ${authoredTotal} have a written walkthrough</p>
     </div>
     <div class="statline">
-      <div class="stat"><span class="n">${CATALOG.problems.length}</span><span class="k">on the sheet</span></div>
+      <div class="stat"><span class="n">${CATALOG.problems.length}</span><span class="k">indexed</span></div>
       <div class="stat"><span class="n">${authoredTotal}</span><span class="k">written up</span></div>
     </div>
   </header>
@@ -363,9 +365,14 @@ function viewCatalog(s) {
   </div>
 
   <div class="note">
-    <h4>What this index is</h4>
-    <p>Every problem on the Striver A2Z sheet, extracted from public solution mirrors and ordered by the same dependency graph as the <strong>Map</strong>. Titles, topic placement and difficulty bands only: no solution code and no LeetCode content is reproduced here.</p>
-    <p style="margin-top:8px">A row marked in plain text belongs to a topic that has at least one written walkthrough. It does not mean that specific row has one: <strong>${authoredTotal}</strong> problems are written up in full, against <strong>${CATALOG.problems.length}</strong> on the sheet. Use <strong>Map</strong> to see which topics have material, and the topic filters here to plan the rest.</p>
+    <h4>What this index is, precisely</h4>
+    <p>Assembled from four public solution mirrors of the Striver A2Z sheet and ordered by the same dependency graph as the <strong>Map</strong>. Titles, topic placement and difficulty bands only: no solution code and no LeetCode content is reproduced here.</p>
+    ${
+      isExact
+        ? ''
+        : `<p style="margin-top:8px"><strong>This is a superset, not the sheet itself.</strong> Those mirrors are solved copies, and solvers add problems beyond the official list, so the index runs larger than the sheet and larger than any single mirror. Striver's published counts as of ${esc(published.asOf)} were ${published.total} problems (${published.easy} easy, ${published.medium} medium, ${published.hard} hard). Use it to plan and to filter, not as an authoritative problem count.</p>`
+    }
+    <p style="margin-top:8px">A row shown in plain text belongs to a topic with at least one written walkthrough. It does not mean that specific row has one: <strong>${authoredTotal}</strong> problems are written up in full, against <strong>${CATALOG.problems.length}</strong> indexed here. Use <strong>Map</strong> to see which topics have material.</p>
   </div>`;
 }
 

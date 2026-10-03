@@ -142,8 +142,85 @@ def norm_title(text: str) -> str:
     delete-not-replace behaviour also made short acronyms such as "bfs"
     indistinguishable from nothing at all.
     """
-    key = re.sub(r"[^a-z0-9]+", " ", clean_title(text).lower())
-    return re.sub(r"\s+", " ", key).strip()
+    return " ".join(tokens(text))
+
+
+# Mirrors disagree on abbreviations and typos for the same problem: "Koko
+# eating banana" against "koto eating banana", "Flatten LL" against "flatten
+# linkedList". Merging those is right. Merging anything else is not, and the
+# distinctions below are the ones that actually change the problem:
+#
+#   "Print 1 to N"      vs "Print N to 1"   token order carries the meaning
+#   "Merge 2 sorted"    vs "Merge K sorted" a different k
+#   "Kadane's"          vs "Kahn's"        different algorithms
+#   "Longest pal subseq" vs "... substring" different problems
+#
+# So two titles merge only when their normalised token SEQUENCE is identical.
+TYPO_FIXES = {
+    "ll": "linkedlist", "l": "linkedlist", "dll": "doublylinkedlist",
+    "bs": "binarysearch", "subarr": "subarray", "arr": "array", "arra": "array",
+    "koto": "koko", "partion": "partition", "palindorme": "palindrome",
+    "conseq": "consecutive", "sor": "sort", "srch": "search",
+    "inv": "inverse", "inver": "inverse", "pattren": "pattern",
+    # Mirror spellings differ on the plural and on the trailing article.
+    "bananas": "banana", "arrays": "array", "lists": "list",
+    "trees": "tree", "strings": "string", "graphs": "graph",
+    "stacks": "stack", "queues": "queue", "heaps": "heap",
+    "subsets": "subset", "permutations": "permutation",
+    "combinations": "combination", "sequences": "sequence",
+    "paths": "path", "nodes": "node", "numbers": "number",
+    "subsequences": "subsequence", "substrings": "substring",
+}
+
+
+# Whole-token abbreviation expansion. Substitution alone cannot handle a case
+# like "Flatten LL" against "flatten linked list": LL expands to a two word
+# phrase, so it has to be replaced in place rather than mapped to one token.
+ABBREV = [
+    (r"\bdlls?\b", "doubly linked list"),
+    (r"\blinked ?lst\b|\bll\b", "linked list"),
+    (r"\bbsts?\b", "binary search tree"),
+    (r"\bbinary ?srch\b|\bbinary ?search trees?\b", "binary search tree"),
+    (r"\bbs\b", "binary search"),
+    (r"\bsub ?arr\w*\b", "subarray"),
+    (r"\b2 ?d\b", "two dimensional"),
+    (r"\b1 ?d\b", "one dimensional"),
+]
+
+
+def tokens(text: str) -> list[str]:
+    s = re.sub(r"[^a-z0-9 ]", " ", clean_title(text).lower())
+    for pat, repl in ABBREV:
+        s = re.sub(pat, repl, s)
+    return [TYPO_FIXES.get(w, w) for w in s.split()]
+
+
+def pattern_drill(text: str) -> bool:
+    """Striver's pattern section numbers its drills, and "Pattern 1" and
+    "Pattern 10" are different exercises. Treating the numeral as a plain token
+    is not enough on its own, because a trailing ordinal is already stripped
+    from the title, so the drill index has to be recovered before that."""
+    m = re.search(r"(?i)\bpattern\s+(\d{1,2})\b", text)
+    return bool(m)
+
+
+def same_problem(a: str, b: str) -> bool:
+    """Exact token-sequence equality. Order is significant and extra tokens mean
+    a different variant, so nothing fuzzy can slip through here.
+
+    Numbered pattern drills are the one case where clean_title cannot be trusted
+    on its own, because it strips a trailing ordinal, and Striver's pattern
+    section is numbered. The drill index is compared from the raw title.
+    """
+    if bool(pattern_drill(a)) != bool(pattern_drill(b)):
+        return False
+    if pattern_drill(a) and pattern_drill(b):
+        ia = re.search(r"(?i)\bpattern\s+(\d{1,2})\b", a)
+        ib = re.search(r"(?i)\bpattern\s+(\d{1,2})\b", b)
+        if ia.group(1) != ib.group(1):
+            return False
+        return True
+    return tokens(a) == tokens(b)
 
 
 # Acronyms are legitimate problem titles in these mirrors ("BFS", "DFS", "N
@@ -213,8 +290,11 @@ def main() -> int:
                 stats["unmapped"] += 1
                 continue
 
+            # A leaf that is nothing but an abbreviation ("LL") carries no
+            # problem identity on its own; its parent directory names the topic
+            # but not the question. Keep it out rather than index a bare token.
             key = norm_title(leaf)
-            if len(key) < MIN_KEY:
+            if len(key) < MIN_KEY or not any(ch.isalpha() for ch in leaf) or len(leaf) < 3:
                 # Mirrors commit per-file artefacts (a shared header, a
                 # main, a README) whose names carry no problem identity.
                 stats["dropped"] += 1
@@ -236,7 +316,27 @@ def main() -> int:
                 if prev["difficulty"] == "Medium" and diff != "Medium":
                     prev["difficulty"] = diff
 
-    problems = sorted(catalog.values(), key=lambda x: (x["topic"], x["difficulty"], x["title"]))
+    # Second pass: merge rows whose titles are the same problem once
+    # abbreviations and typos are normalised. Done as a pass rather than inside
+    # the loop because two mirrors can each contribute a spelling that only
+    # becomes obviously equivalent when compared with a third.
+    merged: dict[str, dict] = {}
+    for key, row in catalog.items():
+        match = next(
+            (m for mk, m in merged.items() if same_problem(m["title"], row["title"])),
+            None,
+        )
+        if match is None:
+            merged[key] = row
+            continue
+        for repo in row["seenIn"]:
+            if repo not in match["seenIn"]:
+                match["seenIn"].append(repo)
+        if match["difficulty"] == "Medium" and row["difficulty"] != "Medium":
+            match["difficulty"] = row["difficulty"]
+        stats["mergedTitles"] = stats.get("mergedTitles", 0) + 1
+
+    problems = sorted(merged.values(), key=lambda x: (x["topic"], x["difficulty"], x["title"]))
     for p in problems:
         p["platform"] = "tuf" if p["topic"] == "basics" else "leetcode"
 
@@ -255,6 +355,24 @@ def main() -> int:
                 "content is reproduced. Problems marked platform tuf are Striver's "
                 "own basics and pattern drills, not LeetCode questions."
             ),
+            # These mirrors are solved copies of the sheet, and solvers add
+            # problems beyond the official list. The extraction is therefore a
+            # superset, not the sheet itself: measured against the published
+            # section totals it runs about 1.6x overall and above 1x in every
+            # comparable topic. It is a planning index, not an authoritative
+            # problem count, and the UI says so.
+            "isTheSheetExactly": False,
+            "provenance": (
+                "Superset of the sheet, assembled from four public solution mirrors. "
+                "Solvers add problems beyond the official list, so this index is "
+                "larger than the sheet and larger than any single mirror. Section "
+                "counts as published on 2026-08-09 were 152 easy, 186 medium, "
+                "136 hard, 474 total."
+            ),
+            "publishedTotals": {
+                "total": 474, "easy": 152, "medium": 186, "hard": 136,
+                "asOf": "2026-08-09",
+            },
             "filesScanned": stats["files"],
             "dropped": stats["dropped"],
             "unmapped": stats["unmapped"],

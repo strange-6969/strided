@@ -8,10 +8,19 @@
       "megh-bari/Striver-A2Z-DSA-Sheet"
     ],
     "note": "Titles and topic placement only. No solution code and no LeetCode content is reproduced. Problems marked platform tuf are Striver's own basics and pattern drills, not LeetCode questions.",
+    "isTheSheetExactly": false,
+    "provenance": "Superset of the sheet, assembled from four public solution mirrors. Solvers add problems beyond the official list, so this index is larger than the sheet and larger than any single mirror. Section counts as published on 2026-08-09 were 152 easy, 186 medium, 136 hard, 474 total.",
+    "publishedTotals": {
+      "total": 474,
+      "easy": 152,
+      "medium": 186,
+      "hard": 136,
+      "asOf": "2026-08-09"
+    },
     "filesScanned": 961,
     "dropped": 7,
     "unmapped": 6,
-    "mergedDuplicates": 157
+    "mergedDuplicates": 166
   },
   "problems": [
     {
@@ -29,6 +38,16 @@
       "difficulty": "Easy",
       "seenIn": [
         "Codensity30/Strivers-A2Z-DSA-Sheet"
+      ],
+      "platform": "leetcode"
+    },
+    {
+      "title": "LONGEST SUBARR WITH SUM K",
+      "topic": "arrays",
+      "difficulty": "Easy",
+      "seenIn": [
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
       ],
       "platform": "leetcode"
     },
@@ -164,15 +183,6 @@
     },
     {
       "title": "left rotate by one",
-      "topic": "arrays",
-      "difficulty": "Easy",
-      "seenIn": [
-        "megh-bari/Striver-A2Z-DSA-Sheet"
-      ],
-      "platform": "leetcode"
-    },
-    {
-      "title": "longest subarray with sum k",
       "topic": "arrays",
       "difficulty": "Easy",
       "seenIn": [
@@ -579,15 +589,6 @@
     },
     {
       "title": "LONGEST CONSECUTIVE SUBSEQ",
-      "topic": "arrays",
-      "difficulty": "Medium",
-      "seenIn": [
-        "dhruv-yadav-nitj/striver-a2z-dsa"
-      ],
-      "platform": "leetcode"
-    },
-    {
-      "title": "LONGEST SUBARR WITH SUM K",
       "topic": "arrays",
       "difficulty": "Medium",
       "seenIn": [
@@ -1526,15 +1527,6 @@
       "platform": "leetcode"
     },
     {
-      "title": "KOKO EATING BANANAS",
-      "topic": "binarysearch",
-      "difficulty": "Medium",
-      "seenIn": [
-        "dhruv-yadav-nitj/striver-a2z-dsa"
-      ],
-      "platform": "leetcode"
-    },
-    {
       "title": "KTH MISSING POS",
       "topic": "binarysearch",
       "difficulty": "Medium",
@@ -1548,7 +1540,9 @@
       "topic": "binarysearch",
       "difficulty": "Medium",
       "seenIn": [
-        "Codensity30/Strivers-A2Z-DSA-Sheet"
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
       ],
       "platform": "leetcode"
     },
@@ -1557,7 +1551,8 @@
       "topic": "binarysearch",
       "difficulty": "Medium",
       "seenIn": [
-        "Codensity30/Strivers-A2Z-DSA-Sheet"
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
       ],
       "platform": "leetcode"
     },
@@ -1589,15 +1584,6 @@
       "platform": "leetcode"
     },
     {
-      "title": "MEDIAN OF TWO SORTED ARR",
-      "topic": "binarysearch",
-      "difficulty": "Medium",
-      "seenIn": [
-        "dhruv-yadav-nitj/striver-a2z-dsa"
-      ],
-      "platform": "leetcode"
-    },
-    {
       "title": "MIN DAYS M BOUQETS",
       "topic": "binarysearch",
       "difficulty": "Medium",
@@ -1620,7 +1606,9 @@
       "topic": "binarysearch",
       "difficulty": "Medium",
       "seenIn": [
-        "Codensity30/Strivers-A2Z-DSA-Sheet"
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
       ],
       "platform": "leetcode"
     },
@@ -1798,34 +1786,7 @@
       "platform": "leetcode"
     },
     {
-      "title": "koto eating banana",
-      "topic": "binarysearch",
-      "difficulty": "Medium",
-      "seenIn": [
-        "megh-bari/Striver-A2Z-DSA-Sheet"
-      ],
-      "platform": "leetcode"
-    },
-    {
-      "title": "kth element of two sorted array",
-      "topic": "binarysearch",
-      "difficulty": "Medium",
-      "seenIn": [
-        "megh-bari/Striver-A2Z-DSA-Sheet"
-      ],
-      "platform": "leetcode"
-    },
-    {
       "title": "kth missing positive number",
-      "topic": "binarysearch",
-      "difficulty": "Medium",
-      "seenIn": [
-        "megh-bari/Striver-A2Z-DSA-Sheet"
-      ],
-      "platform": "leetcode"
-    },
-    {
-      "title": "median of two sorted array",
       "topic": "binarysearch",
       "difficulty": "Medium",
       "seenIn": [
@@ -4218,15 +4179,6 @@
       "platform": "leetcode"
     },
     {
-      "title": "MERGE K SORTED ARR",
-      "topic": "heap",
-      "difficulty": "Medium",
-      "seenIn": [
-        "dhruv-yadav-nitj/striver-a2z-dsa"
-      ],
-      "platform": "leetcode"
-    },
-    {
       "title": "MIN COST OF ROPE",
       "topic": "heap",
       "difficulty": "Medium",
@@ -4249,7 +4201,8 @@
       "topic": "heap",
       "difficulty": "Medium",
       "seenIn": [
-        "Codensity30/Strivers-A2Z-DSA-Sheet"
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa"
       ],
       "platform": "leetcode"
     },
@@ -5438,16 +5391,6 @@
       "platform": "leetcode"
     },
     {
-      "title": "SUBSETS",
-      "topic": "recursion",
-      "difficulty": "Medium",
-      "seenIn": [
-        "dhruv-yadav-nitj/striver-a2z-dsa",
-        "megh-bari/Striver-A2Z-DSA-Sheet"
-      ],
-      "platform": "leetcode"
-    },
-    {
       "title": "Sort stack using recursion",
       "topic": "recursion",
       "difficulty": "Medium",
@@ -5462,7 +5405,9 @@
       "difficulty": "Medium",
       "seenIn": [
         "Codensity30/Strivers-A2Z-DSA-Sheet",
-        "Codensity30/Strivers-A2Z-DSA-Sheet"
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "dhruv-yadav-nitj/striver-a2z-dsa",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
       ],
       "platform": "leetcode"
     },
@@ -5949,7 +5894,8 @@
       "topic": "stack",
       "difficulty": "Easy",
       "seenIn": [
-        "Codensity30/Strivers-A2Z-DSA-Sheet"
+        "Codensity30/Strivers-A2Z-DSA-Sheet",
+        "megh-bari/Striver-A2Z-DSA-Sheet"
       ],
       "platform": "leetcode"
     },
@@ -6116,15 +6062,6 @@
     },
     {
       "title": "implement queue using LL",
-      "topic": "stack",
-      "difficulty": "Easy",
-      "seenIn": [
-        "megh-bari/Striver-A2Z-DSA-Sheet"
-      ],
-      "platform": "leetcode"
-    },
-    {
-      "title": "implement stack using LL",
       "topic": "stack",
       "difficulty": "Easy",
       "seenIn": [
@@ -7292,29 +7229,29 @@
     }
   ],
   "byTopic": {
-    "arrays": 120,
+    "arrays": 119,
     "basics": 32,
-    "binarysearch": 49,
+    "binarysearch": 44,
     "bitmanipulation": 34,
     "bst": 26,
     "dynamicprogramming": 81,
     "graphs": 70,
     "greedy": 20,
     "hashing": 3,
-    "heap": 28,
+    "heap": 27,
     "linkedlist": 77,
     "math": 16,
-    "recursion": 47,
+    "recursion": 46,
     "slidingwindow": 29,
     "sorting": 9,
-    "stack": 59,
+    "stack": 58,
     "strings": 36,
     "trees": 47,
     "tries": 8
   },
   "byDifficulty": {
-    "Easy": 137,
+    "Easy": 136,
     "Hard": 119,
-    "Medium": 535
+    "Medium": 527
   }
 }
