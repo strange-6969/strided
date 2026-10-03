@@ -1,5 +1,5 @@
 import { loadData } from './data.js';
-import { subscribe, getState, setLang, setNote, recordAttempt, unfreeze, streak, stats, exportJson, importJson, resetAll } from './store.js';
+import { subscribe, getState, setLang, setNote, setProfile, LANGUAGES, recordAttempt, unfreeze, streak, stats, exportJson, importJson, resetAll } from './store.js';
 import { isDue, dueCount, daysBetween, GRADES, isoDay } from './srs.js';
 
 const root = document.getElementById('root');
@@ -22,12 +22,6 @@ const app = {
   ticking: null,
   mode: 'practice',
 };
-
-const LANGS = [
-  { id: 'java', label: 'Java' },
-  { id: 'python', label: 'Py' },
-  { id: 'cpp', label: 'C++' },
-];
 
 let PATTERN_BY_ID = {};
 let CARD_BY_PATTERN = {};
@@ -87,6 +81,7 @@ function rail(s) {
     ['practice', 'Practice', null],
     ['patterns', 'Patterns', null],
     ['progress', 'Progress', null],
+    ['profile', 'Profile', null],
   ];
   return `
   <aside class="rail">
@@ -109,18 +104,23 @@ function rail(s) {
 
     <div>
       <div class="rail-label">Language</div>
-      <div class="langs">
-        ${LANGS.map(
-          (l) => `<button data-lang="${l.id}" aria-pressed="${s.lang === l.id}">${l.label}</button>`
-        ).join('')}
-      </div>
+      <button class="langreadout" data-nav="profile">
+        <span>${esc((LANGUAGES().find((l) => l.id === s.lang) || { label: s.lang }).label)}</span>
+        <span class="lr-edit">Edit</span>
+      </button>
     </div>
 
     <div>
       <div class="rail-label">Streak</div>
-      <div style="padding:0 8px;display:flex;gap:18px">
-        <div class="stat"><span class="n">${st.streak}</span><span class="k">days</span></div>
-        <div class="stat"><span class="n">${s.xp}</span><span class="k">xp</span></div>
+      <div class="railstats">
+        <div class="railstat">
+          <span class="rs-n">${st.streak}</span>
+          <span class="rs-k">day streak</span>
+        </div>
+        <div class="railstat">
+          <span class="rs-n">${s.xp}</span>
+          <span class="rs-k">total xp</span>
+        </div>
       </div>
     </div>
 
@@ -141,6 +141,7 @@ function mobileNav() {
     ['practice', 'Practice', '▷'],
     ['patterns', 'Patterns', '◇'],
     ['progress', 'Progress', '◑'],
+    ['profile', 'You', '◍'],
   ];
   return `
   <nav class="mobilenav">
@@ -373,6 +374,88 @@ function viewCatalog(s) {
         : `<p style="margin-top:8px"><strong>This is a superset, not the sheet itself.</strong> Those mirrors are solved copies, and solvers add problems beyond the official list, so the index runs larger than the sheet and larger than any single mirror. Striver's published counts as of ${esc(published.asOf)} were ${published.total} problems (${published.easy} easy, ${published.medium} medium, ${published.hard} hard). Use it to plan and to filter, not as an authoritative problem count.</p>`
     }
     <p style="margin-top:8px">A row shown in plain text belongs to a topic with at least one written walkthrough. It does not mean that specific row has one: <strong>${authoredTotal}</strong> problems are written up in full, against <strong>${CATALOG.problems.length}</strong> indexed here. Use <strong>Map</strong> to see which topics have material.</p>
+  </div>`;
+}
+
+/* ---------- profile ---------- */
+
+function viewProfile(s) {
+  const p = s.profile || {};
+  const langs = LANGUAGES();
+  const st = streak();
+  const stats_ = stats();
+
+  /* Language is a profile preference, not a per-device toggle: it decides which
+     language every solution on the site renders in. Saying so here matters,
+     because the same control used to live in the sidebar where it looked like
+     a local switch. */
+  return `
+  <header class="topbar">
+    <div>
+      <h1>Profile</h1>
+      <p>Preferences follow your account across devices</p>
+    </div>
+    <div class="statline">
+      <div class="stat"><span class="n">${st.streak}</span><span class="k">day streak</span></div>
+      <div class="stat"><span class="n">${s.xp}</span><span class="k">xp</span></div>
+      <div class="stat"><span class="n">${stats_.mastered}</span><span class="k">mastered</span></div>
+    </div>
+  </header>
+
+  <section class="sec">
+    <h3>Solution language <span class="hint">applies to every problem on the site</span></h3>
+    <div class="langgrid">
+      ${langs
+        .map(
+          (l) => `
+      <button class="langopt" data-set-lang="${l.id}" aria-pressed="${p.language === l.id}">
+        <span class="lo-name">${l.label}</span>
+        <span class="lo-ext">${l.ext}</span>
+      </button>`
+        )
+        .join('')}
+    </div>
+    <p class="hintline">Every complexity ladder is authored in all three. Changing this re-renders the code in place, without losing which rungs you opened.</p>
+  </section>
+
+  <section class="sec">
+    <h3>Display name <span class="hint">shown if you join a league</span></h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <input
+        id="displayName"
+        class="field"
+        type="text"
+        maxlength="24"
+        placeholder="Anonymous learner"
+        value="${esc(p.displayName || '')}"
+      />
+      <button class="ghost" data-act="saveName">Save</button>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h3>Who can see your progress <span class="hint">comparison is opt-in</span></h3>
+    <div class="langgrid">
+      ${[
+        ['private', 'Only me', 'Nobody can see your stats'],
+        ['friends', 'Friends', 'People you have added can compare'],
+        ['public', 'Everyone', 'Open to any signed-in learner'],
+      ]
+        .map(
+          ([v, label, note]) => `
+      <button class="langopt" data-set-vis="${v}" aria-pressed="${p.visibility === v}">
+        <span class="lo-name">${label}</span>
+        <span class="lo-ext">${note}</span>
+      </button>`
+        )
+        .join('')}
+    </div>
+    <p class="hintline">Progress is private by default. Nothing here is visible until you choose, and there is no public leaderboard.</p>
+  </section>
+
+  <div class="note">
+    <h4>Not signed in</h4>
+    <p>These preferences are saved in this browser only. Signing in moves them to your account so they follow you between devices, and lets you compare streaks with friends. Your streak and progress are kept either way: signing out never erases a solve.</p>
   </div>`;
 }
 
@@ -874,6 +957,7 @@ function render() {
   } else if (app.view === 'learn') main = viewLearn(s);
   else if (app.view === 'map') main = viewMap(s);
   else if (app.view === 'catalog') main = viewCatalog(s);
+  else if (app.view === 'profile') main = viewProfile(s);
   else if (app.view === 'practice') main = viewPractice(s);
   else if (app.view === 'patterns') main = viewPatterns(s);
   else if (app.view === 'progress') main = viewProgress(s);
@@ -903,7 +987,7 @@ function startTimer() {
 /* ---------- events ---------- */
 
 document.addEventListener('click', (e) => {
-  const t = e.target.closest('[data-nav],[data-open],[data-lang],[data-diff],[data-pattern],[data-topic],[data-cat-topic],[data-cat-diff],[data-pattern-clear],[data-tier-toggle],[data-hint],[data-grade],[data-back],[data-act],[data-unfreeze]');
+  const t = e.target.closest('[data-nav],[data-open],[data-lang],[data-diff],[data-pattern],[data-topic],[data-cat-topic],[data-cat-diff],[data-set-lang],[data-set-vis],[data-pattern-clear],[data-tier-toggle],[data-hint],[data-grade],[data-back],[data-act],[data-unfreeze]');
   if (!t) return;
 
   if (t.dataset.nav) {
@@ -945,6 +1029,29 @@ document.addEventListener('click', (e) => {
 
   if (t.dataset.catTopic) {
     app.catalogTopic = t.dataset.catTopic;
+    return render();
+  }
+
+  /* Language is a profile preference, so it routes through setProfile and not
+     the old sidebar setter. Both stay wired so the toggle keeps working. */
+  if (t.dataset.setLang) {
+    setProfile({ language: t.dataset.setLang });
+    toast(`Solutions now in ${t.dataset.setLang}`);
+    return render();
+  }
+
+  if (t.dataset.setVis) {
+    setProfile({ visibility: t.dataset.setVis });
+    toast('Visibility updated');
+    return render();
+  }
+
+  if (t.dataset.act === 'saveName') {
+    const box = document.getElementById('displayName');
+    if (box) {
+      setProfile({ displayName: box.value.trim().slice(0, 24) });
+      toast('Name saved');
+    }
     return render();
   }
 

@@ -11,6 +11,17 @@ const EMPTY = {
   activity: {},
   lang: 'java',
   notes: {},
+  /* The language preference lives on the profile rather than in a sidebar
+     toggle, so solutions render in the same language on every device. It stays
+     in local state until an account exists, and the server copy takes over once
+     one does. profile.visibility gates who can compare progress, because
+     "between users" should never mean public by default. */
+  profile: {
+    displayName: '',
+    language: 'java',
+    visibility: 'friends',
+    accent: 'default',
+  },
 };
 
 function load() {
@@ -18,7 +29,13 @@ function load() {
     const raw = localStorage.getItem(KEY);
     if (!raw) return { ...EMPTY };
     const parsed = JSON.parse(raw);
-    return { ...EMPTY, ...parsed };
+    // Shallow-spreading parsed over EMPTY would drop any profile key added in a
+    // later version, so profile is merged rather than replaced wholesale.
+    return {
+      ...EMPTY,
+      ...parsed,
+      profile: { ...EMPTY.profile, ...(parsed.profile || {}) },
+    };
   } catch {
     return { ...EMPTY };
   }
@@ -51,8 +68,24 @@ export function getState() {
 }
 
 export function setLang(lang) {
-  state = { ...state, lang };
+  state = { ...state, lang, profile: { ...state.profile, language: lang } };
   emit();
+}
+
+/* Profiles are separate from progress: signing out must not erase a streak,
+   and changing a display name must not mark problems as reviewed. */
+export function setProfile(patch) {
+  state = { ...state, profile: { ...state.profile, ...patch } };
+  if (patch.language) state = { ...state, lang: patch.language };
+  emit();
+}
+
+export function LANGUAGES() {
+  return [
+    { id: 'python', label: 'Python', ext: 'py' },
+    { id: 'java', label: 'Java', ext: 'java' },
+    { id: 'cpp', label: 'C++', ext: 'cpp' },
+  ];
 }
 
 export function setNote(problemId, text) {

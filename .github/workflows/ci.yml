@@ -59,9 +59,16 @@ jobs:
           fi
           echo "no em-dashes"
 
+      # Contrast is computed from the token block and colour must be tokenised,
+      # so a palette edit cannot quietly drop a tone below AA or leave a stray
+      # hex outside :root. Lives in a script because a shell heredoc filter
+      # breaks itself as soon as a token is added.
+      - name: Design tokens pass contrast
+        run: python3 tools/check_design.py
+
       - name: Fonts are self-hosted
         run: |
-          for f in app/assets/fonts/space-grotesk.woff2 app/assets/fonts/jetbrains-mono.woff2; do
+          for f in app/assets/fonts/inter-latin.woff2 app/assets/fonts/space-grotesk.woff2 app/assets/fonts/jetbrains-mono.woff2; do
             test -s "$f" || { echo "missing font: $f"; exit 1; }
           done
           if grep -q 'fonts.googleapis.com\|fonts.gstatic.com' app/index.html app/css/app.css; then
@@ -105,6 +112,9 @@ jobs:
 
       - name: Dependency map is a real graph
         run: node tools/map_test.js
+
+      - name: Profile preferences reach the solutions
+        run: node tools/profile_test.js
 
       - name: Every problem renders in every language
         run: node tools/e2e.js
