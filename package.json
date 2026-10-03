@@ -1,0 +1,10 @@
+{
+  "name": "strided",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DSA practice tracker with a complexity ladder, syntax cards, and spaced review.",
+  "scripts": {
+    "start": "python3 -m http.server 8788 --directory app",
+    "test": "python3 tools/test_srs.py"
+  }
+}

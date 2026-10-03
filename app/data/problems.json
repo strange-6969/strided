@@ -1,0 +1,701 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "attribution": "Problem metadata (ids, titles, slugs, difficulty) mirrors public LeetCode listings. Strided is an independent study aid, not affiliated with, endorsed by, or sponsored by LeetCode. No LeetCode content is hosted or reproduced here.",
+    "ladderOrigin": "Approach ladders, syntax cards, and hints are original teaching material authored for Strided.",
+    "lists": {
+      "neetcode150": "NeetCode 150 (neetcode.io)",
+      "blind75": "Blind 75 (yangshun, TeamBlind)",
+      "striverSDE": "Striver SDE Sheet (takeuforward.org)"
+    }
+  },
+  "patterns": [
+    {
+      "id": "arrays",
+      "name": "Arrays & Hashing",
+      "blurb": "Frequency counting turns lookups into O(1).",
+      "drill": "Given an array of numbers and a target sum, which single-pass structure avoids the O(n^2) double loop?"
+    },
+    {
+      "id": "twopointers",
+      "name": "Two Pointers",
+      "blurb": "Opposing cursors collapse an O(n^2) scan to O(n).",
+      "drill": "Your two pointers must move in lockstep. Which condition tells you to advance left or right?"
+    },
+    {
+      "id": "binarysearch",
+      "name": "Binary Search",
+      "blurb": "Halving the search space each step.",
+      "drill": "Why must the loop use <= rather than < in the lower-bound form?"
+    },
+    {
+      "id": "slidingwindow",
+      "name": "Sliding Window",
+      "blurb": "A window of fixed or variable width amortises cost.",
+      "drill": "When the window is variable, what invariant holds between add and shrink?"
+    },
+    {
+      "id": "stack",
+      "name": "Stack",
+      "blurb": "LIFO structure for nested and monotonic problems.",
+      "drill": "When does a monotonic stack beat a hash map for the next-greater problem?"
+    },
+    {
+      "id": "linkedlist",
+      "name": "Linked List",
+      "blurb": "Pointer traversal, cycle detection, reversal.",
+      "drill": "Name the two-pointer technique that detects a cycle in O(1) space."
+    },
+    {
+      "id": "trees",
+      "name": "Trees",
+      "blurb": "Recursion or iterative traversal with an explicit stack.",
+      "drill": "When do you need a postorder traversal rather than preorder?"
+    },
+    {
+      "id": "heap",
+      "name": "Heap / Priority Queue",
+      "blurb": "Repeated extreme extraction in O(log n).",
+      "drill": "Why does merging k sorted lists use a heap instead of k-way repeated merge?"
+    },
+    {
+      "id": "backtracking",
+      "name": "Backtracking",
+      "blurb": "Explore, choose, recurse, undo.",
+      "drill": "What single line prevents duplicate permutations?"
+    },
+    {
+      "id": "graphs",
+      "name": "Graphs",
+      "blurb": "BFS for shortest unweighted paths, DFS for cycles.",
+      "drill": "State the invariant that distinguishes BFS from DFS on a grid."
+    },
+    {
+      "id": "dynamicprogramming",
+      "name": "Dynamic Programming",
+      "blurb": "Overlapping subproblems with a defined state.",
+      "drill": "Write the DP transition before the code. What are your state and base cases?"
+    },
+    {
+      "id": "greedy",
+      "name": "Greedy",
+      "blurb": "Locally optimal choice that is globally correct.",
+      "drill": "What proof obligation comes with a greedy choice?"
+    },
+    {
+      "id": "intervals",
+      "name": "Intervals",
+      "blurb": "Sort by start or end, then sweep.",
+      "drill": "For overlapping intervals, which sort key reduces the problem to one comparison?"
+    },
+    {
+      "id": "math",
+      "name": "Math & Geometry",
+      "blurb": "Number theory and coordinate tricks.",
+      "drill": "How does a fast exponentiation cut repeated multiplication?"
+    },
+    {
+      "id": "bitmanipulation",
+      "name": "Bit Manipulation",
+      "blurb": "XOR, shifts, and masks for constant-time work.",
+      "drill": "Which single-bit trick finds the only set bit in a power-of-two input?"
+    }
+  ],
+  "syntaxCards": [
+    {
+      "pattern": "heap",
+      "note": "Min-heap pops the smallest element. Java and C++ compare with greater<int>() and greater<>(). Python heapq is always a min-heap; use negative values for a max-heap.",
+      "snippets": {
+        "java": "PriorityQueue<Integer> pq = new PriorityQueue<>();\npq.poll(); // smallest\n// max-heap:\nnew PriorityQueue<>(Comparator.reverseOrder());",
+        "python": "import heapq\nheapq.heappush(pq, v)   # min-heap\nheapq.heappop(pq)    # smallest\n# max-heap: push -v, pop, negate",
+        "cpp": "#include <queue>\npriority_queue<int, vector<int>, greater<int>> pq;  // min\npriority_queue<int> pq2;                          // max"
+      }
+    },
+    {
+      "pattern": "twopointers",
+      "note": "Two pointers need a monotone invariant: if the sum is too small, left must move right; if too large, right must move left. Sorting first is what makes the monotone step valid.",
+      "snippets": {
+        "java": "int l = 0, r = nums.length - 1;\nwhile (l < r) {\n  int sum = nums[l] + nums[r];\n  if (sum == target) return new int[]{l, r};\n  if (sum < target) l++; else r--;\n}",
+        "python": "l, r = 0, len(nums) - 1\nwhile l < r:\n    s = nums[l] + nums[r]\n    if s == target:\n        return [l, r]\n    if s < target:\n        l += 1\n    else:\n        r -= 1",
+        "cpp": "int l = 0, r = nums.size() - 1;\nwhile (l < r) {\n  int s = a[l] + a[r];\n  if (s == t) return {l, r};\n  else if (s < t) ++l; else --r;\n}"
+      }
+    },
+    {
+      "pattern": "binarysearch",
+      "note": "Prefer the lower-bound half-open form. It has no off-by-one branch and returns the first index where the predicate holds.",
+      "snippets": {
+        "java": "int lo = 0, hi = nums.length;\nwhile (lo < hi) {\n  int mid = lo + (hi - lo) / 2;\n  if (nums[mid] < target) lo = mid + 1; else hi = mid;\n}\nreturn lo; // lower bound",
+        "python": "lo, hi = 0, len(nums)\nwhile lo < hi:\n    mid = lo + (hi - lo) // 2\n    if nums[mid] < target:\n        lo = mid + 1\n    else:\n        hi = mid\nreturn lo  # lower bound",
+        "cpp": "int lo = 0, hi = n;\nwhile (lo < hi) {\n  int mid = lo + (hi - lo) / 2;\n  if (a[mid] < target) lo = mid + 1; else hi = mid;\n}\nreturn lo;"
+      }
+    },
+    {
+      "pattern": "graphs",
+      "note": "BFS with a Queue visits in wave order, so the first time you reach a node is its shortest distance. DFS with recursion or a Stack is for reachability and cycle structure, not distance.",
+      "snippets": {
+        "java": "Queue<Integer> q = new ArrayDeque<>();\nboolean[] seen = new boolean[n];\nq.add(0); seen[0] = true;\nwhile (!q.isEmpty()) {\n  int cur = q.poll();\n  for (int nb : graph[cur]) {\n    if (!seen[nb]) { seen[nb] = true; q.add(nb); }\n  }\n}",
+        "python": "from collections import deque\nq = deque([0])\nseen = {0}\nwhile q:\n    cur = q.popleft()\n    for nb in graph[cur]:\n        if nb not in seen:\n            seen.add(nb)\n            q.append(nb)",
+        "cpp": "queue<int> q;\nvector<bool> seen(n, false);\nq.push(0); seen[0] = true;\nwhile (!q.empty()) {\n  int cur = q.front(); q.pop();\n  for (int nb : graph[cur])\n    if (!seen[nb]) { seen[nb] = true; q.push(nb); }\n}"
+      }
+    },
+    {
+      "pattern": "slidingwindow",
+      "note": "Variable-width windows: add the entering element, then shrink while the window is invalid. The shrink condition must reference the same predicate you tested to expand.",
+      "snippets": {
+        "java": "int l = 0, sum = 0;\nfor (int r = 0; r < nums.length; r++) {\n  sum += nums[r];\n  while (sum > limit) sum -= nums[l++];\n  best = Math.max(best, r - l + 1);\n}",
+        "python": "l = 0; s = 0\nfor r, v in enumerate(nums):\n    s += v\n    while s > limit:\n        s -= nums[l]; l += 1\n    best = max(best, r - l + 1)",
+        "cpp": "int l = 0, sum = 0;\nfor (int r = 0; r < n; ++r) {\n  sum += a[r];\n  while (sum > limit) sum -= a[l++];\n  best = max(best, r - l + 1);\n}"
+      }
+    },
+    {
+      "pattern": "arrays",
+      "note": "When you need to know whether a value was seen before, a HashMap costs O(1) average instead of a Set scan. Reserve capacity when the input size is known to avoid rehashing.",
+      "snippets": {
+        "java": "Map<Integer, Integer> seen = new HashMap<>();\nfor (int i = 0; i < nums.length; i++) {\n  int need = target - nums[i];\n  if (seen.containsKey(need)) return new int[]{seen.get(need), i};\n  seen.put(nums[i], i);\n}",
+        "python": "seen = {}\nfor i, v in enumerate(nums):\n    need = target - v\n    if need in seen:\n        return seen[need], i\n    seen[v] = i",
+        "cpp": "unordered_map<int,int> seen;\nfor (int i = 0; i < n; ++i) {\n  auto it = seen.find(target - a[i]);\n  if (it != seen.end()) return {it->second, i};\n  seen[a[i]] = i;\n}"
+      }
+    },
+    {
+      "pattern": "dynamicprogramming",
+      "note": "Write the state definition as a sentence before any code. Tabulation fills a table bottom-up; memoisation recurses top-down. Both compute the same states.",
+      "snippets": {
+        "java": "int[] dp = new int[n + 1];\nArrays.fill(dp, 1);\nfor (int i = n - 2; i >= 0; i--)\n  for (int j = i + 1; j < n; j++)\n    if (nums[j] > nums[i]) dp[i] = Math.max(dp[i], 1 + dp[j]);",
+        "python": "dp = [1] * n\nfor i in range(n - 2, -1, -1):\n    for j in range(i + 1, n):\n        if nums[j] > nums[i]:\n            dp[i] = max(dp[i], 1 + dp[j])\nreturn dp[0]",
+        "cpp": "vector<int> dp(n, 1);\nfor (int i = n - 2; i >= 0; --i)\n  for (int j = i + 1; j < n; ++j)\n    if (a[j] > a[i]) dp[i] = max(dp[i], 1 + dp[j]);"
+      }
+    },
+    {
+      "pattern": "stack",
+      "note": "A stack gives O(1) push and pop and surfaces the most recent unmatched opener. Use an ArrayDeque in Java rather than a legacy Stack so insertion order is well defined.",
+      "snippets": {
+        "java": "Deque<Character> st = new ArrayDeque<>();\nst.push(c);\nchar o = st.pop();\nboolean empty = st.isEmpty();",
+        "python": "st = []\nst.append(c)\no = st.pop()\nempty = not st",
+        "cpp": "#include <stack>\nstack<char> st;\nst.push(c);\nchar o = st.top(); st.pop();\nbool empty = st.empty();"
+      }
+    },
+    {
+      "pattern": "backtracking",
+      "note": "The choose-recurse-undo cycle is the whole algorithm. Push before recursing and always pop after, in the reverse order of the push, or sibling branches inherit corrupted state.",
+      "snippets": {
+        "java": "private void bt(int[] a, boolean[] used, List<Integer> cur, List<List<Integer>> out) {\n  if (cur.size() == a.length) { out.add(new ArrayList<>(cur)); return; }\n  for (int i = 0; i < a.length; i++) {\n    if (used[i]) continue;\n    used[i] = true; cur.add(a[i]);\n    bt(a, used, cur, out);\n    cur.remove(cur.size() - 1); used[i] = false;\n  }\n}",
+        "python": "def bt(a, used, cur, out):\n    if len(cur) == len(a):\n        out.append(cur[:]); return\n    for i in range(len(a)):\n        if used[i]: continue\n        used[i] = True; cur.append(a[i])\n        bt(a, used, cur, out)\n        cur.pop(); used[i] = False",
+        "cpp": "void bt(vector<int>& a, vector<bool>& used, vector<int>& cur, vector<vector<int>>& out) {\n  if ((int)cur.size() == (int)a.size()) { out.push_back(cur); return; }\n  for (int i = 0; i < (int)a.size(); ++i) {\n    if (used[i]) continue;\n    used[i] = true; cur.push_back(a[i]);\n    bt(a, used, cur, out);\n    cur.pop_back(); used[i] = false;\n  }\n}"
+      }
+    },
+    {
+      "pattern": "trees",
+      "note": "Recursion mirrors the tree shape. Preorder visits node then children, inorder is required for sorted binary trees, postorder computes values that depend on both subtrees. Depth can exceed the stack limit on skewed trees, so an explicit stack is safer in interviews.",
+      "snippets": {
+        "java": "void preorder(TreeNode node, List<Integer> out) {\n  if (node == null) return;\n  out.add(node.val);\n  preorder(node.left, out);\n  preorder(node.right, out);\n}",
+        "python": "def preorder(node, out):\n    if node is None: return\n    out.append(node.val)\n    preorder(node.left, out)\n    preorder(node.right, out)",
+        "cpp": "void preorder(TreeNode* node, vector<int>& out) {\n  if (!node) return;\n  out.push_back(node->val);\n  preorder(node->left, out);\n  preorder(node->right, out);\n}"
+      }
+    },
+    {
+      "pattern": "bitmanipulation",
+      "note": "x & (x - 1) clears the lowest set bit, which yields a running count of set bits. For a power of two, x & (x - 1) is zero.",
+      "snippets": {
+        "java": "int count = 0;\nfor (int x = n; x != 0; x &= (x - 1)) count++;\nboolean isPow2 = (n > 0) && ((n & (n - 1)) == 0);",
+        "python": "x = n\ncount = 0\nwhile x:\n    x &= x - 1\n    count += 1\nis_pow2 = n > 0 and (n & (n - 1)) == 0",
+        "cpp": "int count = 0;\nfor (int x = n; x; x &= x - 1) ++count;\nbool isPow2 = n > 0 && !(n & (n - 1));"
+      }
+    },
+    {
+      "pattern": "intervals",
+      "note": "For merge problems sort by start time. For sweep problems such as meeting rooms, sort by start and compare each start against a max-heap of end times.",
+      "snippets": {
+        "java": "int[][] merged = intervals.clone();\nArrays.sort(merged, (a, b) -> a[0] - b[0]);\nfor (int i = 1; i < merged.length; i++) {\n  if (merged[i][0] <= merged[i - 1][1]) merged[i - 1][1] = Math.max(merged[i - 1][1], merged[i][1]);\n}",
+        "python": "merged = sorted(intervals)\nfor i in range(1, len(merged)):\n    if merged[i][0] <= merged[i-1][1]:\n        merged[i-1][1] = max(merged[i-1][1], merged[i][1])\nreturn merged",
+        "cpp": "sort(iv.begin(), iv.end());\nfor (int i = 1; i < iv.size(); ++i)\n  if (iv[i][0] <= iv[i-1][1]) iv[i-1][1] = max(iv[i-1][1], iv[i][1]);"
+      }
+    },
+    {
+      "pattern": "greedy",
+      "note": "A greedy choice must be locally safe, so it needs a proof: usually an exchange argument showing the greedy pick can be substituted into an optimal solution without loss.",
+      "snippets": {
+        "java": "// activity selection: sort by end, keep every non-overlapping pick\nArrays.sort(jobs, (a, b) -> a[1] - b[1]);\nint end = Integer.MIN_VALUE, count = 0;\nfor (int[] j : jobs)\n  if (j[0] > end) { count++; end = j[1]; }",
+        "python": "# activity selection: sort by end, keep every non-overlapping pick\njobs.sort(key=lambda j: j[1])\ncount = 0; end = float('-inf')\nfor s, e in jobs:\n    if s > end:\n        count += 1; end = e",
+        "cpp": "sort(jobs.begin(), jobs.end(), [](auto& a, auto& b){ return a[1] < b[1]; });\nint cnt = 0, end = INT_MIN;\nfor (auto& j : jobs) if (j[0] > end) { ++cnt; end = j[1]; }"
+      }
+    }
+  ],
+  "problems": [
+    {
+      "id": "1",
+      "slug": "two-sum",
+      "title": "Two Sum",
+      "difficulty": "Easy",
+      "pattern": "arrays",
+      "lists": [
+        "neetcode150",
+        "blind75",
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "two-sum",
+        "neetcode": "https://neetcode.io/problems/two-sum",
+        "walkccc": "https://walkccc.me/leetcodeproblems/two-sum/"
+      },
+      "statement": "Given an array of integers and a target, return the indices of the two numbers that add up to the target. Each input has exactly one solution and you may not use the same element twice.",
+      "keyIdea": "Trade a nested scan for a remembered past. Store each value with its index as you go, so the complement of the current value is a single lookup rather than a full search.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Brute force",
+          "time": "O(n^2)",
+          "space": "O(1)",
+          "why": "Check every pair. Correct and obvious, but you scan the rest of the array once per element.",
+          "code": {
+            "java": "for (int i = 0; i < n; i++)\n  for (int j = i + 1; j < n; j++)\n    if (nums[i] + nums[j] == target)\n      return new int[]{i, j};",
+            "python": "for i in range(len(nums)):\n    for j in range(i + 1, len(nums)):\n        if nums[i] + nums[j] == target:\n            return [i, j]",
+            "cpp": "for (int i = 0; i < n; ++i)\n  for (int j = i + 1; j < n; ++j)\n    if (a[i] + a[j] == t) return {i, j};"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Sorted two pointers",
+          "time": "O(n log n)",
+          "space": "O(1)",
+          "why": "Sorting makes the sum monotone in each cursor, so one pointer can be discarded per step. Sorting dominates the cost.",
+          "code": {
+            "java": "int[] s = nums.clone(); Arrays.sort(s);\nint l = 0, r = s.length - 1;\nwhile (l < r) {\n  int sum = s[l] + s[r];\n  if (sum == target) return new int[]{l, r};\n  if (sum < target) l++; else r--;\n}",
+            "python": "s = sorted(nums)\nl, r = 0, len(s) - 1\nwhile l < r:\n    if s[l] + s[r] == target: return [l, r]\n    if s[l] + s[r] < target: l += 1\n    else: r -= 1",
+            "cpp": "sort(a.begin(), a.end());\nint l = 0, r = n - 1;\nwhile (l < r) {\n  int sum = a[l] + a[r];\n  if (sum == t) return {l, r};\n  if (sum < t) ++l; else --r;\n}"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Hash map single pass",
+          "time": "O(n)",
+          "space": "O(n)",
+          "why": "One pass, no sorting. You pay O(n) space to buy back the O(n log n) sort and the second scan.",
+          "code": {
+            "java": "Map<Integer, Integer> seen = new HashMap<>();\nfor (int i = 0; i < nums.length; i++) {\n  int need = target - nums[i];\n  Integer j = seen.get(need);\n  if (j != null) return new int[]{j, i};\n  seen.put(nums[i], i);\n}",
+            "python": "seen = {}\nfor i, v in enumerate(nums):\n    need = target - v\n    if need in seen:\n        return [seen[need], i]\n    seen[v] = i",
+            "cpp": "unordered_map<int,int> seen;\nfor (int i = 0; i < n; ++i) {\n  auto it = seen.find(t - a[i]);\n  if (it != seen.end()) return {it->second, i};\n  seen[a[i]] = i;\n}"
+          }
+        }
+      ],
+      "hints": [
+        "You need the complement of the current value. What structure makes finding it O(1)?",
+        "As you scan left to right, store each value together with its index.",
+        "Before storing nums[i], check whether target - nums[i] is already stored. That ordering is what prevents reusing one element.",
+        "A HashMap of value to index. One pass over the array.",
+        "Pseudocode: for each i, look up need in seen; if found return [seen[need], i]; else seen[nums[i]] = i."
+      ]
+    },
+    {
+      "id": "3",
+      "slug": "longest-substring-without-repeating-characters",
+      "title": "Longest Substring Without Repeating Characters",
+      "difficulty": "Medium",
+      "pattern": "slidingwindow",
+      "lists": [
+        "neetcode150",
+        "blind75"
+      ],
+      "platform": {
+        "leetcode": "longest-substring-without-repeating-characters",
+        "neetcode": "https://neetcode.io/problems/longest-substring-without-repeating-characters",
+        "walkccc": "https://walkccc.me/leetcodeproblems/longest-substring-without-repeating-characters/"
+      },
+      "statement": "Given a string s, return the length of the longest substring without repeating characters.",
+      "keyIdea": "The window must stay duplicate-free. When a repeat appears, advance the left edge past the previous occurrence rather than restarting the scan.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Check every substring",
+          "time": "O(n^3)",
+          "space": "O(n)",
+          "why": "Enumerate all O(n^2) substrings and verify each with an O(n) set. Quadratic start times linear work.",
+          "code": {
+            "java": "int best = 0;\nfor (int i = 0; i < s.length(); i++)\n  for (int j = i + 1; j <= s.length(); j++) {\n    Set<Character> set = new HashSet<>();\n    boolean ok = true;\n    for (int k = i; k < j; k++)\n      if (!set.add(s.charAt(k))) { ok = false; break; }\n    if (ok) best = Math.max(best, j - i);\n  }",
+            "python": "best = 0\nn = len(s)\nfor i in range(n):\n    for j in range(i + 1, n + 1):\n        if len(set(s[i:j])) == j - i:\n            best = max(best, j - i)\nreturn best",
+            "cpp": "int best = 0;\nfor (int i = 0; i < n; ++i)\n for (int j = i+1; j <= n; ++j) {\n   set<char> seen; bool ok = true;\n   for (int k = i; k < j; ++k)\n     if (!seen.insert(s[k]).second) { ok = false; break; }\n   if (ok) best = max(best, j - i);\n }"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Sliding window with a set",
+          "time": "O(n^2)",
+          "space": "O(k)",
+          "why": "The outer scan is now linear, but shrinking one character at a time and re-checking the whole window stays quadratic.",
+          "code": {
+            "java": "int best = 0, l = 0;\nSet<Character> set = new HashSet<>();\nfor (int r = 0; r < s.length(); r++) {\n  while (set.contains(s.charAt(r))) set.remove(s.charAt(l++));\n  set.add(s.charAt(r));\n  best = Math.max(best, r - l + 1);\n}",
+            "python": "best = 0; l = 0; seen = set()\nfor r, ch in enumerate(s):\n    while ch in seen:\n        seen.remove(s[l]); l += 1\n    seen.add(ch)\n    best = max(best, r - l + 1)\nreturn best",
+            "cpp": "int best = 0, l = 0; set<char> seen;\nfor (int r = 0; r < n; ++r) {\n  while (seen.count(s[r])) seen.erase(s[l++]);\n  seen.insert(s[r]);\n  best = max(best, r - l + 1);\n}"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Sliding window with last-seen map",
+          "time": "O(n)",
+          "space": "O(k)",
+          "why": "Remember where each character last appeared. The left edge jumps straight to one past that index instead of creeping forward one character at a time.",
+          "code": {
+            "java": "int[] last = new int[128]; Arrays.fill(last, -1);\nint best = 0, l = 0;\nfor (int r = 0; r < s.length(); r++) {\n  char c = s.charAt(r);\n  if (last[c] >= l) l = last[c] + 1;\n  last[c] = r;\n  best = Math.max(best, r - l + 1);\n}",
+            "python": "last = {}\nbest = 0; l = 0\nfor r, ch in enumerate(s):\n    if ch in last and last[ch] >= l:\n        l = last[ch] + 1\n    last[ch] = r\n    best = max(best, r - l + 1)\nreturn best",
+            "cpp": "int last[128]; fill(last, last+128, -1);\nint best = 0, l = 0;\nfor (int r = 0; r < n; ++r) {\n  unsigned char c = s[r];\n  if (last[c] >= l) l = last[c] + 1;\n  last[c] = r;\n  best = max(best, r - l + 1);\n}"
+          }
+        }
+      ],
+      "hints": [
+        "What invariant must hold for the current window?",
+        "The window can never contain a duplicate. When adding a character that already exists inside it, the left edge must move.",
+        "Do not shrink one character at a time. Jump the left edge directly past the previous occurrence of the repeating character.",
+        "A map from character to its last seen index. On a repeat, set left to lastSeen[c] + 1.",
+        "Pseudocode: for each r, if last[s[r]] >= l then l = last[s[r]] + 1; last[s[r]] = r; best = max(best, r - l + 1)."
+      ]
+    },
+    {
+      "id": "20",
+      "slug": "valid-parentheses",
+      "title": "Valid Parentheses",
+      "difficulty": "Easy",
+      "pattern": "stack",
+      "lists": [
+        "neetcode150",
+        "blind75",
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "valid-parentheses",
+        "neetcode": "https://neetcode.io/problems/valid-parentheses",
+        "walkccc": "https://walkccc.me/leetcodeproblems/valid-parentheses/"
+      },
+      "statement": "Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if open brackets are closed by the same type of bracket and in the correct order.",
+      "keyIdea": "Nesting is strictly last-in-first-out, which is exactly what a stack guarantees. Push openers, and every closer must match the most recent unmatched opener.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Rescan on every mismatch",
+          "time": "O(n^2)",
+          "space": "O(n)",
+          "why": "On finding a mismatch, restart validation from the beginning. Correct but re-checks the same prefix repeatedly.",
+          "code": {
+            "java": "int i = 0;\nwhile (i < s.length()) {\n  boolean bad = false;\n  for (int j = i; j + 1 < s.length(); j += 2) {\n    char o = s.charAt(j), c = s.charAt(j + 1);\n    if (!((o == '(' && c == ')') || (o == '{' && c == '}') || (o == '[' && c == ']'))) { bad = true; break; }\n  }\n  if (bad) return false;\n  i += 2;\n}\nreturn true;",
+            "python": "i = 0\nwhile i < len(s):\n    for j in range(i, len(s) - 1, 2):\n        pair = s[j] + s[j + 1]\n        if pair not in ('()', '{}', '[]'):\n            break\n    else:\n        i += 2\n        continue\n    return False\nreturn True",
+            "cpp": "int i = 0;\nwhile (i < n) {\n  bool bad = false;\n  for (int j = i; j + 1 < n; j += 2) {\n    char o = s[j], c = s[j+1];\n    if (!((o=='('&&c==')')||(o=='{'&&c=='}')||(o=='['&&c==']'))) { bad = true; break; }\n  }\n  if (bad) return false;\n  i += 2;\n}\nreturn true;"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Counting brackets",
+          "time": "O(n)",
+          "space": "O(1)",
+          "why": "Counts total openings against closings. It detects a missing or extra bracket but silently accepts '{]}' because the ordering is never checked.",
+          "code": {
+            "java": "int open = 0, close = 0;\nfor (char c : s.toCharArray()) {\n  if (c == '(' || c == '{' || c == '[') open++;\n  else close++;\n}\nreturn open == close;",
+            "python": "opening = sum(s.count(c) for c in '({[')\nclosing = sum(s.count(c) for c in ')}]')\nreturn opening == closing",
+            "cpp": "int o = 0, c = 0;\nfor (char ch : s) { if (ch=='('||ch=='{'||ch=='[') ++o; else ++c; }\nreturn o == c;"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Stack with type matching",
+          "time": "O(n)",
+          "space": "O(n)",
+          "why": "Push every opener, then require each closer to match the stack top. Ordering becomes structurally enforced rather than counted.",
+          "code": {
+            "java": "Deque<Character> stack = new ArrayDeque<>();\nfor (char c : s.toCharArray()) {\n  if (c == '(' || c == '{' || c == '[') stack.push(c);\n  else {\n    if (stack.isEmpty()) return false;\n    char o = stack.pop();\n    if ((o == '(' && c != ')') || (o == '{' && c != '}') || (o == '[' && c != ']')) return false;\n  }\n}\nreturn stack.isEmpty();",
+            "python": "stack = []\nmatch = {')': '(', '}': '{', ']': '['}\nfor ch in s:\n    if ch in '({[':\n        stack.append(ch)\n    else:\n        if not stack or stack.pop() != match[ch]:\n            return False\nreturn not stack",
+            "cpp": "vector<char> stack;\nfor (char c : s) {\n  if (c=='('||c=='{'||c=='[') stack.push_back(c);\n  else {\n    if (stack.empty()) return false;\n    char o = stack.back(); stack.pop_back();\n    if ((o=='('&&c!=')')||(o=='{'&&c!='}')||(o=='['&&c!=']')) return false;\n  }\n}\nreturn stack.empty();"
+          }
+        }
+      ],
+      "hints": [
+        "Which data structure matches strict nesting order exactly?",
+        "Openers must close in reverse order of opening. That is the definition of a stack.",
+        "Push openers. On a closer, the stack top must be its partner, or the string is invalid.",
+        "A stack of characters, plus a map from closer to opener.",
+        "Pseudocode: push '(' '{' '['; for any closer, if stack empty return false, else pop and compare to its partner; at the end return stack.isEmpty()."
+      ]
+    },
+    {
+      "id": "33",
+      "slug": "search-in-rotated-sorted-array",
+      "title": "Search in Rotated Sorted Array",
+      "difficulty": "Medium",
+      "pattern": "binarysearch",
+      "lists": [
+        "neetcode150",
+        "blind75"
+      ],
+      "platform": {
+        "leetcode": "search-in-rotated-sorted-array",
+        "neetcode": "https://neetcode.io/problems/search-in-rotated-sorted-array",
+        "walkccc": "https://walkccc.me/leetcodeproblems/search-in-rotated-sorted-array/"
+      },
+      "statement": "An array sorted in ascending order is rotated at an unknown pivot. Given the rotated array and an integer target, return the index of target if it exists, or -1 if it is not in the array. You must write an algorithm with O(log n) runtime complexity.",
+      "keyIdea": "At every split one half is still fully sorted. Identify which half by comparing the midpoint against the low bound, then discard the half that cannot contain the target.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Linear scan",
+          "time": "O(n)",
+          "space": "O(1)",
+          "why": "Rotation does not affect membership testing. Ignores the sorted structure entirely and fails the stated complexity requirement.",
+          "code": {
+            "java": "for (int i = 0; i < nums.length; i++)\n  if (nums[i] == target) return i;\nreturn -1;",
+            "python": "for i, v in enumerate(nums):\n    if v == target:\n        return i\nreturn -1",
+            "cpp": "for (int i = 0; i < n; ++i)\n  if (a[i] == target) return i;\nreturn -1;"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Binary search then linear wrap",
+          "time": "O(log n + k)",
+          "space": "O(1)",
+          "why": "Binary search one monotonic run, then scan the tail. Correct and simple, but the scan makes worst-case behaviour unpredictable.",
+          "code": {
+            "java": "int l = 0, r = nums.length - 1;\nwhile (l <= r) {\n  int m = l + (r - l) / 2;\n  if (nums[m] == target) return m;\n  if (nums[m] > target) r = m - 1; else l = m + 1;\n}\nfor (int i = 0; i < nums.length; i++)\n  if (nums[i] == target) return i;\nreturn -1;",
+            "python": "l, r = 0, len(nums) - 1\nwhile l <= r:\n    m = (l + r) // 2\n    if nums[m] == target: return m\n    if nums[m] > target: r = m - 1\n    else: l = m + 1\nreturn next((i for i, v in enumerate(nums) if v == target), -1)",
+            "cpp": "int l = 0, r = n-1;\nwhile (l <= r) {\n  int m = (l + r) / 2;\n  if (a[m] == t) return m;\n  if (a[m] > t) r = m-1; else l = m+1;\n}\nfor (int i = 0; i < n; ++i) if (a[i] == t) return i;\nreturn -1;"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Modified binary search",
+          "time": "O(log n)",
+          "space": "O(1)",
+          "why": "At least one half around the midpoint is sorted. Test that half's range against the target and discard the other, halving the window every step.",
+          "code": {
+            "java": "int l = 0, r = nums.length - 1;\nwhile (l <= r) {\n  int m = l + (r - l) / 2;\n  if (nums[m] == target) return m;\n  if (nums[l] <= nums[m]) {\n    if (nums[l] <= target && target < nums[m]) r = m - 1; else l = m + 1;\n  } else {\n    if (nums[m] < target && target <= nums[r]) l = m + 1; else r = m - 1;\n  }\n}\nreturn -1;",
+            "python": "l, r = 0, len(nums) - 1\nwhile l <= r:\n    m = (l + r) // 2\n    if nums[m] == target: return m\n    if nums[l] <= nums[m]:\n        if nums[l] <= target < nums[m]: r = m - 1\n        else: l = m + 1\n    else:\n        if nums[m] < target <= nums[r]: l = m + 1\n        else: r = m - 1\nreturn -1",
+            "cpp": "int l = 0, r = n-1;\nwhile (l <= r) {\n  int m = (l + r) / 2;\n  if (a[m] == t) return m;\n  if (a[l] <= a[m]) {\n    if (a[l] <= t && t < a[m]) r = m-1; else l = m+1;\n  } else {\n    if (a[m] < t && t <= a[r]) l = m+1; else r = m-1;\n  }\n}\nreturn -1;"
+          }
+        }
+      ],
+      "hints": [
+        "Why does ordinary binary search break on a rotated array?",
+        "Because the array is not globally sorted, the usual discard rule is no longer trustworthy. You need a different signal each step.",
+        "At any midpoint, one of the two halves is still sorted. Determine which one by comparing nums[left] to nums[mid].",
+        "If the left half is sorted, the target is either inside it or in the right half. If the right half is sorted, the opposite applies.",
+        "Pseudocode: if nums[l] <= nums[m] then range-check the left half, else range-check the right half. Narrow one bound each iteration."
+      ]
+    },
+    {
+      "id": "46",
+      "slug": "permutations",
+      "title": "Permutations",
+      "difficulty": "Medium",
+      "pattern": "backtracking",
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "permutations",
+        "neetcode": "https://neetcode.io/problems/permutations",
+        "walkccc": "https://walkccc.me/leetcodeproblems/permutations/"
+      },
+      "statement": "Given an array of distinct integers, return all possible permutations. You can return the answer in any order.",
+      "keyIdea": "Build the answer one position at a time. Choose an unused value for the current slot, recurse, then undo the choice so the next branch starts from the same state.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Enumerate all orderings",
+          "time": "O(n * n!)",
+          "space": "O(n)",
+          "why": "Generate every arrangement directly. The factorial growth is the problem to be solved, not worked around.",
+          "code": {
+            "java": "List<List<Integer>> out = new ArrayList<>();\nperm(nums, 0, out);\n// perm builds every ordering of the remaining slice\nprivate void perm(int[] a, int start, List<List<Integer>> out) {\n  if (start == a.length) { out.add(Arrays.stream(a).boxed().toList()); return; }\n  for (int i = start; i < a.length; i++) {\n    swap(a, start, i);\n    perm(a, start + 1, out);\n    swap(a, start, i);\n  }\n}",
+            "python": "out = []\ndef perm(a, start):\n    if start == len(a):\n        out.append(a[:]); return\n    for i in range(start, len(a)):\n        a[start], a[i] = a[i], a[start]\n        perm(a, start + 1)\n        a[start], a[i] = a[i], a[start]\nperm(list(nums), 0)",
+            "cpp": "void perm(vector<int>& a, int start, vector<vector<int>>& out) {\n  if (start == a.size()) { out.push_back(a); return; }\n  for (int i = start; i < a.size(); ++i) {\n    swap(a[start], a[i]); perm(a, start+1, out); swap(a[start], a[i]);\n  }\n}"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Used-array bookkeeping",
+          "time": "O(n * n!)",
+          "space": "O(n)",
+          "why": "Same factorial cost but tracks used values explicitly, which makes the logic portable to problems with duplicate elements.",
+          "code": {
+            "java": "boolean[] used = new boolean[nums.length];\nbacktrack(nums, used, new ArrayList<>(), out);\nprivate void backtrack(int[] nums, boolean[] used, List<Integer> cur, List<List<Integer>> out) {\n  if (cur.size() == nums.length) { out.add(new ArrayList<>(cur)); return; }\n  for (int i = 0; i < nums.length; i++) {\n    if (used[i]) continue;\n    used[i] = true; cur.add(nums[i]);\n    backtrack(nums, used, cur, out);\n    cur.remove(cur.size() - 1); used[i] = false;\n  }\n}",
+            "python": "used = [False] * len(nums)\ncur = []\ndef bt():\n    if len(cur) == len(nums):\n        out.append(cur[:]); return\n    for i in range(len(nums)):\n        if used[i]: continue\n        used[i] = True; cur.append(nums[i])\n        bt()\n        cur.pop(); used[i] = False\nbt()",
+            "cpp": "vector<bool> used(n, false);\nfunction<void()> bt = [&]() {\n  if (cur.size() == a.size()) { out.push_back(cur); return; }\n  for (int i = 0; i < n; ++i) {\n    if (used[i]) continue;\n    used[i] = true; cur.push_back(a[i]);\n    bt();\n    cur.pop_back(); used[i] = false;\n  }\n};\nbt();"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Swap into position",
+          "time": "O(n * n!)",
+          "space": "O(n)",
+          "why": "Same asymptotics, since n! outputs must be materialised. The in-place swap removes the used array and reduces allocations per branch.",
+          "code": {
+            "java": "backtrack(nums, 0, out);\nprivate void backtrack(int[] a, int start, List<List<Integer>> out) {\n  if (start == a.length) { out.add(Arrays.stream(a).boxed().toList()); return; }\n  for (int i = start; i < a.length; i++) {\n    swap(a, start, i);\n    backtrack(a, start + 1, out);\n    swap(a, start, i);\n  }\n}",
+            "python": "def bt(a, start):\n    if start == len(a):\n        out.append(a[:]); return\n    for i in range(start, len(a)):\n        a[start], a[i] = a[i], a[start]\n        bt(a, start + 1)\n        a[start], a[i] = a[i], a[start]\nout = []\nbt(list(nums), 0)",
+            "cpp": "void bt(vector<int>& a, int start, vector<vector<int>>& out) {\n  if (start == (int)a.size()) { out.push_back(a); return; }\n  for (int i = start; i < (int)a.size(); ++i) {\n    swap(a[start], a[i]); bt(a, start+1, out); swap(a[start], a[i]);\n  }\n}"
+          }
+        }
+      ],
+      "hints": [
+        "What does one branch of the search tree represent?",
+        "A partial arrangement. A complete leaf is a full permutation. You need to grow the branch and then restore it.",
+        "At each level, try every value not yet used, recurse, then remove it.",
+        "The critical detail is undoing the choice. Without the undo, every sibling sees a corrupted array.",
+        "Pseudocode: if the current path is full, record it. Otherwise for each unused value: push it, recurse, pop it."
+      ]
+    },
+    {
+      "id": "200",
+      "slug": "number-of-islands",
+      "title": "Number of Islands",
+      "difficulty": "Medium",
+      "pattern": "graphs",
+      "lists": [
+        "neetcode150",
+        "blind75",
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "number-of-islands",
+        "neetcode": "https://neetcode.io/problems/number-of-islands",
+        "walkccc": "https://walkccc.me/leetcodeproblems/number-of-islands/"
+      },
+      "statement": "Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (waters), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are surrounded by water.",
+      "keyIdea": "Each new unvisited land cell starts exactly one island. Flood-fill the whole connected component so it is never counted twice.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Repeated flood fill without marking",
+          "time": "O(n*m*n)",
+          "space": "O(n*m)",
+          "why": "The fill explores the same component from every starting cell because nothing records that ground was already processed.",
+          "code": {
+            "java": "int count = 0;\nfor (int i = 0; i < m; i++)\n  for (int j = 0; j < n; j++)\n    if (grid[i][j] == '1') { count++; fill(grid, i, j); }\n// fill marks locally but the outer loop re-enters settled cells\nprivate void fill(char[][] g, int i, int j) {\n  if (i < 0 || j < 0 || i >= g.length || j >= g[0].length || g[i][j] != '1') return;\n  g[i][j] = '0';\n  fill(g, i + 1, j); fill(g, i - 1, j);\n  fill(g, i, j + 1); fill(g, i, j - 1);\n}",
+            "python": "def fill(g, i, j):\n    if i < 0 or j < 0 or i >= len(g) or j >= len(g[0]) or g[i][j] != '1':\n        return\n    g[i][j] = '0'\n    for dx, dy in ((1,0),(-1,0),(0,1),(0,-1)):\n        fill(g, i + dx, j + dy)\n\ncount = 0\nfor i in range(len(grid)):\n    for j in range(len(grid[0])):\n        if grid[i][j] == '1':\n            count += 1\n            fill(grid, i, j)\nreturn count",
+            "cpp": "int count = 0;\nfor (int i = 0; i < m; ++i)\n  for (int j = 0; j < n; ++j)\n    if (g[i][j] == '1') { ++count; fill(g, i, j); }"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Flood fill with visited set",
+          "time": "O(n*m)",
+          "space": "O(n*m)",
+          "why": "An explicit visited set makes the complexity provably linear, at the cost of auxiliary memory alongside the grid.",
+          "code": {
+            "java": "int count = 0;\nSet<String> seen = new HashSet<>();\nfor (int i = 0; i < m; i++)\n  for (int j = 0; j < n; j++) {\n    if (grid[i][j] != '1') continue;\n    if (seen.contains(i + \",\" + j)) continue;\n    count++;\n    bfs(grid, seen, i, j);\n  }\nreturn count;",
+            "python": "seen = set()\ncount = 0\nfor i in range(len(grid)):\n    for j in range(len(grid[0])):\n        if grid[i][j] != '1' or (i, j) in seen:\n            continue\n        count += 1\n        stack = [(i, j)]; seen.add((i, j))\n        while stack:\n            x, y = stack.pop()\n            for dx, dy in ((1,0),(-1,0),(0,1),(0,-1)):\n                nx, ny = x + dx, y + dy\n                if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]) \\\n                   and grid[nx][ny] == '1' and (nx, ny) not in seen:\n                    seen.add((nx, ny)); stack.append((nx, ny))\nreturn count",
+            "cpp": "set<pair<int,int>> seen;\nint count = 0;\nfor (int i = 0; i < m; ++i)\n for (int j = 0; j < n; ++j) {\n   if (g[i][j] != '1' || seen.count({i,j})) continue;\n   ++count;\n   queue<pair<int,int>> q; q.push({i,j}); seen.insert({i,j});\n   while (!q.empty()) {\n     auto [x,y] = q.front(); q.pop();\n     int dx[] = {1,-1,0,0}, dy[] = {0,0,1,-1};\n     for (int d = 0; d < 4; ++d) {\n       int nx = x+dx[d], ny = y+dy[d];\n       if (nx<0||ny<0||nx>=m||ny>=n||g[nx][ny]!='1') continue;\n       if (seen.count({nx,ny})) continue;\n       seen.insert({nx,ny}); q.push({nx,ny});\n     }\n   }\n }\nreturn count;"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Iterative sink as you count",
+          "time": "O(n*m)",
+          "space": "O(1)",
+          "why": "The sink writes its own state, so no auxiliary structure is needed. Same asymptotics as the visited set, but O(1) extra memory.",
+          "code": {
+            "java": "int count = 0;\nfor (int i = 0; i < m; i++)\n  for (int j = 0; j < n; j++) {\n    if (grid[i][j] != '1') continue;\n    count++;\n    Deque<int[]> q = new ArrayDeque<>();\n    q.push(new int[]{i, j});\n    grid[i][j] = '0';\n    while (!q.isEmpty()) {\n      int[] cur = q.poll();\n      int x = cur[0], y = cur[1];\n      int[][] d = {{1,0},{-1,0},{0,1},{0,-1}};\n      for (int[] dd : d) {\n        int nx = x + dd[0], ny = y + dd[1];\n        if (nx < 0 || ny < 0 || nx >= m || ny >= n || grid[nx][ny] != '1') continue;\n        grid[nx][ny] = '0';\n        q.push(new int[]{nx, ny});\n      }\n    }\n  }\nreturn count;",
+            "python": "count = 0\nfor i in range(len(grid)):\n    for j in range(len(grid[0])):\n        if grid[i][j] != '1':\n            continue\n        count += 1\n        stack = [(i, j)]\n        grid[i][j] = '0'\n        while stack:\n            x, y = stack.pop()\n            for dx, dy in ((1,0),(-1,0),(0,1),(0,-1)):\n                nx, ny = x + dx, y + dy\n                if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]) and grid[nx][ny] == '1':\n                    grid[nx][ny] = '0'\n                    stack.append((nx, ny))\nreturn count",
+            "cpp": "int count = 0;\nint dx[] = {1,-1,0,0}, dy[] = {0,0,1,-1};\nfor (int i = 0; i < m; ++i)\n for (int j = 0; j < n; ++j) {\n   if (g[i][j] != '1') continue;\n   ++count;\n   queue<pair<int,int>> q; q.push({i,j}); g[i][j] = '0';\n   while (!q.empty()) {\n     auto [x,y] = q.front(); q.pop();\n     for (int d = 0; d < 4; ++d) {\n       int nx = x+dx[d], ny = y+dy[d];\n       if (nx<0||ny<0||nx>=m||ny>=n||g[nx][ny]!='1') continue;\n       g[nx][ny] = '0'; q.push({nx,ny});\n     }\n   }\n }\nreturn count;"
+          }
+        }
+      ],
+      "hints": [
+        "How do you avoid counting one island twice?",
+        "When you find unvisited land, that cell must be the start of a brand new island. Once counted, the whole connected region is finished.",
+        "Flood fill from the starting cell, marking every land cell you touch so the outer loop skips it.",
+        "Recursive DFS is simplest but can overflow the stack on large grids. An explicit stack keeps memory on the heap.",
+        "Pseudocode: on unvisited '1', increment the count, then flood fill all connected '1' cells, marking each as '0' as you visit it."
+      ]
+    },
+    {
+      "id": "70",
+      "slug": "climbing-stairs",
+      "title": "Climbing Stairs",
+      "difficulty": "Easy",
+      "pattern": "dynamicprogramming",
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "climbing-stairs",
+        "neetcode": "https://neetcode.io/problems/climbing-stairs",
+        "walkccc": "https://walkccc.me/leetcodeproblems/climbing-stairs/"
+      },
+      "statement": "You are climbing a staircase with n steps. You can either climb 1 or 2 steps at a time. How many distinct ways can you climb to the top?",
+      "keyIdea": "The ways to reach step i are the ways to reach i-1 plus the ways to reach i-2, because the last move was either one or two steps. That recurrence is Fibonacci.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Tree of all move sequences",
+          "time": "O(2^n)",
+          "space": "O(n)",
+          "why": "Enumerate every possible sequence of 1s and 2s. Exponential because the same subproblem recurs exponentially often.",
+          "code": {
+            "java": "int ways(int n) {\n  if (n <= 2) return n;\n  return ways(n - 1) + ways(n - 2);\n}",
+            "python": "def ways(n):\n    if n <= 2:\n        return n\n    return ways(n - 1) + ways(n - 2)",
+            "cpp": "int ways(int n) {\n  if (n <= 2) return n;\n  return ways(n-1) + ways(n-2);\n}"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Memoised recursion",
+          "time": "O(n)",
+          "space": "O(n)",
+          "why": "Caching each computed value collapses the exponential recursion into a linear chain. Memoisation with recursion is the top-down form.",
+          "code": {
+            "java": "int[] memo = new int[n + 1];\nArrays.fill(memo, -1);\nreturn solve(n, memo);\nprivate int solve(int n, int[] memo) {\n  if (n <= 2) return n;\n  if (memo[n] != -1) return memo[n];\n  return memo[n] = solve(n - 1, memo) + solve(n - 2, memo);\n}",
+            "python": "memo = {}\ndef ways(n):\n    if n <= 2: return n\n    if n in memo: return memo[n]\n    memo[n] = ways(n - 1) + ways(n - 2)\n    return memo[n]",
+            "cpp": "vector<int> memo(n+1, -1);\nfunction<int(int)> ways = [&](int x) {\n  if (x <= 2) return x;\n  if (memo[x] != -1) return memo[x];\n  return memo[x] = ways(x-1) + ways(x-2);\n};"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Tabulation with two variables",
+          "time": "O(n)",
+          "space": "O(1)",
+          "why": "Only the previous two states are ever read, so the whole table collapses to two variables. Same linear time, constant memory.",
+          "code": {
+            "java": "if (n <= 2) return n;\nint prev2 = 1, prev1 = 2;\nfor (int i = 3; i <= n; i++) {\n  int cur = prev1 + prev2;\n  prev2 = prev1;\n  prev1 = cur;\n}\nreturn prev1;",
+            "python": "if n <= 2:\n    return n\nprev2, prev1 = 1, 2\nfor _ in range(3, n + 1):\n    prev2, prev1 = prev1, prev1 + prev2\nreturn prev1",
+            "cpp": "if (n <= 2) return n;\nint p2 = 1, p1 = 2;\nfor (int i = 3; i <= n; ++i) {\n  int cur = p1 + p2;\n  p2 = p1; p1 = cur;\n}\nreturn p1;"
+          }
+        }
+      ],
+      "hints": [
+        "How many moves reach the final step, and who could have arrived there?",
+        "You can only arrive on step i from step i-1 with a one-step move or from step i-2 with a two-step move. Those two cases are disjoint.",
+        "Write ways(i) = ways(i-1) + ways(i-2) and then ask how many distinct states exist.",
+        "There are n states. A naive recursion recomputes the same states exponentially many times.",
+        "Either cache each value (top-down) or fill the values in order from step 1 (bottom-up). Note that only the last two are ever needed."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "NeetCode 150",
+      "url": "https://neetcode.io/practice",
+      "note": "Problem selection and ordering."
+    },
+    {
+      "name": "Blind 75",
+      "url": "https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU",
+      "note": "Problem selection."
+    },
+    {
+      "name": "Striver SDE Sheet",
+      "url": "https://takeuforward.org/striver-a2z-dsa-course/striver-sde-sheet",
+      "note": "Problem selection."
+    },
+    {
+      "name": "LeetCode",
+      "url": "https://leetcode.com",
+      "note": "Original problem statements and the canonical practice links."
+    },
+    {
+      "name": "Cepeda et al. 2006",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354",
+      "note": "Distributed practice meta-analysis underpinning the review scheduler."
+    },
+    {
+      "name": "FSRS",
+      "url": "https://github.com/open-spaced-repetition/fsrs4anki",
+      "note": "Modern spaced-repetition scheduler family."
+    }
+  ]
+}
