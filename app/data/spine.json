@@ -3,7 +3,7 @@
     "source": "Striver A2Z DSA sheet structure (takeuforward.org)",
     "note": "Topic order is a dependency graph: a topic is only listed after every topic it requires. Counts marked publishedTotal are the sheet's own totals. Authored ladders are a curated subset; the Progress view shows authored versus published coverage per topic rather than implying the whole sheet is written up.",
     "topics": 23,
-    "authoredProblems": 14
+    "authoredProblems": 27
   },
   "topics": [
     {
@@ -312,6 +312,17 @@
       ]
     },
     {
+      "id": "9",
+      "topic": "basics",
+      "title": "Palindrome Number",
+      "difficulty": "Easy",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "striverSDE"
+      ]
+    },
+    {
       "id": "20",
       "topic": "stack",
       "title": "Valid Parentheses",
@@ -349,6 +360,17 @@
       ]
     },
     {
+      "id": "125",
+      "topic": "strings",
+      "title": "Valid Palindrome",
+      "difficulty": "Easy",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "striverSDE"
+      ]
+    },
+    {
       "id": "191",
       "topic": "bitmanipulation",
       "title": "Number of 1 Bits",
@@ -370,6 +392,17 @@
       "lists": [
         "neetcode150",
         "blind75"
+      ]
+    },
+    {
+      "id": "700",
+      "topic": "bst",
+      "title": "Search in a Binary Search Tree",
+      "difficulty": "Easy",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "striverSDE"
       ]
     },
     {
@@ -409,6 +442,18 @@
       ]
     },
     {
+      "id": "49",
+      "topic": "strings",
+      "title": "Group Anagrams",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ]
+    },
+    {
       "id": "55",
       "topic": "greedy",
       "title": "Jump Game",
@@ -432,6 +477,41 @@
       ]
     },
     {
+      "id": "78",
+      "topic": "recursion",
+      "title": "Subsets",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "128",
+      "topic": "hashing",
+      "title": "Longest Consecutive Sequence",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "167",
+      "topic": "twopointers",
+      "title": "Two Sum II (Input Array Is Sorted)",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "striverSDE"
+      ]
+    },
+    {
       "id": "200",
       "topic": "graphs",
       "title": "Number of Islands",
@@ -441,6 +521,18 @@
       "lists": [
         "neetcode150",
         "blind75",
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "208",
+      "topic": "tries",
+      "title": "Implement Trie (Prefix Tree)",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
         "striverSDE"
       ]
     },
@@ -464,6 +556,63 @@
       "hints": 5,
       "lists": [
         "neetcode150"
+      ]
+    },
+    {
+      "id": "875",
+      "topic": "divideconquer",
+      "title": "Koko Eating Bananas",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "912",
+      "topic": "sorting",
+      "title": "Sort an Array",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "23",
+      "topic": "heap",
+      "title": "Merge k Sorted Lists",
+      "difficulty": "Hard",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "76",
+      "topic": "slidingwindow",
+      "title": "Minimum Window Substring",
+      "difficulty": "Hard",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "307",
+      "topic": "avlandt",
+      "title": "Range Sum Query - Mutable",
+      "difficulty": "Hard",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "striverSDE"
       ]
     }
   ],

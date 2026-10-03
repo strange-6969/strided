@@ -73,29 +73,29 @@ const note = (ok, msg) => {
   note(groups >= 4, `map is grouped (${groups} groups)`);
 
   const states = await page.$$eval('.mn-state', (els) => els.map((e) => e.dataset.state));
-  /* `ready` means unlocked and written up. `unauthored` also means unlocked,
-     but has no ladders yet. Asserting on `ready` alone would fail the moment the
-     root topic has nothing authored, which is a content gap, not a graph bug,
-     so both count as unlocked. */
-  const openStates = states.filter((s) => s === 'ready' || s === 'unauthored');
+  /* Full coverage means no topic can be labelled unauthored any more, so the
+     open states are now just ready/active/mastered. */
+  note(!states.includes('unauthored'), 'every topic has authored ladders, so none reads unauthored');
+  const openStates = states.filter((s) => s === 'ready' || s === 'active' || s === 'mastered');
   note(openStates.length > 0, `at least one topic starts unlocked (${openStates.length} open)`);
   note(states.includes('locked'), 'dependent topics start locked');
   note(
     states.filter((s) => s === 'locked').length > 0,
     'unlocking is actually gated rather than everything open at once'
   );
-  /* An unauthored topic must not be labelled locked: locked is a state the
-     learner can change by solving something, and blaming the map for a gap it
-     is honestly reporting would be a lie in the UI. */
-  note(
-    !states.includes('unauthored-locked'),
-    'unauthored topics are not mislabelled as locked'
-  );
-  const hasUnauthored = states.includes('unauthored');
-  if (hasUnauthored) {
-    const mislabelled = await page.$$eval('.mapnode.is-empty.is-locked', (els) => els.length);
-    note(mislabelled === 0, `no unauthored node is styled as locked (${mislabelled})`);
-  }
+
+  // ---------- full coverage of the spine ----------
+  const topicIds = spine.topics.map((t) => t.id);
+  const covered = new Set(spine.links.map((l) => l.topic));
+  const uncovered = topicIds.filter((id) => !covered.has(id));
+  note(uncovered.length === 0, `every spine topic has at least one authored ladder${uncovered.length ? ': ' + uncovered.join(', ') : ''}`);
+
+  const emptyNodes = await page.$$eval('.mapnode.is-empty', (els) => els.length);
+  note(emptyNodes === 0, `no unauthored nodes remain in the map (${emptyNodes})`);
+
+  // every node must be clickable now
+  const disabled = await page.$$eval('.mapnode[disabled]', (els) => els.length);
+  note(disabled === 0, `every map node is clickable (${disabled} disabled)`);
 
   // ---------- unlocking follows the graph ----------
   const before = await page.evaluate(() => {

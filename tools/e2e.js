@@ -86,7 +86,8 @@ const BASE = process.env.STRIDED_URL || 'http://localhost:8788/';
   await page.click('[data-nav="patterns"]');
   await page.waitForTimeout(120);
   const cards = await page.$$eval('.pcard', (els) => els.length);
-  if (cards !== 15) fails.push(`patterns grid: ${cards} cards, expected 15`);
+  const expectedPatterns = await page.evaluate(() => window.__strided.patterns.length);
+  if (cards !== expectedPatterns) fails.push(`patterns grid: ${cards} cards, expected ${expectedPatterns}`);
 
   console.log(`pattern cards: ${cards}`);
   console.log(`problems exercised: ${problems.length}`);

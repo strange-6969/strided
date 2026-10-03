@@ -188,6 +188,7 @@ function viewMap(s) {
   const problemsTotal = DATA.problems.length;
   const reachedCount = SPINE.topics.filter((t) => reached[t.id].started > 0).length;
   const nextUp = SPINE.topics.find((t) => unlocked[t.id] && reached[t.id].started === 0);
+  const fullCoverage = SPINE.topics.every((t) => reached[t.id].total > 0);
 
   const groups = [];
   for (const t of SPINE.topics) {
@@ -275,12 +276,13 @@ function viewMap(s) {
 
   <div class="note">
     <h4>How far this goes, honestly</h4>
-    <p>The topic spine spans the full Striver A2Z sheet: ${SPINE.topics.length} topics, ${SPINE.edges.length} prerequisite edges, in dependency order. Authored complexity ladders currently cover <strong>${authored} problems across ${SPINE.topics.filter((t) => reached[t.id].total > 0).length} topics</strong>, out of the ${problemsTotal} written up in the app.</p>
-    <p style="margin-top:8px">A topic showing <code>not written</code> is in the map because it belongs to the sheet, not because a walkthrough exists for it. The count next to each one is the sheet's own published total where known, so the gap is visible rather than implied.</p>
-    <p style="margin-top:8px">Written up so far: ${SPINE.topics
-      .filter((t) => reached[t.id].total > 0)
-      .map((t) => esc(t.name))
-      .join(', ')}.</p>
+    <p>The spine covers every topic on the Striver A2Z sheet: <strong>${SPINE.topics.length} topics, ${SPINE.edges.length} prerequisite edges</strong>, topologically ordered. ${
+      fullCoverage
+        ? `All <strong>${SPINE.topics.length}</strong> topics now have at least one authored complexity ladder, across <strong>${authored} problems</strong> and ${authored * 3} approaches.`
+        : `Authored ladders cover ${SPINE.topics.filter((t) => reached[t.id].total > 0).length} of ${SPINE.topics.length} topics, across ${authored} problems.`
+    }</p>
+    <p style="margin-top:8px">What that does <strong>not</strong> mean is problem-for-problem parity with the sheet. The sheet lists roughly 474 questions; this app writes up ${problemsTotal} of them, with a three-rung ladder and five escalating hints each. Coverage here means the topic spine is complete, not that every listed question has a walkthrough.</p>
+    <p style="margin-top:8px">Each topic's count is its own authored total, so progress here is progress through the material on this site rather than a claim about the whole sheet.</p>
   </div>`;
 }
 

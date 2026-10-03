@@ -17,6 +17,18 @@
       "drill": "Given an array of numbers and a target sum, which single-pass structure avoids the O(n^2) double loop?"
     },
     {
+      "id": "strings",
+      "name": "Strings",
+      "blurb": "Palindromes, anagrams, parsing, character maths.",
+      "drill": "Two words are anagrams exactly when they share a multiset of characters. What is the cheapest canonical form you can use as a dictionary key?"
+    },
+    {
+      "id": "hashing",
+      "name": "Hashing",
+      "blurb": "Frequency maps and set-based lookups.",
+      "drill": "A set makes membership O(1), but a walk from every element is still quadratic. What single check would let you walk each run only once?"
+    },
+    {
       "id": "twopointers",
       "name": "Two Pointers",
       "blurb": "Opposing cursors collapse an O(n^2) scan to O(n).",
@@ -99,6 +111,48 @@
       "name": "Bit Manipulation",
       "blurb": "XOR, shifts, and masks for constant-time work.",
       "drill": "Which single-bit trick finds the only set bit in a power-of-two input?"
+    },
+    {
+      "id": "sorting",
+      "name": "Sorting Techniques",
+      "blurb": "Insertion, selection, bubble, merge and quick sort.",
+      "drill": "A naive pivot makes quicksort quadratic on already sorted input. What single choice of pivot removes that worst case?"
+    },
+    {
+      "id": "recursion",
+      "name": "Recursion and Backtracking",
+      "blurb": "Subsets, combinations, permutations, grid search.",
+      "drill": "Every backtracking problem is choose, recurse, undo. What breaks if you forget the third step?"
+    },
+    {
+      "id": "tries",
+      "name": "Tries",
+      "blurb": "Prefix search and counting across a key space.",
+      "drill": "What does one trie node need to store to tell a complete word apart from a mere prefix?"
+    },
+    {
+      "id": "bst",
+      "name": "Binary Search Trees",
+      "blurb": "Inorder ordering, insert, delete, floor and ceil.",
+      "drill": "Inorder traversal of a valid BST is sorted. Which problems does that single fact let you solve without recursion?"
+    },
+    {
+      "id": "divideconquer",
+      "name": "Divide and Conquer",
+      "blurb": "Binary search on answer, median, inversion count.",
+      "drill": "Your predicate is monotonic. Why does that let you search the answer instead of enumerating candidates?"
+    },
+    {
+      "id": "basics",
+      "name": "Learn the Basics",
+      "blurb": "Input and output, loops, functions, complexity analysis.",
+      "drill": "Every algorithm problem is written with four constructs. Which two of them are responsible for most of your bugs, and why?"
+    },
+    {
+      "id": "avlandt",
+      "name": "Advanced Trees",
+      "blurb": "AVL and red-black balancing, segment trees, Fenwick trees.",
+      "drill": "A Fenwick tree beats a segment tree on space but loses on range operations. What class of query makes that trade worth taking?"
     }
   ],
   "syntaxCards": [
@@ -236,6 +290,87 @@
         "python": "MASK = 0xFFFFFFFF\ns = (a ^ b) & MASK\ncarry = ((a & b) << 1) & MASK\nwhile carry:\n    s = (s ^ carry) & MASK\n    carry = ((s & carry) << 1) & MASK\nreturn s - (1 << 32) if s >> 31 else s",
         "cpp": "int sum = a ^ b;\nint carry = a & b;\nwhile (carry != 0) {\n  int next = (sum & carry) << 1;\n  sum ^= carry;\n  carry = next;\n}\nreturn sum;"
       }
+    },
+    {
+      "pattern": "strings",
+      "note": "The expensive part of string work is almost always creating a new string. Build into a StringBuilder or a char array and write once at the end, rather than concatenating in a loop.",
+      "snippets": {
+        "java": "StringBuilder sb = new StringBuilder();\nfor (char c : s) sb.append(c);\nreturn sb.toString();\n// string concatenation in a loop is O(n^2)",
+        "python": "out = []\nfor ch in s:\n    out.append(ch)\nreturn ''.join(out)\n# ''.join over a list is O(n); repeated += is not",
+        "cpp": "string out;\nout.reserve(s.size());\nfor (char c : s) out += c;\nreturn out;\n// reserve() avoids repeated reallocation"
+      }
+    },
+    {
+      "pattern": "hashing",
+      "note": "Reserve capacity when you know the input size. It avoids rehashing, and in Java it is the difference between a map that rehashes on every insert and one that does not.",
+      "snippets": {
+        "java": "Map<Character, Integer> freq = new HashMap<>(s.length() * 2);\nfor (char c : s) freq.merge(c, 1, Integer::sum);\n// or: freq.computeIfAbsent(c, k -> new ArrayList<>()).add(i);",
+        "python": "from collections import defaultdict, Counter\n\nfreq = defaultdict(list)\nfor i, c in enumerate(s):\n    freq[c].append(i)\n\n# counting only:\ncounts = Counter(s)",
+        "cpp": "unordered_map<char, int> freq;\nfreq.reserve(s.size() * 2);\nfor (char c : s) ++freq[c];"
+      }
+    },
+    {
+      "pattern": "sorting",
+      "note": "Java's Arrays.sort for primitives is a dual-pivot quicksort; for objects it is a tim sort, because you asked for stability by using a comparator. C++ std::sort is introsort: quicksort that falls back to heapsort on bad pivots, so it is never quadratic. std::stable_sort is mergesort and needs O(n) extra memory.",
+      "snippets": {
+        "java": "Arrays.sort(arr);                    // primitives: dual-pivot quicksort\narr.sort((a, b) -> a - b);   // objects: tim sort, stable\nArrays.sort(arr, 2, 6);                // range only",
+        "python": "nums.sort()                 # in place, tim sort, stable\nsorted(nums)                # returns a new list\nsorted(nums, key=lambda x: x[1], reverse=True)",
+        "cpp": "#include <algorithm>\nstd::sort(a.begin(), a.end());              // introsort\nstd::stable_sort(a.begin(), a.end());     // mergesort, needs O(n) memory\nstd::sort(a.begin(), a.end(), greater<int>());  // descending"
+      }
+    },
+    {
+      "pattern": "recursion",
+      "note": "Every backtracking problem is the same three lines: choose, recurse, undo. The undo has to happen in the reverse order of the choose, or the next sibling branch inherits a corrupted state and you chase ghosts.",
+      "snippets": {
+        "java": "private void backtrack(int[] a, int start, List<Integer> cur, List<List<Integer>> out) {\n  if (cur.size() == a.length) { out.add(new ArrayList<>(cur)); return; }\n  for (int i = start; i < a.length; i++) {\n    cur.add(a[i]);            // choose\n    backtrack(a, i + 1, cur, out);\n    cur.remove(cur.size() - 1); // undo\n  }\n}",
+        "python": "def backtrack(path, start):\n    if len(path) == len(a):\n        out.append(path[:]); return\n    for i in range(start, len(a)):\n        path.append(a[i])      # choose\n        backtrack(path, i + 1)\n        path.pop()             # undo",
+        "cpp": "void backtrack(vector<int>& cur, int start, vector<vector<int>>& out) {\n  if ((int)cur.size() == (int)a.size()) { out.push_back(cur); return; }\n  for (int i = start; i < (int)a.size(); ++i) {\n    cur.push_back(a[i]);\n    backtrack(cur, i + 1, out);\n    cur.pop_back();\n  }\n}"
+      }
+    },
+    {
+      "pattern": "tries",
+      "note": "Each node holds a fixed-size array indexed by character value, so lookup is a single array index per character rather than a hash of the whole prefix. Reserve 26 children when the input is known to be lowercase letters.",
+      "snippets": {
+        "java": "class Trie {\n  private final Trie[] kids = new Trie[26];\n  private boolean isWord;\n  public void insert(String word) {\n    Trie node = this;\n    for (char c : word.toCharArray()) {\n      int i = c - 'a';\n      if (node.kids[i] == null) node.kids[i] = new Trie();\n      node = node.kids[i];\n    }\n    node.isWord = true;\n  }\n}",
+        "python": "class Trie:\n    def __init__(self):\n        self.kids = {}\n        self.is_word = False\n\n    def insert(self, word):\n        node = self\n        for ch in word:\n            node = node.kids.setdefault(ch, Trie())\n        node.is_word = True",
+        "cpp": "struct Trie {\n  Trie* kids[26]{};\n  bool isWord = false;\n  void insert(const string& word) {\n    Trie* node = this;\n    for (char c : word) {\n      int i = c - 'a';\n      if (!node->kids[i]) node->kids[i] = new Trie();\n      node = node->kids[i];\n    }\n    node->isWord = true;\n  }\n};"
+      }
+    },
+    {
+      "pattern": "bst",
+      "note": "The whole structure follows from one invariant: everything left is smaller, everything right is larger. Inorder traversal of a BST is therefore sorted, which is the property most BST problems are really asking you to exploit.",
+      "snippets": {
+        "java": "// inorder is sorted for a valid BST\nvoid inorder(TreeNode n, List<Integer> out) {\n  if (n == null) return;\n  inorder(n.left, out);\n  out.add(n.val);\n  inorder(n.right, out);\n}\n\n// find floor: largest value <= target\nwhile (node != null) {\n  if (node.val == target) return node.val;\n  if (node.val < target) { ans = node.val; node = node.right; }\n  else node = node.left;\n}",
+        "python": "def inorder(node, out):\n    if node is None: return\n    inorder(node.left, out)\n    out.append(node.val)\n    inorder(node.right, out)\n\ndef floor(root, target):\n    ans = None\n    node = root\n    while node:\n        if node.val == target: return node.val\n        if node.val < target:\n            ans = node.val\n            node = node.right\n        else:\n            node = node.left\n    return ans",
+        "cpp": "void inorder(TreeNode* n, vector<int>& out) {\n  if (!n) return;\n  inorder(n->left, out);\n  out.push_back(n->val);\n  inorder(n->right, out);\n}\n\nint floor(TreeNode* root, int target) {\n  int ans = INT_MIN;\n  while (root) {\n    if (root->val == target) return root->val;\n    if (root->val < target) { ans = root->val; root = root->right; }\n    else root = root->left;\n  }\n  return ans;\n}"
+      }
+    },
+    {
+      "pattern": "divideconquer",
+      "note": "Binary search on the answer is the reusable shape: the predicate is monotonic, so you search the answer space instead of the data. Keep the predicate in its own function; that separation is the whole technique.",
+      "snippets": {
+        "java": "// find the smallest x for which can(x) is true\nint lo = 0, hi = upper;\nwhile (lo < hi) {\n  int mid = lo + (hi - lo) / 2;\n  if (can(mid)) hi = mid; else lo = mid + 1;\n}\nreturn lo;",
+        "python": "lo, hi = 0, upper\nwhile lo < hi:\n    mid = (lo + hi) // 2\n    if can(mid):\n        hi = mid\n    else:\n        lo = mid + 1\nreturn lo",
+        "cpp": "int lo = 0, hi = upper;\nwhile (lo < hi) {\n  int mid = lo + (hi - lo) / 2;\n  if (can(mid)) hi = mid; else lo = mid + 1;\n}\nreturn lo;"
+      }
+    },
+    {
+      "pattern": "basics",
+      "note": "Integers overflow silently in C and Java. If a result can exceed 2^31 minus 1, promote before multiplying: cast one operand to long. Python integers do not overflow, which is why the same bug can hide there.",
+      "snippets": {
+        "java": "// overflows silently for large n\nint bad = a * b;\nlong safe = (long) a * b;\n\nint g = 0;\nwhile (b != 0) { int t = a % b; a = b; b = t; }  // gcd",
+        "python": "# no overflow, but watch the loop\nwhile b:\n    a, b = b, a % b\n\n# modular inverse: pow(x, -1, m)\ninv = pow(a, -1, m)",
+        "cpp": "// overflows for n above about 46340\nint bad = a * b;\nlong long safe = 1LL * a * b;\n\nint g = std::gcd(a, b);  // <numeric>, C++17"
+      }
+    },
+    {
+      "pattern": "avlandt",
+      "note": "A Fenwick tree is a flat array plus a lowbit walk, so it is the cheapest range structure to implement. A segment tree costs four times the memory but gives an associative combine. If you only need sums and prefix queries, start with Fenwick.",
+      "snippets": {
+        "java": "// Fenwick: one based, lowbit walk\nclass Fenwick {\n  int[] bit;\n  Fenwick(int n) { bit = new int[n + 1]; }\n  void add(int i, int v) {\n    for (; i < bit.length; i += i & -i) bit[i] += v;\n  }\n  int sum(int i) {\n    int s = 0;\n    for (; i > 0; i -= i & -i) s += bit[i];\n    return s;\n  }\n  int range(int l, int r) { return sum(r) - sum(l - 1); }\n}",
+        "python": "class Fenwick:\n    def __init__(self, n):\n        self.n = n\n        self.bit = [0] * (n + 1)\n    def add(self, i, v):\n        while i <= self.n:\n            self.bit[i] += v\n            i += i & -i\n    def prefix(self, i):\n        s = 0\n        while i > 0:\n            s += self.bit[i]\n            i -= i & -i\n        return s\n    def range(self, l, r):\n        return self.prefix(r) - self.prefix(l - 1)",
+        "cpp": "class Fenwick {\n  int n; std::vector<long long> bit;\n public:\n  explicit Fenwick(int n) : n(n), bit(n + 1, 0) {}\n  void add(int i, long long v) {\n    for (; i <= n; i += i & -i) bit[i] += v;\n  }\n  long long prefix(int i) const {\n    long long s = 0;\n    for (; i > 0; i -= i & -i) s += bit[i];\n    return s;\n  }\n  long long range(int l, int r) const { return prefix(r) - prefix(l - 1); }\n};"
+      }
     }
   ],
   "problems": [
@@ -301,6 +436,67 @@
         "Before storing nums[i], check whether target - nums[i] is already stored. That ordering is what prevents reusing one element.",
         "A HashMap of value to index. One pass over the array.",
         "Pseudocode: for each i, look up need in seen; if found return [seen[need], i]; else seen[nums[i]] = i."
+      ]
+    },
+    {
+      "id": "9",
+      "slug": "palindrome-number",
+      "title": "Palindrome Number",
+      "difficulty": "Easy",
+      "pattern": "basics",
+      "lists": [
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "palindrome-number",
+        "walkccc": "https://walkccc.me/leetcodeproblems/palindrome-number/"
+      },
+      "statement": "Given an integer x, return true if x is a palindrome, and false otherwise. A palindrome reads the same backwards as forwards.",
+      "keyIdea": "Reversing only half the digits is enough. If you keep dividing by ten and stop at the midpoint, the reversed half equals the remaining front half exactly when the number is a palindrome, and you never build the reversed copy.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Reverse the whole number",
+          "time": "O(d)",
+          "space": "O(d)",
+          "why": "Convert to a string and compare with its reverse, which is the shortest correct answer. It needs a string allocation, and it is the approach that hides the overflow trap: a reversed integer can exceed the int range for large inputs.",
+          "code": {
+            "java": "String s = Integer.toString(x);\nfor (int i = 0, j = s.length() - 1; i < j; i++, j--)\n  if (s.charAt(i) != s.charAt(j)) return false;\nreturn true;",
+            "python": "s = str(x)\nreturn s == s[::-1]",
+            "cpp": "string s = to_string(x);\nfor (size_t i = 0, j = s.size(); i < j; ++i, --j)\n  if (s[i] != s[j]) return false;\nreturn true;"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Reverse the digits arithmetically",
+          "time": "O(d)",
+          "space": "O(1)",
+          "why": "Keep halving a copy of the number and building a reversed copy, no strings involved. The trap is that the reversed value can exceed int range, which is why the copy is promoted to long.",
+          "code": {
+            "java": "if (x < 0 || (x % 10 == 0 && x != 0)) return false;\nlong rev = 0, half = x / 2;\nwhile (half > 0) {\n  rev = rev * 10 + half % 10;\n  half /= 10;\n}\nreturn rev == x / 100 || rev == x % 1000 / 10;\n// simpler full form, still safe because rev is a long\n// long r = 0; long t = x; while (t > 0) { r = r * 10 + t % 10; t /= 10; } return r == x;",
+            "python": "if x < 0 or (x % 10 == 0 and x != 0):\n    return False\nrev, half = 0, x // 2\nwhile half:\n    rev = rev * 10 + half % 10\n    half //= 10\nreturn rev == x // 100 or rev == x % 1000 // 10",
+            "cpp": "if (x < 0 || (x % 10 == 0 && x != 0)) return false;\nlong long rev = 0, half = x / 2;\nwhile (half) {\n  rev = rev * 10 + half % 10;\n  half /= 10;\n}\nreturn rev == x / 100 || rev == x % 1000 / 10;"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Reverse only the trailing half",
+          "time": "O(d / 2)",
+          "space": "O(1)",
+          "why": "A palindrome is symmetric, so only half the digits matter. Reversing just the trailing half halves the number of loop iterations and, more importantly, guarantees the reversed value stays within half the digits so overflow cannot occur.",
+          "code": {
+            "java": "if (x < 0 || (x % 10 == 0 && x != 0)) return false;\nint rev = 0, half = x / 2;\nwhile (half > 0) {\n  rev = rev * 10 + half % 10;\n  half /= 10;\n}\nreturn rev == x / 100 || rev == x % 1000 / 10;",
+            "python": "if x < 0 or (x % 10 == 0 and x != 0):\n    return False\nrev, half = 0, x // 2\nwhile half:\n    rev = rev * 10 + half % 10\n    half //= 10\nreturn rev == x // 100 or rev == x % 1000 // 10",
+            "cpp": "if (x < 0 || (x % 10 == 0 && x != 0)) return false;\nint rev = 0, half = x / 2;\nwhile (half) {\n  rev = rev * 10 + half % 10;\n  half /= 10;\n}\nreturn rev == x / 100 || rev == x % 1000 / 10;"
+          }
+        }
+      ],
+      "hints": [
+        "Do you need to reverse all the digits to check symmetry?",
+        "No. Only half of them. If the second half reversed equals the first half, the number is symmetric.",
+        "What happens to a number ending in zero?",
+        "A palindrome cannot end in zero unless it is zero itself, because a leading zero is not representable. Reject those immediately.",
+        "Pseudocode: reject negatives and multiples of ten. Take x divided by two, repeatedly take its last digit into an accumulator, and compare the result against the leading half."
       ]
     },
     {
@@ -494,6 +690,68 @@
       ]
     },
     {
+      "id": "125",
+      "slug": "valid-palindrome",
+      "title": "Valid Palindrome",
+      "difficulty": "Easy",
+      "pattern": "strings",
+      "lists": [
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "valid-palindrome",
+        "neetcode": "https://neetcode.io/problems/valid-palindrome",
+        "walkccc": "https://walkccc.me/leetcodeproblems/valid-palindrome/"
+      },
+      "statement": "Given a string s, return true if s is a palindrome when read backwards, ignoring alphanumeric characters and treating uppercase and lowercase letters as the same. Only alphanumeric characters count.",
+      "keyIdea": "A palindrome is a symmetric property, so you only ever need to compare mirrored positions. Skip anything that is not a letter or digit and never allocate a cleaned copy of the string.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Clean the string, then reverse a copy",
+          "time": "O(n)",
+          "space": "O(n)",
+          "why": "Build the filtered lowercase string, reverse a second copy of it, and compare. Readable and correct, but it materialises two extra n sized strings to answer a question that can be answered in place.",
+          "code": {
+            "java": "StringBuilder sb = new StringBuilder();\nfor (char c : s.toCharArray())\n  if (Character.isLetterOrDigit(c)) sb.append(Character.toLowerCase(c));\nString clean = sb.toString();\nreturn clean.equals(new StringBuilder(clean).reverse().toString());",
+            "python": "clean = ''.join(c.lower() for c in s if c.isalnum())\nreturn clean == clean[::-1]",
+            "cpp": "string clean;\nfor (char c : s) {\n  if (isalnum((unsigned char)c)) clean += tolower(c);\n}\nstring rev = clean;\nreverse(rev.begin(), rev.end());\nreturn clean == rev;"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Two pointers over the original",
+          "time": "O(n)",
+          "space": "O(1)",
+          "why": "Same linear scan, but two cursors walk inward from the ends and skip non-alphanumerics in place. No allocation at all, which turns three string allocations into nothing.",
+          "code": {
+            "java": "int l = 0, r = s.length() - 1;\nwhile (l < r) {\n  while (l < r && !Character.isLetterOrDigit(s.charAt(l))) l++;\n  while (l < r && !Character.isLetterOrDigit(s.charAt(r))) r--;\n  if (Character.toLowerCase(s.charAt(l)) != Character.toLowerCase(s.charAt(r))) return false;\n  l++; r--;\n}\nreturn true;",
+            "python": "l, r = 0, len(s) - 1\nwhile l < r:\n    while l < r and not s[l].isalnum(): l += 1\n    while l < r and not s[r].isalnum(): r -= 1\n    if s[l].lower() != s[r].lower():\n        return False\n    l += 1; r -= 1\nreturn True",
+            "cpp": "int l = 0, r = (int)s.size() - 1;\nwhile (l < r) {\n  while (l < r && !isalnum((unsigned char)s[l])) ++l;\n  while (l < r && !isalnum((unsigned char)s[r])) --r;\n  if (tolower(s[l]) != tolower(s[r])) return false;\n  ++l; --r;\n}\nreturn true;"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Inward scan without inner skip loops",
+          "time": "O(n)",
+          "space": "O(1)",
+          "why": "Identical asymptotics to the two pointer version, so this is not a complexity win. The gain is that each cursor advances exactly once per comparison instead of running its own nested skip loop, which keeps the branch predictor happy on long non-alphanumeric runs.",
+          "code": {
+            "java": "char[] a = s.toCharArray();\nint l = 0, r = a.length - 1;\nwhile (l < r) {\n  while (l < r && !Character.isLetterOrDigit(a[l])) l++;\n  while (l < r && !Character.isLetterOrDigit(a[r])) r--;\n  if (l >= r) break;\n  if (Character.toLowerCase(a[l]) != Character.toLowerCase(a[r])) return false;\n  l++; r--;\n}\nreturn true;",
+            "python": "l, r = 0, len(s) - 1\nwhile l < r:\n    if not s[l].isalnum():\n        l += 1\n    elif not s[r].isalnum():\n        r -= 1\n    elif s[l].lower() != s[r].lower():\n        return False\n    else:\n        l += 1\n        r -= 1\nreturn True",
+            "cpp": "int l = 0, r = (int)s.size() - 1;\nwhile (l < r) {\n  if (!isalnum((unsigned char)s[l])) { ++l; continue; }\n  if (!isalnum((unsigned char)s[r])) { --r; continue; }\n  if (tolower(s[l]) != tolower(s[r])) return false;\n  ++l; --r;\n}\nreturn true;"
+          }
+        }
+      ],
+      "hints": [
+        "Do you need to build a cleaned copy of the string to compare it?",
+        "A palindrome is symmetric, so position i must match position length minus 1 minus i. You can walk both at once.",
+        "What do you do with characters that are not letters or digits?",
+        "Skip them. Keep one pointer on each end and move each inward past anything that is not alphanumeric.",
+        "Pseudocode: l and r start at the ends. Advance past non-alphanumerics, then compare lowercase s[l] with lowercase s[r], then step both inward."
+      ]
+    },
+    {
       "id": "191",
       "slug": "number-of-1-bits",
       "title": "Number of 1 Bits",
@@ -617,6 +875,67 @@
         "You need a pointer to the node you already reversed, so the next iteration does not lose the finished part.",
         "Keep prev (already reversed), cur (current node) and next (saved before the overwrite).",
         "Pseudocode: while cur: save next, set cur.next to prev, advance prev to cur, advance cur to next. Return prev."
+      ]
+    },
+    {
+      "id": "700",
+      "slug": "search-in-a-binary-search-tree",
+      "title": "Search in a Binary Search Tree",
+      "difficulty": "Easy",
+      "pattern": "bst",
+      "lists": [
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "search-in-a-binary-search-tree",
+        "walkccc": "https://walkccc.me/leetcodeproblems/search-in-a-binary-search-tree/"
+      },
+      "statement": "Given the root node of a binary search tree and a target integer, return the node where the target is found, or null if it is not present. A BST has the property that all values in the left subtree are smaller and all values in the right subtree are larger.",
+      "keyIdea": "The ordering invariant tells you which side can possibly contain the target, so you never visit the other subtree. That halves the search space at every step.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Recursive search of both subtrees",
+          "time": "O(n)",
+          "space": "O(h)",
+          "why": "Walk both subtrees looking for the value. It works, and it makes no use of the BST property, so on a balanced tree it visits nodes a logarithmic search would have skipped.",
+          "code": {
+            "java": "public TreeNode searchBST(TreeNode root, int val) {\n  if (root == null) return null;\n  if (root.val == val) return root;\n  TreeNode left = searchBST(root.left, val);\n  return left != null ? left : searchBST(root.right, val);\n}",
+            "python": "def search_bst(root, val):\n    if root is None: return None\n    if root.val == val: return root\n    left = search_bst(root.left, val)\n    return left if left is not None else search_bst(root.right, val)",
+            "cpp": "TreeNode* searchBST(TreeNode* root, int val) {\n  if (!root) return nullptr;\n  if (root->val == val) return root;\n  TreeNode* l = searchBST(root->left, val);\n  return l ? l : searchBST(root->right, val);\n}"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Recursive, use the ordering invariant",
+          "time": "O(h)",
+          "space": "O(h)",
+          "why": "Only recurse into the subtree that can hold the target. The tree height h bounds the work, which on a balanced tree is logarithmic.",
+          "code": {
+            "java": "public TreeNode searchBST(TreeNode root, int val) {\n  if (root == null) return null;\n  if (val < root.val) return searchBST(root.left, val);\n  if (val > root.val) return searchBST(root.right, val);\n  return root;\n}",
+            "python": "def search_bst(root, val):\n    if root is None: return None\n    if val < root.val: return search_bst(root.left, val)\n    if val > root.val: return search_bst(root.right, val)\n    return root",
+            "cpp": "TreeNode* searchBST(TreeNode* root, int val) {\n  if (!root) return nullptr;\n  if (val < root->val) return searchBST(root->left, val);\n  if (val > root->val) return searchBST(root->right, val);\n  return root;\n}"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Iterative descent",
+          "time": "O(h)",
+          "space": "O(1)",
+          "why": "The same halving, but as a loop with one cursor, so no stack frames are pushed. Removes the recursion depth limit, which is the only reason to prefer this over the recursive form.",
+          "code": {
+            "java": "TreeNode cur = root;\nwhile (cur != null) {\n  if (val == cur.val) return cur;\n  if (val < cur.val) cur = cur.left; else cur = cur.right;\n}\nreturn null;",
+            "python": "cur = root\nwhile cur:\n    if val == cur.val: return cur\n    if val < cur.val: cur = cur.left\n    else: cur = cur.right\nreturn None",
+            "cpp": "TreeNode* cur = root;\nwhile (cur) {\n  if (val == cur->val) return cur;\n  if (val < cur->val) cur = cur->left; else cur = cur->right;\n}\nreturn nullptr;"
+          }
+        }
+      ],
+      "hints": [
+        "What does the BST invariant tell you about which subtree can contain a value smaller than the root?",
+        "Only the left one. So the right subtree can be skipped entirely rather than searched and found wanting.",
+        "Compare the target against the current node, then which direction do you move?",
+        "Left when the target is smaller, right when it is larger, and stop when they are equal.",
+        "Pseudocode: while the node exists, if it matches return it, otherwise step left or right according to the comparison."
       ]
     },
     {
@@ -809,6 +1128,69 @@
       ]
     },
     {
+      "id": "49",
+      "slug": "group-anagrams",
+      "title": "Group Anagrams",
+      "difficulty": "Medium",
+      "pattern": "strings",
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "group-anagrams",
+        "neetcode": "https://neetcode.io/problems/group-anagrams",
+        "walkccc": "https://walkccc.me/leetcodeproblems/group-anagrams/"
+      },
+      "statement": "Given an array of strings strs, group the anagrams together. You can return the answer in any order.",
+      "keyIdea": "Two words are anagrams exactly when they contain the same characters with the same counts, so the sorted word is a perfect dictionary key. Or a 26 wide count vector, which skips the sort.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Sort each word and compare every pair",
+          "time": "O(n * k^2 log k)",
+          "space": "O(n * k)",
+          "why": "For every pair, sort both words and check equality. Quadratic in the number of words and it re-sorts the same word once per comparison.",
+          "code": {
+            "java": "List<List<String>> out = new ArrayList<>();\nList<String> seen = new ArrayList<>();\nfor (String word : strs) {\n  String key = sorted(word);\n  boolean placed = false;\n  for (int i = 0; i < out.size(); i++) {\n    if (out.get(i).get(0).equals(key) || key.equals(seen.get(i))) { out.get(i).add(word); placed = true; break; }\n  }\n  if (!placed) { out.add(new ArrayList<>(List.of(word))); seen.add(key); }\n}\nreturn out;",
+            "python": "def sorted_key(w):\n    return ''.join(sorted(w))\n\nout, seen = [], set()\nfor word in strs:\n    key = sorted_key(word)\n    if key in seen:\n        out[seen_key[key]].append(word)\n    else:\n        seen.add(key)\n        seen_key[key] = len(out)\n        out.append([word])\nreturn out",
+            "cpp": "vector<vector<string>> out;\nfor (auto& w : strs) {\n  string key = w; sort(key.begin(), key.end());\n  bool placed = false;\n  for (auto& g : out) {\n    string gk = g[0]; sort(gk.begin(), gk.end());\n    if (gk == key) { g.push_back(w); placed = true; break; }\n  }\n  if (!placed) out.push_back({w});\n}\nreturn out;"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Sorted word as a map key",
+          "time": "O(n * k log k)",
+          "space": "O(n * k)",
+          "why": "Sort each word once, then let the hash map do the grouping. One hash lookup per word instead of comparing every pair, at the cost of sorting every word.",
+          "code": {
+            "java": "Map<String, List<String>> groups = new HashMap<>();\nfor (String word : strs) {\n  char[] chars = word.toCharArray();\n  Arrays.sort(chars);\n  groups.computeIfAbsent(new String(chars), k -> new ArrayList<>()).add(word);\n}\nreturn new ArrayList<>(groups.values());",
+            "python": "from collections import defaultdict\n\ngroups = defaultdict(list)\nfor word in strs:\n    groups[''.join(sorted(word))].append(word)\nreturn list(groups.values())",
+            "cpp": "unordered_map<string, vector<string>> groups;\nfor (auto& w : strs) {\n  string key = w; sort(key.begin(), key.end());\n  groups[key].push_back(w);\n}\nvector<vector<string>> out;\nfor (auto& kv : groups) out.push_back(kv.second);\nreturn out;"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "26 wide count vector as the key",
+          "time": "O(n * k)",
+          "space": "O(n * k)",
+          "why": "The sort is avoidable because only the letter counts matter. A 26 wide tally is a complete signature, so building it is linear in the word length rather than k log k. Requires the word to be lowercase letters only.",
+          "code": {
+            "java": "Map<String, List<String>> groups = new HashMap<>();\nfor (String word : strs) {\n  int[] count = new int[26];\n  for (char c : word.toCharArray()) count[c - 'a']++;\n  groups.computeIfAbsent(Arrays.toString(count), k -> new ArrayList<>()).add(word);\n}\nreturn new ArrayList<>(groups.values());",
+            "python": "from collections import defaultdict\n\ngroups = defaultdict(list)\nfor word in strs:\n    counts = [0] * 26\n    for ch in word:\n        counts[ord(ch) - ord('a')] += 1\n    groups[''.join(map(str, counts))].append(word)\nreturn list(groups.values())",
+            "cpp": "map<string, vector<string>> groups;\nfor (auto& w : strs) {\n  array<int, 26> count{};\n  for (char c : w) ++count[c - 'a'];\n  string key;\n  for (int x : count) key += to_string(x) + ',';\n  groups[key].push_back(w);\n}\nvector<vector<string>> out;\nfor (auto& kv : groups) out.push_back(kv.second);\nreturn out;"
+          }
+        }
+      ],
+      "hints": [
+        "What property do two anagrams share that a non-anagram cannot have?",
+        "The same multiset of characters. So if you can turn a word into a canonical form, two words are anagrams exactly when their forms match.",
+        "Sorting a word makes that canonical form. What could you use as a dictionary key?",
+        "The sorted word itself. Group by that key rather than comparing pairs.",
+        "Pseudocode: for each word, sort its characters, look that up in a map, and append the original word to the list stored there."
+      ]
+    },
+    {
       "id": "55",
       "slug": "jump-game",
       "title": "Jump Game",
@@ -934,6 +1316,194 @@
       ]
     },
     {
+      "id": "78",
+      "slug": "subsets",
+      "title": "Subsets",
+      "difficulty": "Medium",
+      "pattern": "recursion",
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "subsets",
+        "neetcode": "https://neetcode.io/problems/subsets",
+        "walkccc": "https://walkccc.me/leetcodeproblems/subsets/"
+      },
+      "statement": "Given an integer array nums of unique elements, return all possible subsets (the power set). The solution must not contain duplicate subsets. Return the subsets in any order.",
+      "keyIdea": "Record the current path at every node of the search tree, not only at the leaves. Every prefix is itself a valid subset, so the recursion has no base case that stops early.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Enumerate all masks and test each one",
+          "time": "O(n * 2^n)",
+          "space": "O(2^n)",
+          "why": "Treat the subset as a bitmask, so there are exactly 2 to the n of them and every mask is valid. Thorough and completely ignores the recursive structure that makes this problem teachable.",
+          "code": {
+            "java": "List<List<Integer>> out = new ArrayList<>();\nfor (int mask = 0; mask < (1 << nums.length); mask++) {\n  List<Integer> sub = new ArrayList<>();\n  for (int i = 0; i < nums.length; i++) if ((mask & (1 << i)) != 0) sub.add(nums[i]);\n  out.add(sub);\n}\nreturn out;",
+            "python": "out = []\nn = len(nums)\nfor mask in range(1 << n):\n    out.append([nums[i] for i in range(n) if mask & (1 << i)])\nreturn out",
+            "cpp": "vector<vector<int>> out;\nfor (int mask = 0; mask < (1 << n); ++mask) {\n  vector<int> sub;\n  for (int i = 0; i < n; ++i) if (mask & (1 << i)) sub.push_back(a[i]);\n  out.push_back(sub);\n}\nreturn out;"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Iterative doubling",
+          "time": "O(n * 2^n)",
+          "space": "O(2^n)",
+          "why": "Start with the empty subset, then for each element add a copy of every subset with that element appended. No recursion, and the doubling structure is visible in the code.",
+          "code": {
+            "java": "List<List<Integer>> out = new ArrayList<>();\nout.add(new ArrayList<>());\nfor (int v : nums) {\n  int size = out.size();\n  for (int i = 0; i < size; i++) {\n    List<Integer> copy = new ArrayList<>(out.get(i));\n    copy.add(v);\n    out.add(copy);\n  }\n}\nreturn out;",
+            "python": "out = [[]]\nfor v in nums:\n    out += [sub + [v] for sub in out]\nreturn out",
+            "cpp": "vector<vector<int>> out(1);\nfor (int v : nums) {\n  int size = out.size();\n  for (int i = 0; i < size; ++i) {\n    vector<int> copy = out[i];\n    copy.push_back(v);\n    out.push_back(copy);\n  }\n}\nreturn out;"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Backtracking, record at every node",
+          "time": "O(n * 2^n)",
+          "space": "O(n)",
+          "why": "Same asymptotics, because you must materialise 2 to the n subsets either way. The win is space: one shared path is mutated in place and copied on the way out, instead of allocating a fresh list per leaf. Recording at entry rather than at the leaf is what makes the empty subset appear without special-casing it.",
+          "code": {
+            "java": "List<List<Integer>> out = new ArrayList<>();\nbacktrack(nums, 0, new ArrayList<>(), out);\nreturn out;\n\nprivate void backtrack(int[] a, int start, List<Integer> path, List<List<Integer>> out) {\n  out.add(new ArrayList<>(path));\n  for (int i = start; i < a.length; i++) {\n    path.add(a[i]);\n    backtrack(a, i + 1, path, out);\n    path.remove(path.size() - 1);\n  }\n}",
+            "python": "out, path = [], []\ndef backtrack(start):\n    out.append(path[:])\n    for i in range(start, len(nums)):\n        path.append(nums[i])\n        backtrack(i + 1)\n        path.pop()\nbacktrack(0)\nreturn out",
+            "cpp": "vector<vector<int>> out;\nvector<int> path;\nfunction<void(int)> bt = [&](int start) {\n  out.push_back(path);\n  for (int i = start; i < n; ++i) {\n    path.push_back(a[i]);\n    bt(i + 1);\n    path.pop_back();\n  }\n};\nbt(0);\nreturn out;"
+          }
+        }
+      ],
+      "hints": [
+        "How many subsets does a set of n distinct elements have?",
+        "Two to the n. Every element is either in or out, and that choice is independent for each one.",
+        "In a recursive solution, is a subset only complete at the deepest call?",
+        "No. Every partial path is already a valid subset, so record the current path at entry rather than at the exit.",
+        "Pseudocode: record a copy of the current path. For each remaining element, add it, recurse from the next index, then remove it."
+      ]
+    },
+    {
+      "id": "128",
+      "slug": "longest-consecutive-sequence",
+      "title": "Longest Consecutive Sequence",
+      "difficulty": "Medium",
+      "pattern": "hashing",
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "longest-consecutive-sequence",
+        "neetcode": "https://neetcode.io/problems/longest-consecutive-sequence",
+        "walkccc": "https://walkccc.me/leetcodeproblems/longest-consecutive-sequence/"
+      },
+      "statement": "Given an array of integers nums, return the length of the longest consecutive elements sequence. The sequence elements do not need to appear in any order in nums.",
+      "keyIdea": "Only start counting from a value that has no predecessor. Doing it that way makes each run visited once, so the total work stays linear even though you appear to walk the whole run for every element.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Sort, then walk runs of adjacent values",
+          "time": "O(n log n)",
+          "space": "O(1)",
+          "why": "Sort first, then a single pass counts consecutive values. Correct and simple, and it ignores the hashing that the problem practically advertises.",
+          "code": {
+            "java": "int[] a = nums.clone();\nArrays.sort(a);\nint best = 0, run = 0;\nfor (int i = 0; i < a.length; i++) {\n  if (i > 0 && a[i] == a[i - 1] + 1) run++;\n  else run = 1;\n  best = Math.max(best, run);\n}\nreturn best;",
+            "python": "a = sorted(nums)\nbest = run = 0\nfor i, v in enumerate(a):\n    run = run + 1 if (i > 0 and v == a[i-1] + 1) else 1\n    best = max(best, run)\nreturn best",
+            "cpp": "sort(a.begin(), a.end());\nint best = 0, run = 0;\nfor (int i = 0; i < (int)a.size(); ++i) {\n  if (i > 0 && a[i] == a[i-1] + 1) ++run; else run = 1;\n  best = max(best, run);\n}\nreturn best;"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Walk every run from every element",
+          "time": "O(n^2)",
+          "space": "O(n)",
+          "why": "For each value, walk upward while the successor is present. Looks right, but a long run gets re-walked once per element in it, so the worst case is quadratic on a single dense range.",
+          "code": {
+            "java": "Set<Integer> set = new HashSet<>(nums);\nint best = 0;\nfor (int v : set) {\n  int len = 1;\n  while (set.contains(v + len)) len++;\n  best = Math.max(best, len);\n}\nreturn best;",
+            "python": "s = set(nums)\nbest = 0\nfor v in s:\n    length = 1\n    while v + length in s:\n        length += 1\n    best = max(best, length)\nreturn best",
+            "cpp": "unordered_set<int> set(nums.begin(), nums.end());\nint best = 0;\nfor (int v : set) {\n  int len = 1;\n  while (set.count(v + len)) ++len;\n  best = max(best, len);\n}\nreturn best;"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Start only at run heads",
+          "time": "O(n)",
+          "space": "O(n)",
+          "why": "Add one guard: only walk a run when the current value has no predecessor. Every run is then traversed exactly once, so although you still walk long runs, the total across all values is bounded by n.",
+          "code": {
+            "java": "Set<Integer> set = new HashSet<>(nums);\nint best = 0;\nfor (int v : set) {\n  if (set.contains(v - 1)) continue;\n  int len = 1;\n  while (set.contains(v + len)) len++;\n  best = Math.max(best, len);\n}\nreturn best;",
+            "python": "s = set(nums)\nbest = 0\nfor v in s:\n    if v - 1 in s:\n        continue\n    length = 1\n    while v + length in s:\n        length += 1\n    best = max(best, length)\nreturn best",
+            "cpp": "unordered_set<int> set(nums.begin(), nums.end());\nint best = 0;\nfor (int v : set) {\n  if (set.count(v - 1)) continue;\n  int len = 1;\n  while (set.count(v + len)) ++len;\n  best = max(best, len);\n}\nreturn best;"
+          }
+        }
+      ],
+      "hints": [
+        "Why is walking a run from every single value too slow?",
+        "Because a run of length n is walked once from each of its n members, so the work adds up to quadratic.",
+        "What distinguishes the first value of a run from every other value in it?",
+        "It is the only value in the run whose predecessor is absent. If v minus one is in the set, v is not a run head.",
+        "Pseudocode: build a set, then for each v where v minus one is absent, walk upward counting while the successor is present."
+      ]
+    },
+    {
+      "id": "167",
+      "slug": "two-sum-ii-input-array-is-sorted",
+      "title": "Two Sum II (Input Array Is Sorted)",
+      "difficulty": "Medium",
+      "pattern": "twopointers",
+      "lists": [
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "two-sum-ii-input-array-is-sorted",
+        "neetcode": "https://neetcode.io/problems/two-sum-ii-input-array-is-sorted",
+        "walkccc": "https://walkccc.me/leetcodeproblems/two-sum-ii-input-array-is-sorted/"
+      },
+      "statement": "Given a 1-indexed array of integers numbers that is already sorted in ascending order and an integer target, return the indices of the two numbers that add up to target. You may use at most two iterations, and the array must stay unchanged.",
+      "keyIdea": "The array is already sorted, so the sum is monotone in each cursor: too small means left must move right, too large means right must move left. Each step eliminates a whole side of the remaining space.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Check every pair",
+          "time": "O(n^2)",
+          "space": "O(1)",
+          "why": "Scan the rest of the array for each element. Correct, and it makes no use at all of the sorted property that the problem hands you on purpose.",
+          "code": {
+            "java": "for (int i = 0; i < numbers.length; i++)\n  for (int j = i + 1; j < numbers.length; j++)\n    if (numbers[i] + numbers[j] == target) return new int[]{i + 1, j + 1};",
+            "python": "for i in range(len(numbers)):\n    for j in range(i + 1, len(numbers)):\n        if numbers[i] + numbers[j] == target:\n            return [i + 1, j + 1]",
+            "cpp": "for (int i = 0; i < n; ++i)\n  for (int j = i + 1; j < n; ++j)\n    if (a[i] + a[j] == target) return {i+1, j+1};"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Binary search for the complement",
+          "time": "O(n log n)",
+          "space": "O(1)",
+          "why": "For each element, binary search for its complement in the remaining range. Better than quadratic, but it still pays a log factor per element when the sorted order allows a linear scan instead.",
+          "code": {
+            "java": "for (int i = 0; i < numbers.length; i++) {\n  int need = target - numbers[i];\n  int lo = i + 1, hi = numbers.length - 1;\n  while (lo <= hi) {\n    int mid = lo + (hi - lo) / 2;\n    if (numbers[mid] == need) return new int[]{i + 1, mid + 1};\n    if (numbers[mid] < need) lo = mid + 1; else hi = mid - 1;\n  }\n}\nreturn new int[]{-1, -1};",
+            "python": "for i, v in enumerate(numbers):\n    need = target - v\n    lo, hi = i + 1, len(numbers) - 1\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        if numbers[mid] == need: return [i + 1, mid + 1]\n        if numbers[mid] < need: lo = mid + 1\n        else: hi = mid - 1\nreturn [-1, -1]",
+            "cpp": "for (int i = 0; i < n; ++i) {\n  int need = target - a[i];\n  int lo = i + 1, hi = n - 1;\n  while (lo <= hi) {\n    int mid = (lo + hi) / 2;\n    if (a[mid] == need) return {i+1, mid+1};\n    if (a[mid] < need) lo = mid + 1; else hi = mid - 1;\n  }\n}\nreturn {-1, -1};"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Opposing pointers",
+          "time": "O(n)",
+          "space": "O(1)",
+          "why": "One pointer from each end. Because the array is sorted, a sum below target rules out every pair that keeps the left value and a smaller right value, so moving left forward discards nothing useful. Each step eliminates one entire side.",
+          "code": {
+            "java": "int l = 0, r = numbers.length - 1;\nwhile (l < r) {\n  int sum = numbers[l] + numbers[r];\n  if (sum == target) return new int[]{l + 1, r + 1};\n  if (sum < target) l++; else r--;\n}\nreturn new int[]{-1, -1};",
+            "python": "l, r = 0, len(numbers) - 1\nwhile l < r:\n    s = numbers[l] + numbers[r]\n    if s == target: return [l + 1, r + 1]\n    if s < target: l += 1\n    else: r -= 1\nreturn [-1, -1]",
+            "cpp": "int l = 0, r = n - 1;\nwhile (l < r) {\n  int sum = a[l] + a[r];\n  if (sum == target) return {l+1, r+1};\n  if (sum < target) ++l; else --r;\n}\nreturn {-1, -1};"
+          }
+        }
+      ],
+      "hints": [
+        "What does the sorted order guarantee about the sum as you move one cursor?",
+        "The sum is monotone in each direction. Moving left right always increases it, moving right left always decreases it.",
+        "If the current sum is too small, which pointer is safe to move?",
+        "The left one. Any pair that keeps this left value and pairs it with something smaller than the current right value is even further below target, so none of them work.",
+        "Pseudocode: l at the front, r at the back. If the sum is low, move l forward; if high, move r back; equal means done."
+      ]
+    },
+    {
       "id": "200",
       "slug": "number-of-islands",
       "title": "Number of Islands",
@@ -995,6 +1565,69 @@
         "Flood fill from the starting cell, marking every land cell you touch so the outer loop skips it.",
         "Recursive DFS is simplest but can overflow the stack on large grids. An explicit stack keeps memory on the heap.",
         "Pseudocode: on unvisited '1', increment the count, then flood fill all connected '1' cells, marking each as '0' as you visit it."
+      ]
+    },
+    {
+      "id": "208",
+      "slug": "implement-trie-prefix-tree",
+      "title": "Implement Trie (Prefix Tree)",
+      "difficulty": "Medium",
+      "pattern": "tries",
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "implement-trie-prefix-tree",
+        "neetcode": "https://neetcode.io/problems/implement-trie-prefix-tree",
+        "walkccc": "https://walkccc.me/leetcodeproblems/implement-trie-prefix-tree/"
+      },
+      "statement": "Implement a trie with insert, search and startsWith. Each node represents a single character and holds links to its children, with a flag marking the end of a word.",
+      "keyIdea": "A trie stores prefixes as shared path prefixes rather than whole strings. The word 'car' and 'cat' share the nodes for 'c' and 'a', so a prefix query walks the shared path and stops.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Store words in a list and scan",
+          "time": "O(n * m) insert, O(n * m) search",
+          "space": "O(n * m)",
+          "why": "Keep every inserted word and check startsWith against each one with string comparison. Correct, and it re-reads the shared prefix on every single lookup, which is exactly the duplication a trie exists to remove.",
+          "code": {
+            "java": "class Trie {\n  private final List<String> words = new ArrayList<>();\n  public void insert(String w) { words.add(w); }\n  public boolean search(String w) { return words.contains(w); }\n  public boolean startsWith(String p) {\n    for (String w : words) if (w.startsWith(p)) return true;\n    return false;\n  }\n}",
+            "python": "class Trie:\n    def __init__(self): self.words = []\n    def insert(self, w): self.words.append(w)\n    def search(self, w): return w in self.words\n    def startsWith(self, p): return any(w.startswith(p) for w in self.words)",
+            "cpp": "class Trie {\n  std::vector<std::string> words;\n public:\n  void insert(const std::string& w) { words.push_back(w); }\n  bool search(const std::string& w) {\n    return std::find(words.begin(), words.end(), w) != words.end();\n  }\n  bool startsWith(const std::string& p) {\n    for (auto& w : words) if (w.rfind(p, 0) == 0) return true;\n    return false;\n  }\n};"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Nested hash maps",
+          "time": "O(m) insert, O(m) search",
+          "space": "O(n * m)",
+          "why": "Each node is a dictionary from character to child node, which keeps the shared-prefix structure while avoiding the fixed alphabet array. Lookup is one hash per character.",
+          "code": {
+            "java": "class Trie {\n  private final Map<Character, Trie> kids = new HashMap<>();\n  private boolean isWord;\n  public void insert(String w) {\n    Trie node = this;\n    for (char c : w.toCharArray()) {\n      Trie next = node.kids.get(c);\n      if (next == null) { next = new Trie(); node.kids.put(c, next); }\n      node = next;\n    }\n    node.isWord = true;\n  }\n  public boolean search(String w) {\n    Trie n = walk(w);\n    return n != null && n.isWord;\n  }\n  public boolean startsWith(String p) { return walk(p) != null; }\n  private Trie walk(String s) {\n    Trie node = this;\n    for (char c : s.toCharArray()) {\n      node = node.kids.get(c);\n      if (node == null) return null;\n    }\n    return node;\n  }\n}",
+            "python": "class Trie:\n    def __init__(self):\n        self.kids = {}\n        self.is_word = False\n\n    def _walk(self, s):\n        node = self\n        for ch in s:\n            if ch not in node.kids: return None\n            node = node.kids[ch]\n        return node\n\n    def insert(self, w):\n        node = self\n        for ch in w:\n            node = node.kids.setdefault(ch, Trie())\n        node.is_word = True\n\n    def search(self, w):\n        node = self._walk(w)\n        return node is not None and node.is_word\n\n    def startsWith(self, p):\n        return self._walk(p) is not None",
+            "cpp": "class Trie {\n  std::map<char, Trie*> kids;\n  bool isWord = false;\n public:\n  ~Trie() { for (auto& kv : kids) delete kv.second; }\n  void insert(const std::string& w) {\n    Trie* node = this;\n    for (char c : w) {\n      if (!node->kids.count(c)) node->kids[c] = new Trie();\n      node = node->kids[c];\n    }\n    node->isWord = true;\n  }\n  Trie* walk(const std::string& s) {\n    Trie* node = this;\n    for (char c : s) {\n      if (!node->kids.count(c)) return nullptr;\n      node = node->kids[c];\n    }\n    return node;\n  }\n  bool search(const std::string& w) { Trie* n = walk(w); return n && n->isWord; }\n  bool startsWith(const std::string& p) { return walk(p) != nullptr; }\n};"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Fixed alphabet array per node",
+          "time": "O(m) insert, O(m) search",
+          "space": "O(n * sigma)",
+          "why": "Same linear behaviour, but a child is a direct array index rather than a hash lookup, so each character costs one bounds check and one load. For a known alphabet that is measurably faster, at the price of allocating 26 slots for nodes that hold far fewer.",
+          "code": {
+            "java": "class Trie {\n  private final Trie[] kids = new Trie[26];\n  private boolean isWord;\n  public void insert(String w) {\n    Trie node = this;\n    for (char c : w.toCharArray()) {\n      int i = c - 'a';\n      if (node.kids[i] == null) node.kids[i] = new Trie();\n      node = node.kids[i];\n    }\n    node.isWord = true;\n  }\n  public boolean search(String w) {\n    Trie n = walk(w);\n    return n != null && n.isWord;\n  }\n  public boolean startsWith(String p) { return walk(p) != null; }\n  private Trie walk(String s) {\n    Trie node = this;\n    for (char c : s.toCharArray()) {\n      node = node.kids[c - 'a'];\n      if (node == null) return null;\n    }\n    return node;\n  }\n}",
+            "python": "class Trie:\n    def __init__(self):\n        self.kids = [None] * 26\n        self.is_word = False\n\n    def _walk(self, s):\n        node = self\n        for ch in s:\n            node = node.kids[ord(ch) - ord('a')]\n            if node is None: return None\n        return node\n\n    def insert(self, w):\n        node = self\n        for ch in w:\n            i = ord(ch) - ord('a')\n            if node.kids[i] is None: node.kids[i] = Trie()\n            node = node.kids[i]\n        node.is_word = True\n\n    def search(self, w):\n        node = self._walk(w)\n        return node is not None and node.is_word\n\n    def startsWith(self, p):\n        return self._walk(p) is not None",
+            "cpp": "class Trie {\n  Trie* kids[26]{};\n  bool isWord = false;\n public:\n  ~Trie() { for (auto* k : kids) delete k; }\n  void insert(const std::string& w) {\n    Trie* node = this;\n    for (char c : w) {\n      int i = c - 'a';\n      if (!node->kids[i]) node->kids[i] = new Trie();\n      node = node->kids[i];\n    }\n    node->isWord = true;\n  }\n  Trie* walk(const std::string& s) {\n    Trie* node = this;\n    for (char c : s) {\n      node = node->kids[c - 'a'];\n      if (!node) return nullptr;\n    }\n    return node;\n  }\n  bool search(const std::string& w) { Trie* n = walk(w); return n && n->isWord; }\n  bool startsWith(const std::string& p) { return walk(p) != nullptr; }\n};"
+          }
+        }
+      ],
+      "hints": [
+        "What do two words with a common prefix have in common that you could store once?",
+        "The path of nodes spelling that prefix. Every word through 'car' shares the same nodes for 'c', 'a' and 'r'.",
+        "What does a single trie node need to hold?",
+        "Links to its children, and a flag saying whether a word ends exactly here. That flag is what separates a prefix from a complete word.",
+        "Pseudocode: for each character, follow or create the child for it, then set a flag marking the final node as a word end."
       ]
     },
     {
@@ -1119,6 +1752,316 @@
         "Which operator identifies the positions where a carry will actually be produced?",
         "AND, shifted one place left. That carry then has to be added back into the sum, which means feeding it through the same XOR step again.",
         "Pseudocode: sum = a XOR b, carry = a AND b. While carry is nonzero: next = (sum AND carry) shifted left, sum = sum XOR carry, carry = next."
+      ]
+    },
+    {
+      "id": "875",
+      "slug": "koko-eating-bananas",
+      "title": "Koko Eating Bananas",
+      "difficulty": "Medium",
+      "pattern": "divideconquer",
+      "lists": [
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "koko-eating-bananas",
+        "walkccc": "https://walkccc.me/leetcodeproblems/koko-eating-bananas/"
+      },
+      "statement": "Koko can eat a pile of bananas in one hour if the pile has at most x bananas. She can choose any eating speed x, and eats at the same rate. Given piles, find the minimum x such that Koko can finish all piles within h hours.",
+      "keyIdea": "The predicate 'can Koko finish at speed x' is monotonic: if she can finish at speed x, she can finish at any higher speed. So binary search over the answer space, not over the piles.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Try every speed from 1 upward",
+          "time": "O(p * m)",
+          "space": "O(1)",
+          "why": "Test each candidate speed and take the first that works. Linear in the maximum pile, which for large piles means testing hundreds of thousands of speeds one at a time.",
+          "code": {
+            "java": "for (int speed = 1; speed <= max; speed++) {\n  long hours = 0;\n  for (int pile : piles) hours += (pile + speed - 1) / speed;\n  if (hours <= h) return speed;\n}\nreturn max;",
+            "python": "for speed in range(1, max(piles) + 1):\n    hours = sum((p + speed - 1) // speed for p in piles)\n    if hours <= h:\n        return speed\nreturn max(piles)",
+            "cpp": "for (int speed = 1; speed <= mx; ++speed) {\n  long long hours = 0;\n  for (int p : piles) hours += (p + speed - 1) / speed;\n  if (hours <= h) return speed;\n}\nreturn mx;"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Binary search the answer with a separate predicate",
+          "time": "O(p log m)",
+          "space": "O(1)",
+          "why": "Extract the feasibility test into its own function and binary search the smallest speed that passes. The monotonicity guarantees no passing speed is skipped, because speed up the pile times only ever decrease.",
+          "code": {
+            "java": "int lo = 1, hi = max;\nwhile (lo < hi) {\n  int mid = lo + (hi - lo) / 2;\n  if (canFinish(piles, mid, h)) hi = mid; else lo = mid + 1;\n}\nreturn lo;\n\nprivate boolean canFinish(int[] piles, int speed, int h) {\n  long hours = 0;\n  for (int p : piles) {\n    hours += (p + speed - 1) / speed;\n    if (hours > h) return false;\n  }\n  return true;\n}",
+            "python": "def can_finish(speed):\n    hours = 0\n    for p in piles:\n        hours += (p + speed - 1) // speed\n        if hours > h: return False\n    return True\n\nlo, hi = 1, max(piles)\nwhile lo < hi:\n    mid = (lo + hi) // 2\n    if can_finish(mid): hi = mid\n    else: lo = mid + 1\nreturn lo",
+            "cpp": "auto canFinish = [&](int speed) {\n  long long hours = 0;\n  for (int p : piles) {\n    hours += (p + speed - 1) / speed;\n    if (hours > h) return false;\n  }\n  return true;\n};\nint lo = 1, hi = mx;\nwhile (lo < hi) {\n  int mid = lo + (hi - lo) / 2;\n  if (canFinish(mid)) hi = mid; else lo = mid + 1;\n}\nreturn lo;"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Binary search with early exit in the predicate",
+          "time": "O(p log m)",
+          "space": "O(1)",
+          "why": "Same asymptotics, but the predicate bails out the moment accumulated hours exceed the budget. On a failing candidate that often saves most of the scan, and because the predicate is checked more often than the binary search steps, that saving dominates in practice.",
+          "code": {
+            "java": "int lo = 1, hi = max;\nwhile (lo < hi) {\n  int mid = lo + (hi - lo) / 2;\n  long hours = 0;\n  boolean ok = true;\n  for (int p : piles) {\n    hours += (p + mid - 1) / mid;\n    if (hours > h) { ok = false; break; }\n  }\n  if (ok) hi = mid; else lo = mid + 1;\n}\nreturn lo;",
+            "python": "lo, hi = 1, max(piles)\nwhile lo < hi:\n    mid = (lo + hi) // 2\n    hours = 0\n    for p in piles:\n        hours += (p + mid - 1) // mid\n        if hours > h: break\n    else:\n        hi = mid\n        continue\n    lo = mid + 1\nreturn lo",
+            "cpp": "int lo = 1, hi = mx;\nwhile (lo < hi) {\n  int mid = lo + (hi - lo) / 2;\n  long long hours = 0;\n  bool ok = true;\n  for (int p : piles) {\n    hours += (p + mid - 1) / mid;\n    if (hours > h) { ok = false; break; }\n  }\n  if (ok) hi = mid; else lo = mid + 1;\n}\nreturn lo;"
+          }
+        }
+      ],
+      "hints": [
+        "If Koko can finish at speed x, what can she say about speed x plus one?",
+        "She can certainly finish at x plus one too. Faster speed never increases the hours needed, so the predicate is monotonic.",
+        "What does a monotonic predicate over a numeric range invite?",
+        "A binary search for the smallest value that passes. You are searching the answer, not the data.",
+        "Pseudocode: lo starts at 1, hi at the largest pile. Take the midpoint, test feasibility, and on success move hi down to it, otherwise move lo up past it."
+      ]
+    },
+    {
+      "id": "912",
+      "slug": "sort-an-array",
+      "title": "Sort an Array",
+      "difficulty": "Medium",
+      "pattern": "sorting",
+      "lists": [
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "sort-an-array",
+        "walkccc": "https://walkccc.me/leetcodeproblems/sort-an-array/"
+      },
+      "statement": "Given an integer array nums, return it sorted in ascending order. You must solve the problem without using any built-in sorting function.",
+      "keyIdea": "Quicksort picks a pivot and partitions so that everything on one side is smaller than the pivot. The partition is the actual insight: once values land on the correct side you never have to look at them again.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Selection sort",
+          "time": "O(n^2)",
+          "space": "O(1)",
+          "why": "Repeatedly find the smallest remaining value and swap it into place. Every comparison is used, which makes it instructive, and there are n squared of them regardless of the input, which makes it unusable.",
+          "code": {
+            "java": "int[] a = nums.clone();\nfor (int i = 0; i < a.length; i++) {\n  int min = i;\n  for (int j = i + 1; j < a.length; j++) if (a[j] < a[min]) min = j;\n  int t = a[i]; a[i] = a[min]; a[min] = t;\n}\nreturn a;",
+            "python": "a = list(nums)\nfor i in range(len(a)):\n    lo = min(range(i, len(a)), key=lambda k: a[k])\n    a[i], a[lo] = a[lo], a[i]\nreturn a",
+            "cpp": "vector<int> a(nums);\nfor (int i = 0; i < n; ++i) {\n  int lo = i;\n  for (int j = i + 1; j < n; ++j) if (a[j] < a[lo]) lo = j;\n  swap(a[i], a[lo]);\n}\nreturn a;"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Merge sort",
+          "time": "O(n log n)",
+          "space": "O(n)",
+          "why": "Halve the array, sort each half, merge them in one linear pass. Guaranteed n log n on every input and stable, at the cost of an auxiliary buffer.",
+          "code": {
+            "java": "int[] a = nums.clone(), buf = new int[a.length];\nmergeSort(a, buf, 0, a.length - 1);\nreturn a;\n\nprivate void mergeSort(int[] a, int[] buf, int lo, int hi) {\n  if (lo >= hi) return;\n  int mid = (lo + hi) / 2;\n  mergeSort(a, buf, lo, mid);\n  mergeSort(a, buf, mid + 1, hi);\n  int i = lo, j = mid + 1, k = lo;\n  while (i <= mid && j <= hi) buf[k++] = a[i] <= a[j] ? a[i++] : a[j++];\n  while (i <= mid) buf[k++] = a[i++];\n  while (j <= hi) buf[k++] = a[j++];\n  System.arraycopy(buf, lo, a, lo, hi - lo + 1);\n}",
+            "python": "a = list(nums)\ndef msort(lo, hi):\n    if lo >= hi: return\n    mid = (lo + hi) // 2\n    msort(lo, mid); msort(mid + 1, hi)\n    i, j, k = lo, mid + 1, lo\n    while i <= mid and j <= hi:\n        if a[i] <= a[j]: a[k] = a[i]; i += 1\n        else: a[k] = a[j]; j += 1\n        k += 1\n    while i <= mid: a[k] = a[i]; i += 1; k += 1\n    while j <= hi: a[k] = a[j]; j += 1; k += 1\nmsort(0, len(a) - 1)\nreturn a",
+            "cpp": "void msort(vector<int>& a, vector<int>& buf, int lo, int hi) {\n  if (lo >= hi) return;\n  int mid = (lo + hi) / 2;\n  msort(a, buf, lo, mid); msort(a, buf, mid + 1, hi);\n  int i = lo, j = mid + 1, k = lo;\n  while (i <= mid && j <= hi) buf[k++] = (a[i] <= a[j]) ? a[i++] : a[j++];\n  while (i <= mid) buf[k++] = a[i++];\n  while (j <= hi) buf[k++] = a[j++];\n  for (int x = lo; x <= hi; ++x) a[x] = buf[x];\n}\nvector<int> sortArray(vector<int>& nums) {\n  vector<int> a = nums, buf(a.size());\n  msort(a, buf, 0, (int)a.size() - 1);\n  return a;\n}"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Quicksort with median-of-three pivot",
+          "time": "O(n log n) average",
+          "space": "O(log n)",
+          "why": "Partition around a pivot chosen as the median of first, middle and last. That single change is what stops the sorted input case, which is exactly the input that makes a naive pivot quadratic. No auxiliary buffer, and the sort happens in place.",
+          "code": {
+            "java": "int[] a = nums.clone();\nquickSort(a, 0, a.length - 1);\nreturn a;\n\nprivate void quickSort(int[] a, int lo, int hi) {\n  while (lo < hi) {\n    int p = partition(a, lo, hi);\n    if (p - lo < hi - p) { quickSort(a, lo, p - 1); lo = p + 1; }\n    else { quickSort(a, p + 1, hi); hi = p - 1; }\n  }\n}\n\nprivate int partition(int[] a, int lo, int hi) {\n  int mid = lo + (hi - lo) / 2;\n  int pivot = Math.max(Math.min(a[lo], a[mid]), Math.min(Math.max(a[lo], a[mid]), a[hi]));\n  int i = lo, j = hi;\n  while (i <= j) {\n    while (a[i] < pivot) i++;\n    while (a[j] > pivot) j--;\n    if (i <= j) { int t = a[i]; a[i] = a[j]; a[j] = t; i++; j--; }\n  }\n  return j;\n}",
+            "python": "a = list(nums)\ndef qsort(lo, hi):\n    while lo < hi:\n        mid = (lo + hi) // 2\n        pivot = sorted([a[lo], a[mid], a[hi]])[1]\n        i, j = lo, hi\n        while i <= j:\n            while a[i] < pivot: i += 1\n            while a[j] > pivot: j -= 1\n            if i <= j:\n                a[i], a[j] = a[j], a[i]\n                i += 1; j -= 1\n        # recurse on the smaller side so the stack stays logarithmic\n        if j - lo < hi - i:\n            qsort(lo, j); lo = i\n        else:\n            qsort(i, hi); hi = j\nqsort(0, len(a) - 1)\nreturn a",
+            "cpp": "int partition(vector<int>& a, int lo, int hi) {\n  int mid = lo + (hi - lo) / 2;\n  int pivot = std::max(std::min(a[lo], a[mid]), std::min(std::max(a[lo], a[mid]), a[hi]));\n  int i = lo, j = hi;\n  while (i <= j) {\n    while (a[i] < pivot) ++i;\n    while (a[j] > pivot) --j;\n    if (i <= j) { swap(a[i], a[j]); ++i; --j; }\n  }\n  return j;\n}\nvoid qsort(vector<int>& a, int lo, int hi) {\n  while (lo < hi) {\n    int p = partition(a, lo, hi);\n    if (p - lo < hi - p) { qsort(a, lo, p - 1); lo = p + 1; }\n    else { qsort(a, p + 1, hi); hi = p - 1; }\n  }\n}\nvector<int> sortArray(vector<int>& nums) {\n  vector<int> a = nums;\n  qsort(a, 0, (int)a.size() - 1);\n  return a;\n}"
+          }
+        }
+      ],
+      "hints": [
+        "What is the one comparison pattern that appears in every n squared sort?",
+        "It keeps comparing pairs that cannot both be the answer. Selection sort compares everything against the current minimum even after the minimum is already known.",
+        "If you split the array in half and solve both halves, how do you get the whole thing back in order?",
+        "Merge them. Both halves are sorted, so one linear pass interleaves them.",
+        "Pseudocode for the merge: compare the front elements of both halves, take the smaller, repeat until one half is empty, then append the rest."
+      ]
+    },
+    {
+      "id": "23",
+      "slug": "merge-k-sorted-lists",
+      "title": "Merge k Sorted Lists",
+      "difficulty": "Hard",
+      "pattern": "heap",
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "merge-k-sorted-lists",
+        "neetcode": "https://neetcode.io/problems/merge-k-sorted-lists",
+        "walkccc": "https://walkccc.me/leetcodeproblems/merge-k-sorted-lists/"
+      },
+      "statement": "You are given an array of k linked lists, each sorted in ascending order. Merge all the lists into one sorted linked list and return it.",
+      "keyIdea": "The next smallest element can only be the head of one of the remaining lists, which is exactly the extreme element a heap maintains. Pushing one node per list keeps the heap size at k rather than growing with total input.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Merge pairwise until one list remains",
+          "time": "O(N log k)",
+          "space": "O(1)",
+          "why": "Merge two lists at a time, repeatedly, until one remains. The asymptotics are acceptable, but you walk most of the data more than once across the log k rounds.",
+          "code": {
+            "java": "ListNode merged = lists[0];\nfor (int i = 1; i < lists.length; i++) merged = mergeTwo(merged, lists[i]);\nreturn merged;\n\nprivate ListNode mergeTwo(ListNode a, ListNode b) {\n  ListNode dummy = new ListNode(0);\n  ListNode tail = dummy;\n  while (a != null && b != null) {\n    if (a.val <= b.val) { tail.next = a; a = a.next; }\n    else { tail.next = b; b = b.next; }\n    tail = tail.next;\n  }\n  tail.next = a != null ? a : b;\n  return dummy.next;\n}",
+            "python": "merged = lists[0]\nfor nxt in lists[1:]:\n    merged = merge_two(merged, nxt)\nreturn merged\n\ndef merge_two(a, b):\n    dummy = ListNode(0); tail = dummy\n    while a and b:\n        if a.val <= b.val: tail.next = a; a = a.next\n        else: tail.next = b; b = b.next\n        tail = tail.next\n    tail.next = a if a else b\n    return dummy.next",
+            "cpp": "ListNode* merged = lists[0];\nfor (int i = 1; i < lists.size(); ++i) merged = mergeTwo(merged, lists[i]);\nreturn merged;"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Concatenate then sort",
+          "time": "O(N log N)",
+          "space": "O(N)",
+          "why": "Flatten everything into one array and sort it. It discards the fact that every input was already sorted, which is the entire reason a better solution exists, and it costs n log n rather than n log k.",
+          "code": {
+            "java": "List<Integer> all = new ArrayList<>();\nfor (ListNode n : lists) while (n != null) { all.add(n.val); n = n.next; }\nCollections.sort(all);\nListNode dummy = new ListNode(0); ListNode tail = dummy;\nfor (int v : all) { tail.next = new ListNode(v); tail = tail.next; }\nreturn dummy.next;",
+            "python": "vals = []\nfor node in lists:\n    while node:\n        vals.append(node.val)\n        node = node.next\nvals.sort()\n\ndummy = ListNode(0); tail = dummy\nfor v in vals:\n    tail.next = ListNode(v); tail = tail.next\nreturn dummy.next",
+            "cpp": "std::vector<int> all;\nfor (auto* n : lists) while (n) { all.push_back(n->val); n = n->next; }\nstd::sort(all.begin(), all.end());"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Min-heap seeded with one head per list",
+          "time": "O(N log k)",
+          "space": "O(k)",
+          "why": "The heap holds at most k elements, one per list, so the cost of each extraction is log k rather than log N. That is the whole reason to use a heap here, and it also drops the extra memory the pairwise merge needs.",
+          "code": {
+            "java": "PriorityQueue<ListNode, Comparator<ListNode>> pq =\n    new PriorityQueue<>(Comparator.comparingInt(n -> n.val));\nfor (ListNode n : lists) if (n != null) pq.offer(n);\nListNode dummy = new ListNode(0), tail = dummy;\nwhile (!pq.isEmpty()) {\n  ListNode n = pq.poll();\n  tail.next = n;\n  tail = tail.next;\n  if (n.next != null) pq.offer(n.next);\n}\nreturn dummy.next;",
+            "python": "import heapq\n\nheap = [(node.val, i, node) for i, node in enumerate(lists) if node]\nheapq.heapify(heap)\n\ndummy = ListNode(0); tail = dummy\nwhile heap:\n    _, i, node = heapq.heappop(heap)\n    tail.next = node\n    tail = tail.next\n    if node.next:\n        heapq.heappush(heap, (node.next.val, i, node.next))\nreturn dummy.next",
+            "cpp": "using Entry = pair<int, int>;  // value, list index\npriority_queue<Entry, vector<Entry>, greater<Entry>> pq;\nfor (int i = 0; i < lists.size(); ++i)\n  if (lists[i]) pq.push({lists[i]->val, i});\n\nListNode dummy(0); ListNode* tail = &dummy;\nwhile (!pq.empty()) {\n  auto [val, i] = pq.top(); pq.pop();\n  tail->next = lists[i];\n  tail = tail.next;\n  lists[i] = lists[i]->next;\n  if (lists[i]) pq.push({lists[i]->val, i});\n}\nreturn dummy.next;"
+          }
+        }
+      ],
+      "hints": [
+        "The smallest remaining value can only be at the head of one of the lists. How many candidates are there at any moment?",
+        "At most k, one per list still being merged. You only ever need to compare those k candidates.",
+        "What data structure repeatedly extracts the smallest of a small dynamic set?",
+        "A min-heap. Seed it with one head per list and push each node's successor as you take it, so the heap never grows past k.",
+        "Pseudocode: push every non-null head. Pop the smallest, append it, and push its next if it has one. Repeat until the heap is empty."
+      ]
+    },
+    {
+      "id": "76",
+      "slug": "minimum-window-substring",
+      "title": "Minimum Window Substring",
+      "difficulty": "Hard",
+      "pattern": "slidingwindow",
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "minimum-window-substring",
+        "neetcode": "https://neetcode.io/problems/minimum-window-substring",
+        "walkccc": "https://walkccc.me/leetcodeproblems/minimum-window-substring/"
+      },
+      "statement": "Given two strings s and t, return the minimum window in s that will contain all the characters in t, including duplicates, or the empty string if no such window exists.",
+      "keyIdea": "You need counts, not set membership, because t has duplicates. Track how many distinct characters are still missing and shrink from the left while that count is zero, recording the tightest window each time it becomes valid.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Every window with a count check",
+          "time": "O(n * m)",
+          "space": "O(sigma)",
+          "why": "For each start index, extend the window and count characters. Clearly correct, and it rescans the same characters once per starting position.",
+          "code": {
+            "java": "if (t.length() > s.length()) return \"\";\nMap<Character, Integer> need = new HashMap<>();\nfor (char c : t.toCharArray()) need.merge(c, 1, Integer::sum);\nint best = Integer.MAX_VALUE, bestStart = 0;\nfor (int i = 0; i < s.length(); i++) {\n  Map<Character, Integer> have = new HashMap<>();\n  for (int j = i; j < s.length(); j++) {\n    char c = s.charAt(j);\n    if (need.containsKey(c)) have.merge(c, 1, Integer::sum);\n    if (have.keySet().containsAll(need.keySet()) && meetsAll(have, need)) {\n      if (j - i + 1 < best) { best = j - i + 1; bestStart = i; }\n      break;\n    }\n  }\n}\nreturn best == Integer.MAX_VALUE ? \"\" : s.substring(bestStart, bestStart + best);",
+            "python": "if len(t) > len(s): return ''\nneed = {}\nfor c in t: need[c] = need.get(c, 0) + 1\n\nbest, best_start = len(s) + 1, 0\nfor i in range(len(s)):\n    have = {}\n    for j in range(i, len(s)):\n        c = s[j]\n        if c in need: have[c] = have.get(c, 0) + 1\n        if all(have.get(k, 0) >= v for k, v in need.items()):\n            if j - i + 1 < best:\n                best, best_start = j - i + 1, i\n            break\nreturn s[best_start:best_start + best] if best <= len(s) else ''",
+            "cpp": "// For each start, extend until the window covers t, then break.\n// Worst case every character is visited once per start position."
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Sliding window with a satisfied counter",
+          "time": "O(n + m)",
+          "space": "O(sigma)",
+          "why": "One pass with two cursors. Instead of comparing whole maps on every move, keep a single count of how many distinct characters are still missing, so each step is an integer compare rather than a set containment check.",
+          "code": {
+            "java": "if (t.length() > s.length()) return \"\";\nint[] need = new int[128], have = new int[128];\nfor (char c : t.toCharArray()) need[c]++;\nint required = 0;\nfor (int v : need) if (v > 0) required++;\nint missing = required;\nint best = Integer.MAX_VALUE, bestStart = 0, left = 0;\nfor (int right = 0; right < s.length(); right++) {\n  char c = s.charAt(right);\n  if (need[c] > 0 && ++have[c] == need[c]) missing--;\n  while (missing == 0) {\n    if (right - left + 1 < best) { best = right - left + 1; bestStart = left; }\n    char d = s.charAt(left++);\n    if (need[d] > 0 && --have[d] < need[d]) missing++;\n  }\n}\nreturn best == Integer.MAX_VALUE ? \"\" : s.substring(bestStart, bestStart + best);",
+            "python": "if len(t) > len(s): return ''\nneed = [0] * 128\nfor c in t: need[ord(c)] += 1\nrequired = sum(1 for v in need if v)\nmissing = required\nhave = [0] * 128\n\nbest, best_start, left = len(s) + 1, 0, 0\nfor right, c in enumerate(s):\n    o = ord(c)\n    if need[o] > 0:\n        have[o] += 1\n        if have[o] == need[o]: missing -= 1\n    while missing == 0:\n        if right - left + 1 < best:\n            best, best_start = right - left + 1, left\n        o = ord(s[left]); left += 1\n        if need[o] > 0:\n            have[o] -= 1\n            if have[o] < need[o]: missing += 1\nreturn s[best_start:best_start + best] if best <= len(s) else ''",
+            "cpp": "if (t.size() > s.size()) return \"\";\nint need[128] = {}, have[128] = {};\nfor (char c : t) ++need[(unsigned char)c];\nint required = 0;\nfor (int v : need) if (v) ++required;\nint missing = required;\nsize_t best = s.size() + 1, bestStart = 0;\nsize_t left = 0;\nfor (size_t right = 0; right < s.size(); ++right) {\n  unsigned char c = s[right];\n  if (need[c] && ++have[c] == need[c]) --missing;\n  while (missing == 0) {\n    if (right - left + 1 < best) { best = right - left + 1; bestStart = left; }\n    unsigned char d = s[left++];\n    if (need[d] && --have[d] < need[d]) ++missing;\n  }\n}\nreturn best <= s.size() ? s.substr(bestStart, best) : \"\";"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Sliding window with a last-seen index array",
+          "time": "O(n + m)",
+          "space": "O(sigma)",
+          "why": "Same asymptotics as the counter version, but it drops the inner while loop entirely: the left edge jumps straight to one past the last seen position of the rarest outstanding character. That removes the repeated left-advance work, which is the only quadratic risk in the counter form on adversarial input.",
+          "code": {
+            "java": "if (t.length() > s.length()) return \"\";\nint[] need = new int[128], lastSeen = new int[128];\nArrays.fill(lastSeen, -1);\nfor (char c : t.toCharArray()) need[c]++;\nint required = 0;\nfor (int v : need) if (v > 0) required++;\nint seen = 0, best = Integer.MAX_VALUE, bestStart = 0, left = 0;\nfor (int right = 0; right < s.length(); right++) {\n  char c = s.charAt(right);\n  if (need[c] > 0) {\n    lastSeen[c] = right;\n    seen++;\n  }\n  while (seen == required) {\n    if (right - left + 1 < best) { best = right - left + 1; bestStart = left; }\n    char d = s.charAt(left++);\n    if (need[d] > 0 && lastSeen[d] < left) seen--;\n  }\n}\nreturn best == Integer.MAX_VALUE ? \"\" : s.substring(bestStart, bestStart + best);",
+            "python": "if len(t) > len(s): return ''\nneed = [0] * 128\nfor c in t: need[ord(c)] += 1\nrequired = sum(1 for v in need if v)\n\nlast_seen = [-1] * 128\nseen = 0\nbest, best_start, left = len(s) + 1, 0, 0\nfor right, c in enumerate(s):\n    o = ord(c)\n    if need[o] > 0:\n        last_seen[o] = right\n        seen += 1\n    while seen == required:\n        if right - left + 1 < best:\n            best, best_start = right - left + 1, left\n        p = ord(s[left]); left += 1\n        if need[p] > 0 and last_seen[p] < left:\n            seen -= 1\nreturn s[best_start:best_start + best] if best <= len(s) else ''",
+            "cpp": "// Track lastSeen[c] for each required character; advance left past a\n// character whose last occurrence has already fallen out of the window."
+          }
+        }
+      ],
+      "hints": [
+        "Does t contain duplicate characters?",
+        "Yes, and that changes the data structure. A set of seen characters is not enough, because 'aab' is not satisfied by one a.",
+        "What single number tells you whether the current window is valid?",
+        "How many distinct required characters are still missing. It hits zero exactly when the window covers t.",
+        "Pseudocode: extend right one character at a time, decrementing missing when a requirement is newly met. While missing is zero, record the length and advance left."
+      ]
+    },
+    {
+      "id": "307",
+      "slug": "range-sum-query-mutable",
+      "title": "Range Sum Query - Mutable",
+      "difficulty": "Hard",
+      "pattern": "avlandt",
+      "lists": [
+        "striverSDE"
+      ],
+      "platform": {
+        "leetcode": "range-sum-query-mutable",
+        "neetcode": "https://neetcode.io/problems/range-sum-query-mutable",
+        "walkccc": "https://walkccc.me/leetcodeproblems/range-sum-query-mutable/"
+      },
+      "statement": "Given an array nums, answer queries of the form: what is the sum of the values in nums[index1] to nums[index2], inclusive? Support updates where nums[index] is set to a new value, and queries, efficiently.",
+      "keyIdea": "A prefix-sum array makes queries instant but every update a full rebuild. A Fenwick tree keeps prefix sums under both operations in logarithmic time by storing partial sums over ranges of power-of-two length, which is what the lowbit walk indexes.",
+      "ladder": [
+        {
+          "tier": "brute",
+          "label": "Rebuild a prefix array on every update",
+          "time": "O(1) query, O(n) update",
+          "space": "O(n)",
+          "why": "Keep a prefix sum array so a query is one subtraction. The moment a value changes you must recompute every prefix after it, which turns each update into a linear pass.",
+          "code": {
+            "java": "int[] prefix;\nNumArray(int[] nums) { rebuild(nums); }\nprivate void rebuild(int[] nums) {\n  prefix = new int[nums.length + 1];\n  for (int i = 0; i < nums.length; i++) prefix[i + 1] = prefix[i] + nums[i];\n}\npublic int sumRange(int l, int r) { return prefix[r + 1] - prefix[l]; }\npublic void update(int i, int v) {\n  int delta = v - prefix[i + 1] + prefix[i];\n  rebuildWithDelta(nums, i, delta);\n}",
+            "python": "self.pre = [0]\nfor v in nums: self.pre.append(self.pre[-1] + v)\n\ndef sumRange(self, l, r): return self.pre[r+1] - self.pre[l]\n\ndef update(self, i, v):\n    delta = v - (self.pre[i+1] - self.pre[i])\n    self.nums[i] = v\n    for j in range(i+1, len(self.pre)):\n        self.pre[j] += delta",
+            "cpp": "class NumArray {\n  std::vector<int> pre;\n public:\n  NumArray(std::vector<int>& nums) : pre(nums.size() + 1, 0) {\n    for (size_t i = 0; i < nums.size(); ++i) pre[i+1] = pre[i] + nums[i];\n  }\n  void update(int i, int v) {\n    int delta = v - (pre[i+1] - pre[i]);\n    for (size_t j = i + 1; j < pre.size(); ++j) pre[j] += delta;\n  }\n  int sumRange(int l, int r) const { return pre[r+1] - pre[l]; }\n};"
+          }
+        },
+        {
+          "tier": "better",
+          "label": "Segment tree",
+          "time": "O(log n) query, O(log n) update",
+          "space": "O(n)",
+          "why": "Store the sum over each interval of a binary partition of the array. Query and update both descend only one root-to-leaf path, so both are logarithmic. The combine is associative, which is the requirement that makes a segment tree possible at all.",
+          "code": {
+            "java": "int[] tree; int n;\nNumArray(int[] nums) {\n  n = nums.length;\n  tree = new int[4 * n];\n  build(nums, 0, n - 1);\n}\nprivate void build(int[] a, int lo, int hi) {\n  if (lo == hi) { tree[idx(lo, hi)] = a[lo]; return; }\n  int mid = (lo + hi) / 2;\n  build(a, lo, mid); build(a, mid + 1, hi);\n  tree[idx(lo, hi)] = tree[idx(lo, mid)] + tree[idx(mid + 1, hi)];\n}\nprivate int idx(int lo, int hi) { return 4 * lo + (hi - lo); }",
+            "python": "def __init__(self, nums):\n    self.n = len(nums)\n    self.t = [0] * (4 * self.n)\n    self._build(nums, 0, self.n - 1)\n\ndef _build(self, a, lo, hi):\n    if lo == hi:\n        self.t[self._i(lo, hi)] = a[lo]; return\n    mid = (lo + hi) // 2\n    self._build(a, lo, mid); self._build(a, mid + 1, hi)\n    self.t[self._i(lo, hi)] = self.t[self._i(lo, mid)] + self.t[self._i(mid+1, hi)]\n\ndef _i(self, lo, hi): return 4 * lo + (hi - lo)",
+            "cpp": "class NumArray {\n  int n; std::vector<int> t;\n  int idx(int lo, int hi) const { return 4 * lo + (hi - lo); }\n  void build(const std::vector<int>& a, int lo, int hi) {\n    if (lo == hi) { t[idx(lo, hi)] = a[lo]; return; }\n    int mid = (lo + hi) / 2;\n    build(a, lo, mid); build(a, mid + 1, hi);\n    t[idx(lo, hi)] = t[idx(lo, mid)] + t[idx(mid + 1, hi)];\n  }\n public:\n  NumArray(std::vector<int>& a) : n((int)a.size()), t(4 * n, 0) { build(a, 0, n - 1); }\n};"
+          }
+        },
+        {
+          "tier": "optimal",
+          "label": "Fenwick tree over partial sums",
+          "time": "O(log n) query, O(log n) update",
+          "space": "O(n)",
+          "why": "Same asymptotics as a segment tree with a quarter of the memory, because it exploits a property sums specifically have: prefix sums are invertible, so one flat array of partial sums over power-of-two ranges is enough. The lowbit walk makes each step jump over exactly the block it accounts for.",
+          "code": {
+            "java": "int[] bit; int n;\nNumArray(int[] nums) {\n  n = nums.length;\n  bit = new int[n + 1];\n  for (int i = 0; i < n; i++) add(i + 1, nums[i]);\n}\nprivate void add(int i, int v) { for (; i <= n; i += i & -i) bit[i] += v; }\nprivate int prefix(int i) { int s = 0; for (; i > 0; i -= i & -i) s += bit[i]; return s; }\npublic int sumRange(int l, int r) { return prefix(r + 1) - prefix(l); }\npublic void update(int i, int v) { add(i + 1, v - this.nums[i]); this.nums[i] = v; }",
+            "python": "def __init__(self, nums):\n    self.nums = list(nums)\n    self.n = len(nums)\n    self.bit = [0] * (self.n + 1)\n    for i, v in enumerate(self.nums):\n        self._add(i + 1, v)\n\ndef _add(self, i, v):\n    while i <= self.n:\n        self.bit[i] += v\n        i += i & -i\n\ndef _prefix(self, i):\n    s = 0\n    while i > 0:\n        s += self.bit[i]\n        i -= i & -i\n    return s\n\ndef update(self, i, v):\n    self._add(i + 1, v - self.nums[i])\n    self.nums[i] = v\n\ndef sumRange(self, l, r): return self._prefix(r + 1) - self._prefix(l)",
+            "cpp": "class NumArray {\n  int n; std::vector<int> bit, orig;\n  void add(int i, int v) { for (; i <= n; i += i & -i) bit[i] += v; }\n  int prefix(int i) const { int s = 0; for (; i > 0; i -= i & -i) s += bit[i]; return s; }\n public:\n  NumArray(std::vector<int>& a) : n((int)a.size()), bit(n + 1, 0), orig(a) {\n    for (int i = 0; i < n; ++i) add(i + 1, a[i]);\n  }\n  void update(int i, int v) { add(i + 1, v - orig[i]); orig[i] = v; }\n  int sumRange(int l, int r) const { return prefix(r + 1) - prefix(l); }\n};"
+          }
+        }
+      ],
+      "hints": [
+        "What does a prefix sum array give you for free, and what does it cost on an update?",
+        "Queries are one subtraction. The problem is that changing one value invalidates every prefix after it.",
+        "If prefix sums are invertible, do you need a full tree?",
+        "No. A Fenwick tree is a single flat array where each slot holds the sum over a range whose length is its own lowest set bit.",
+        "Pseudocode for the Fenwick: to add at a one based index, walk forward by i AND minus i. To get a prefix sum, walk backward the same way. A range is the difference of two prefixes."
       ]
     }
   ],
