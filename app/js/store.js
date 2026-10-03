@@ -161,7 +161,10 @@ export function stats() {
   return {
     tracked: cards.length,
     due: cards.filter((c) => isDue(c, new Date())).length,
-    frozen: cards.filter((c) => c.frozen).length,
+    /* Named for the product, not the scheduler. The UI calls it mastered, and a
+       key that reads differently in the store and on screen is how a typo turns
+       into an "undefined" on a user's dashboard. */
+    mastered: cards.filter((c) => c.frozen).length,
     reps: cards.reduce((n, c) => n + (c.reps || 0), 0),
   };
 }

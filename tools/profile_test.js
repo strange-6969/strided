@@ -133,6 +133,28 @@ const note = (ok, msg) => {
   const stillRenders = await page.$$eval('[data-set-lang]', (els) => els.length);
   note(stillRenders === 3, `profile still renders after repair (${stillRenders} options)`);
 
+  // ---------- nothing renders as undefined ----------
+  // A stats key renamed in one file and not the other produced a literal
+  // "undefined" in a dashboard figure. Assert on rendered text, not on the
+  // store, because the store can be correct while the template is not.
+  await page.click('[data-nav="profile"]');
+  await page.waitForTimeout(250);
+  const profileText = await page.innerText('body');
+  note(!/undefined|NaN|\[object Object\]/.test(profileText),
+    `profile renders no undefined values (${/undefined|NaN|\[object Object\]/.test(profileText) ? 'FOUND' : 'clean'})`);
+
+  const figures = await page.$$eval('.stat .n', (els) => els.map((e) => e.textContent.trim()));
+  note(figures.every((v) => /^\d+$/.test(v)), `every profile figure is a number (${figures.join(', ')})`);
+
+  // and the same sweep across the other numeric views
+  for (const view of ['today', 'progress', 'map', 'catalog']) {
+    await page.click(`[data-nav="${view}"]`);
+    await page.waitForTimeout(220);
+    const txt = await page.innerText('body');
+    const bad = txt.match(/undefined|NaN|\[object Object\]/);
+    note(!bad, `${view} renders no undefined values${bad ? ' (found ' + bad[0] + ')' : ''}`);
+  }
+
   const real = errors.filter((e) => !/favicon/i.test(e));
   note(real.length === 0, `no page errors (${real.length})`);
   real.forEach((e) => console.log('    !', e));

@@ -699,7 +699,7 @@ function viewProgress(s) {
     <div class="statline">
       <div class="stat"><span class="n">${s.xp}</span><span class="k">xp</span></div>
       <div class="stat"><span class="n">${st.due}</span><span class="k">due</span></div>
-      <div class="stat"><span class="n">${st.frozen}</span><span class="k">mastered</span></div>
+      <div class="stat"><span class="n">${st.mastered}</span><span class="k">mastered</span></div>
       <div class="stat"><span class="n">${st.reps}</span><span class="k">reviews</span></div>
     </div>
   </header>
