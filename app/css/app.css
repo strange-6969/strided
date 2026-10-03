@@ -446,7 +446,90 @@ pre::-webkit-scrollbar-thumb:hover { background: #3a423c; }
   to { opacity: 1; transform: translate(-50%, 0); }
 }
 
-/* ---------- mobile ---------- */
+/* ---------- dependency map ---------- */
+.ladder-callout {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  border: 1px solid #2b3626; border-radius: var(--radius);
+  padding: 14px 16px; margin-bottom: 26px; background: #0e120c;
+}
+.ladder-callout .lc-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent-dim);
+}
+.ladder-callout strong { font-size: 15px; font-weight: 700; }
+.ladder-callout .lc-why { font-size: 12.5px; color: var(--text-dim); }
+
+.mapgroups { display: flex; flex-direction: column; }
+.mapgroup { margin-bottom: 30px; }
+.maplist { display: flex; flex-direction: column; gap: 6px; }
+
+/* The connector rail on the left encodes position in the dependency order, so
+   the sequence is visible without reading any numbers. */
+.mapnode {
+  display: grid; grid-template-columns: 46px minmax(0, 1fr) auto;
+  align-items: center; gap: 14px;
+  padding: 13px 15px; text-align: left; width: 100%;
+  border: 1px solid var(--line); border-left: 2px solid var(--line);
+  border-radius: var(--radius); background: var(--surface);
+  transition: border-color 0.14s, background 0.14s, transform 0.1s;
+}
+.mapnode:hover:not(:disabled) {
+  border-color: var(--accent-dim); border-left-color: var(--accent);
+  background: var(--surface-2);
+}
+.mapnode:active:not(:disabled) { transform: translateY(1px); }
+
+.mn-step {
+  font-family: var(--mono); font-size: 17px; font-weight: 700;
+  color: var(--text-faint); text-align: center; line-height: 1;
+}
+.mn-body { min-width: 0; }
+.mn-name { font-size: 14px; font-weight: 500; display: block; }
+.mn-blurb { font-size: 12.5px; color: var(--text-dim); display: block; margin-top: 1px; }
+.mn-needs {
+  font-family: var(--mono); font-size: 10.5px; color: var(--text-faint);
+  display: block; margin-top: 4px;
+}
+.mn-needs.free { color: #4a5a44; }
+
+.mn-right { display: flex; align-items: center; gap: 12px; }
+.mn-state {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-faint);
+}
+.mn-state[data-state='ready'] { color: var(--accent-dim); }
+.mn-state[data-state='unauthored'] { color: #5a4f3d; }
+.mn-state[data-state='active'] { color: var(--accent); }
+.mn-state[data-state='mastered'] { color: var(--accent); }
+.mn-count { font-family: var(--mono); font-size: 11px; color: var(--text-faint); min-width: 46px; text-align: right; }
+
+/* A locked topic is still listed, because hiding the prerequisite is how a
+   learner gets stuck. It reads as available-but-not-yet, not as broken. */
+.mapnode.is-locked { opacity: 0.62; }
+.mapnode.is-locked .mn-step { color: #3c433f; }
+.mapnode.is-locked .mn-needs { color: #6b5a4a; }
+
+/* No authored ladder yet: present in the sheet, deliberately not clickable. */
+.mapnode.is-empty {
+  border-style: dashed; border-left-style: dashed;
+  background: transparent; cursor: not-allowed;
+}
+.mapnode.is-empty .mn-name { color: var(--text-dim); font-weight: 400; }
+.mapnode.is-empty .mn-count { color: #4a5a44; font-size: 10px; }
+.mapnode.is-empty .mn-needs { color: #4a4438; }
+
+.mapnode code {
+  font-family: var(--mono); font-size: 11.5px;
+  background: var(--surface-2); padding: 1px 5px; border-radius: 3px;
+}
+
+@media (max-width: 860px) {
+  .mapnode { grid-template-columns: 34px minmax(0, 1fr); gap: 11px; padding: 12px 12px; }
+  .mn-right { grid-column: 2; justify-content: space-between; }
+  .mn-step { font-size: 14px; }
+  .mn-blurb { font-size: 12px; }
+  .ladder-callout { flex-direction: column; gap: 5px; }
+}
 .mobilenav { display: none; }
 
 @media (max-width: 860px) {

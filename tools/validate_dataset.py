@@ -114,6 +114,58 @@ def main():
         for w in warnings:
             print("  -", w)
 
+    # ---------- dependency spine ----------
+    spine_path = DATA.parent / "spine.json"
+    if not spine_path.exists():
+        errors.append("spine.json is missing, run tools/build_spine.py")
+    else:
+        spine = json.loads(spine_path.read_text())
+        topics = spine["topics"]
+        ids = [x["id"] for x in topics]
+        idset = set(ids)
+
+        if len(ids) != len(idset):
+            errors.append("spine: duplicate topic ids")
+
+        orders = sorted(x["order"] for x in topics)
+        if orders != list(range(len(topics))):
+            errors.append("spine: order values are not a dense sequence, so the graph may be cyclic")
+
+        order_of = {x["id"]: x["order"] for x in topics}
+        for e in spine["edges"]:
+            if e["from"] not in idset or e["to"] not in idset:
+                errors.append(f"spine: dangling edge {e}")
+            elif order_of[e["to"]] <= order_of[e["from"]]:
+                errors.append(
+                    f"spine: {e['to']} is not ordered after its prerequisite {e['from']}"
+                )
+
+        for x in topics:
+            for dep in x["needs"]:
+                if dep not in idset:
+                    errors.append(f"spine: {x['id']} needs unknown topic {dep}")
+
+        # every authored problem must be represented, or the map hides content
+        linked = {l["id"] for l in spine["links"]}
+        authored_ids = {p["id"] for p in problems}
+        for pid in sorted(authored_ids - linked):
+            errors.append(f"spine: authored problem {pid} is not on the spine")
+
+        for l in spine["links"]:
+            if l["topic"] not in idset:
+                errors.append(f"spine: link {l['id']} points at unknown topic {l['topic']}")
+
+        # a link promising three rungs must have three rungs in the source data
+        by_id = {p["id"]: p for p in problems}
+        for l in spine["links"]:
+            p = by_id.get(l["id"])
+            if p and len(p.get("ladder", [])) != 3:
+                errors.append(f"spine: link {l['id']} claims 3 rungs but has {len(p.get('ladder', []))}")
+
+        print(f"spine topics     : {len(topics)}")
+        print(f"spine edges      : {len(spine['edges'])}")
+        print(f"spine links      : {len(spine['links'])}")
+
     if errors:
         print(f"\n{len(errors)} ERROR(S):")
         for e in errors[:40]:

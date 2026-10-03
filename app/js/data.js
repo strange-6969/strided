@@ -6,16 +6,24 @@
 let cache = null;
 let inflight = null;
 
+const SOURCES = [
+  { key: 'problems', url: '/data/problems.json' },
+  { key: 'spine', url: '/data/spine.json' },
+];
+
 export async function loadData() {
   if (cache) return cache;
   if (!inflight) {
-    inflight = fetch('/data/problems.json', { cache: 'no-cache' })
-      .then((r) => {
-        if (!r.ok) throw new Error(`Dataset request failed: ${r.status}`);
-        return r.json();
-      })
-      .then((json) => {
-        cache = json;
+    inflight = Promise.all(
+      SOURCES.map((s) =>
+        fetch(s.url, { cache: 'no-cache' }).then((r) => {
+          if (!r.ok) throw new Error(`${s.key} request failed: ${r.status}`);
+          return r.json();
+        })
+      )
+    )
+      .then(([problems, spine]) => {
+        cache = { problems, spine };
         return cache;
       })
       .catch((err) => {

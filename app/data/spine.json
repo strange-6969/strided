@@ -1,0 +1,624 @@
+{
+  "_meta": {
+    "source": "Striver A2Z DSA sheet structure (takeuforward.org)",
+    "note": "Topic order is a dependency graph: a topic is only listed after every topic it requires. Counts marked publishedTotal are the sheet's own totals. Authored ladders are a curated subset; the Progress view shows authored versus published coverage per topic rather than implying the whole sheet is written up.",
+    "topics": 23,
+    "authoredProblems": 14
+  },
+  "topics": [
+    {
+      "id": "basics",
+      "name": "Learn the Basics",
+      "group": "Foundations",
+      "step": 1,
+      "order": 0,
+      "blurb": "I/O, loops, functions and complexity analysis.",
+      "needs": [],
+      "publishedTotal": 54
+    },
+    {
+      "id": "sorting",
+      "name": "Sorting Techniques",
+      "group": "Foundations",
+      "step": 2,
+      "order": 1,
+      "blurb": "Insertion, selection, bubble, merge and quick sort.",
+      "needs": [
+        "basics"
+      ],
+      "publishedTotal": 7
+    },
+    {
+      "id": "math",
+      "name": "Basics of Maths",
+      "group": "Foundations",
+      "step": 3,
+      "order": 2,
+      "blurb": "Divisors, primes, digit tricks, modular arithmetic.",
+      "needs": [
+        "basics"
+      ],
+      "publishedTotal": null
+    },
+    {
+      "id": "bitmanipulation",
+      "name": "Bit Manipulation",
+      "group": "Foundations",
+      "step": 4,
+      "order": 3,
+      "blurb": "Set bits, masks, XOR tricks, powers of two.",
+      "needs": [
+        "basics",
+        "math"
+      ],
+      "publishedTotal": 18
+    },
+    {
+      "id": "arrays",
+      "name": "Arrays",
+      "group": "Core",
+      "step": 5,
+      "order": 4,
+      "blurb": "Prefix sums, rotation, subarrays, frequency counting.",
+      "needs": [
+        "basics",
+        "sorting"
+      ],
+      "publishedTotal": 40
+    },
+    {
+      "id": "strings",
+      "name": "Strings",
+      "group": "Core",
+      "step": 6,
+      "order": 5,
+      "blurb": "Palindromes, anagrams, parsing, character maths.",
+      "needs": [
+        "arrays"
+      ],
+      "publishedTotal": 15
+    },
+    {
+      "id": "hashing",
+      "name": "Hashing",
+      "group": "Core",
+      "step": 7,
+      "order": 6,
+      "blurb": "Frequency maps and set-based lookups.",
+      "needs": [
+        "arrays"
+      ],
+      "publishedTotal": null
+    },
+    {
+      "id": "twopointers",
+      "name": "Two Pointers",
+      "group": "Core",
+      "step": 8,
+      "order": 7,
+      "blurb": "Opposing cursors over a sorted or paired range.",
+      "needs": [
+        "arrays"
+      ],
+      "publishedTotal": null
+    },
+    {
+      "id": "slidingwindow",
+      "name": "Sliding Window",
+      "group": "Core",
+      "step": 9,
+      "order": 8,
+      "blurb": "Fixed and variable width windows with amortised updates.",
+      "needs": [
+        "arrays",
+        "twopointers"
+      ],
+      "publishedTotal": 12
+    },
+    {
+      "id": "binarysearch",
+      "name": "Binary Search",
+      "group": "Core",
+      "step": 10,
+      "order": 9,
+      "blurb": "Search on a monotone answer, including search space.",
+      "needs": [
+        "sorting",
+        "arrays"
+      ],
+      "publishedTotal": 32
+    },
+    {
+      "id": "linkedlist",
+      "name": "Linked List",
+      "group": "Core",
+      "step": 11,
+      "order": 10,
+      "blurb": "Reversal, cycles, merging, two pointer list tricks.",
+      "needs": [
+        "basics"
+      ],
+      "publishedTotal": 31
+    },
+    {
+      "id": "stack",
+      "name": "Stacks and Queues",
+      "group": "Structures",
+      "step": 12,
+      "order": 11,
+      "blurb": "Next greater, monotonic stack, deques, prefix min.",
+      "needs": [
+        "arrays",
+        "linkedlist"
+      ],
+      "publishedTotal": 30
+    },
+    {
+      "id": "heap",
+      "name": "Heaps / Priority Queue",
+      "group": "Structures",
+      "step": 13,
+      "order": 12,
+      "blurb": "K largest, merge K lists, continuous streams.",
+      "needs": [
+        "arrays"
+      ],
+      "publishedTotal": 17
+    },
+    {
+      "id": "tries",
+      "name": "Tries",
+      "group": "Structures",
+      "step": 14,
+      "order": 13,
+      "blurb": "Prefix search and counting across a key space.",
+      "needs": [
+        "strings",
+        "hashing"
+      ],
+      "publishedTotal": 7
+    },
+    {
+      "id": "recursion",
+      "name": "Recursion and Backtracking",
+      "group": "Recursive",
+      "step": 14,
+      "order": 14,
+      "blurb": "Subsets, combinations, permutations, grid search.",
+      "needs": [
+        "arrays",
+        "strings"
+      ],
+      "publishedTotal": 25
+    },
+    {
+      "id": "trees",
+      "name": "Binary Trees",
+      "group": "Trees",
+      "step": 15,
+      "order": 15,
+      "blurb": "Traversals, BST properties, LCA, serialisation.",
+      "needs": [
+        "linkedlist",
+        "recursion"
+      ],
+      "publishedTotal": 38
+    },
+    {
+      "id": "bst",
+      "name": "Binary Search Trees",
+      "group": "Trees",
+      "step": 16,
+      "order": 16,
+      "blurb": "Inorder ordering, insert, delete, floor and ceil.",
+      "needs": [
+        "binarysearch",
+        "trees"
+      ],
+      "publishedTotal": 16
+    },
+    {
+      "id": "avlandt",
+      "name": "Advanced Trees (AVL, Segment Tree, Fenwick)",
+      "group": "Trees",
+      "step": 17,
+      "order": 17,
+      "blurb": "Self balancing structures and range queries.",
+      "needs": [
+        "bst"
+      ],
+      "publishedTotal": null
+    },
+    {
+      "id": "graphs",
+      "name": "Graphs",
+      "group": "Graphs",
+      "step": 18,
+      "order": 18,
+      "blurb": "Traversal, topological sort, shortest paths, MST.",
+      "needs": [
+        "linkedlist",
+        "stack",
+        "heap"
+      ],
+      "publishedTotal": 53
+    },
+    {
+      "id": "greedy",
+      "name": "Greedy",
+      "group": "Techniques",
+      "step": 19,
+      "order": 19,
+      "blurb": "Interval merging, activity selection, jump game.",
+      "needs": [
+        "sorting",
+        "binarysearch"
+      ],
+      "publishedTotal": 15
+    },
+    {
+      "id": "intervals",
+      "name": "Intervals",
+      "group": "Techniques",
+      "step": 20,
+      "order": 20,
+      "blurb": "Merge, insert and sweep over ranges on a line.",
+      "needs": [
+        "sorting"
+      ],
+      "publishedTotal": null
+    },
+    {
+      "id": "divideconquer",
+      "name": "Divide and Conquer",
+      "group": "Techniques",
+      "step": 21,
+      "order": 21,
+      "blurb": "Binary search on answer, median, inversion count.",
+      "needs": [
+        "sorting",
+        "binarysearch"
+      ],
+      "publishedTotal": null
+    },
+    {
+      "id": "dynamicprogramming",
+      "name": "Dynamic Programming",
+      "group": "Techniques",
+      "step": 22,
+      "order": 22,
+      "blurb": "1D, 2D, grids, subsequences, strings, trees.",
+      "needs": [
+        "arrays",
+        "strings",
+        "recursion",
+        "graphs"
+      ],
+      "publishedTotal": 55
+    }
+  ],
+  "links": [
+    {
+      "id": "1",
+      "topic": "arrays",
+      "title": "Two Sum",
+      "difficulty": "Easy",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "blind75",
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "20",
+      "topic": "stack",
+      "title": "Valid Parentheses",
+      "difficulty": "Easy",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "blind75",
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "70",
+      "topic": "dynamicprogramming",
+      "title": "Climbing Stairs",
+      "difficulty": "Easy",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "104",
+      "topic": "trees",
+      "title": "Maximum Depth of Binary Tree",
+      "difficulty": "Easy",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "blind75"
+      ]
+    },
+    {
+      "id": "191",
+      "topic": "bitmanipulation",
+      "title": "Number of 1 Bits",
+      "difficulty": "Easy",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "blind75"
+      ]
+    },
+    {
+      "id": "206",
+      "topic": "linkedlist",
+      "title": "Reverse Linked List",
+      "difficulty": "Easy",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "blind75"
+      ]
+    },
+    {
+      "id": "3",
+      "topic": "slidingwindow",
+      "title": "Longest Substring Without Repeating Characters",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "blind75"
+      ]
+    },
+    {
+      "id": "33",
+      "topic": "binarysearch",
+      "title": "Search in Rotated Sorted Array",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "blind75"
+      ]
+    },
+    {
+      "id": "46",
+      "topic": "recursion",
+      "title": "Permutations",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "55",
+      "topic": "greedy",
+      "title": "Jump Game",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150"
+      ]
+    },
+    {
+      "id": "56",
+      "topic": "intervals",
+      "title": "Merge Intervals",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "blind75"
+      ]
+    },
+    {
+      "id": "200",
+      "topic": "graphs",
+      "title": "Number of Islands",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150",
+        "blind75",
+        "striverSDE"
+      ]
+    },
+    {
+      "id": "215",
+      "topic": "heap",
+      "title": "Kth Largest Element in an Array",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150"
+      ]
+    },
+    {
+      "id": "371",
+      "topic": "math",
+      "title": "Sum of Two Integers",
+      "difficulty": "Medium",
+      "ladders": 3,
+      "hints": 5,
+      "lists": [
+        "neetcode150"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "basics",
+      "to": "sorting"
+    },
+    {
+      "from": "basics",
+      "to": "math"
+    },
+    {
+      "from": "basics",
+      "to": "bitmanipulation"
+    },
+    {
+      "from": "math",
+      "to": "bitmanipulation"
+    },
+    {
+      "from": "basics",
+      "to": "arrays"
+    },
+    {
+      "from": "sorting",
+      "to": "arrays"
+    },
+    {
+      "from": "arrays",
+      "to": "strings"
+    },
+    {
+      "from": "arrays",
+      "to": "hashing"
+    },
+    {
+      "from": "arrays",
+      "to": "twopointers"
+    },
+    {
+      "from": "arrays",
+      "to": "slidingwindow"
+    },
+    {
+      "from": "twopointers",
+      "to": "slidingwindow"
+    },
+    {
+      "from": "sorting",
+      "to": "binarysearch"
+    },
+    {
+      "from": "arrays",
+      "to": "binarysearch"
+    },
+    {
+      "from": "basics",
+      "to": "linkedlist"
+    },
+    {
+      "from": "arrays",
+      "to": "stack"
+    },
+    {
+      "from": "linkedlist",
+      "to": "stack"
+    },
+    {
+      "from": "arrays",
+      "to": "heap"
+    },
+    {
+      "from": "strings",
+      "to": "tries"
+    },
+    {
+      "from": "hashing",
+      "to": "tries"
+    },
+    {
+      "from": "arrays",
+      "to": "recursion"
+    },
+    {
+      "from": "strings",
+      "to": "recursion"
+    },
+    {
+      "from": "linkedlist",
+      "to": "trees"
+    },
+    {
+      "from": "recursion",
+      "to": "trees"
+    },
+    {
+      "from": "binarysearch",
+      "to": "bst"
+    },
+    {
+      "from": "trees",
+      "to": "bst"
+    },
+    {
+      "from": "bst",
+      "to": "avlandt"
+    },
+    {
+      "from": "linkedlist",
+      "to": "graphs"
+    },
+    {
+      "from": "stack",
+      "to": "graphs"
+    },
+    {
+      "from": "heap",
+      "to": "graphs"
+    },
+    {
+      "from": "sorting",
+      "to": "greedy"
+    },
+    {
+      "from": "binarysearch",
+      "to": "greedy"
+    },
+    {
+      "from": "sorting",
+      "to": "intervals"
+    },
+    {
+      "from": "sorting",
+      "to": "divideconquer"
+    },
+    {
+      "from": "binarysearch",
+      "to": "divideconquer"
+    },
+    {
+      "from": "arrays",
+      "to": "dynamicprogramming"
+    },
+    {
+      "from": "strings",
+      "to": "dynamicprogramming"
+    },
+    {
+      "from": "recursion",
+      "to": "dynamicprogramming"
+    },
+    {
+      "from": "graphs",
+      "to": "dynamicprogramming"
+    }
+  ]
+}

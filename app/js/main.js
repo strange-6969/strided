@@ -5,6 +5,7 @@ import { isDue, dueCount, daysBetween, GRADES, isoDay } from './srs.js';
 const root = document.getElementById('root');
 
 let DATA = null;
+let SPINE = null;
 
 const app = {
   view: 'today',
@@ -78,6 +79,7 @@ function rail(s) {
   const nav = [
     ['today', 'Today', due || null],
     ['learn', 'Learn', null],
+    ['map', 'Map', null],
     ['practice', 'Practice', null],
     ['patterns', 'Patterns', null],
     ['progress', 'Progress', null],
@@ -130,6 +132,7 @@ function mobileNav() {
   const items = [
     ['today', 'Today', '◈'],
     ['learn', 'Learn', '▤'],
+    ['map', 'Map', '⌗'],
     ['practice', 'Practice', '▷'],
     ['patterns', 'Patterns', '◇'],
     ['progress', 'Progress', '◑'],
@@ -146,6 +149,139 @@ function mobileNav() {
       )
       .join('')}
   </nav>`;
+}
+
+/* ---------- dependency map ---------- */
+
+/* A topic is unlocked when every topic it requires has at least one problem
+   reached at least once. "Reached" is deliberately weaker than mastered: the
+   point is to unblock the path, not to demand mastery before you can proceed. */
+function spineStatus() {
+  const cards = getState().cards;
+  const reached = {};
+  for (const t of SPINE.topics) {
+    const links = SPINE.links.filter((l) => l.topic === t.id);
+    const total = links.length;
+    const started = links.filter((l) => cards[l.id] && cards[l.id].reps > 0).length;
+    const mastered = links.filter((l) => cards[l.id] && cards[l.id].frozen).length;
+    reached[t.id] = { total, started, mastered };
+  }
+
+  const unlocked = {};
+  for (const t of SPINE.topics) {
+    unlocked[t.id] = t.needs.every((n) => (reached[n].started || 0) > 0);
+  }
+  // A topic with no prerequisites is always open, and a topic whose problems
+  // have not been authored yet stays visible but is not clickable.
+  for (const t of SPINE.topics) {
+    if (!t.needs.length) unlocked[t.id] = true;
+  }
+  return { reached, unlocked };
+}
+
+function viewMap(s) {
+  if (!SPINE) return '<div class="empty"><h4>Loading the map</h4></div>';
+  const { reached, unlocked } = spineStatus();
+  const byId = Object.fromEntries(SPINE.topics.map((t) => [t.id, t]));
+
+  const authored = SPINE.links.length;
+  const problemsTotal = DATA.problems.length;
+  const reachedCount = SPINE.topics.filter((t) => reached[t.id].started > 0).length;
+  const nextUp = SPINE.topics.find((t) => unlocked[t.id] && reached[t.id].started === 0);
+
+  const groups = [];
+  for (const t of SPINE.topics) {
+    let g = groups.find((x) => x.name === t.group);
+    if (!g) groups.push((g = { name: t.group, items: [] }));
+    g.items.push(t);
+  }
+
+  return `
+  <header class="topbar">
+    <div>
+      <h1>Dependency map</h1>
+      <p>${SPINE.topics.length} topics in prerequisite order. Nothing unlocks until what it needs is reached</p>
+    </div>
+    <div class="statline">
+      <div class="stat"><span class="n">${reachedCount}/${SPINE.topics.length}</span><span class="k">topics reached</span></div>
+      <div class="stat"><span class="n">${authored}</span><span class="k">authored</span></div>
+    </div>
+  </header>
+
+  ${
+    nextUp
+      ? `<div class="ladder-callout">
+          <span class="lc-label">Unlocked next</span>
+          <strong>${esc(nextUp.name)}</strong>
+          <span class="lc-why">${
+            nextUp.needs.length
+              ? `needs ${nextUp.needs.map((n) => esc(byId[n].name)).join(', ')}`
+              : 'no prerequisites'
+          }</span>
+        </div>`
+      : ''
+  }
+
+  <div class="mapgroups">
+    ${groups
+      .map(
+        (g) => `
+      <section class="sec mapgroup">
+        <h3>${esc(g.name)} <span class="hint">${g.items.length} topics</span></h3>
+        <div class="maplist">
+          ${g.items.map((t) => {
+            const r = reached[t.id];
+            const open = unlocked[t.id];
+            const hasLadder = r.total > 0;
+            /* A topic with no authored ladder is not "locked". Locked means a
+               prerequisite is unmet, which is a state the learner can change.
+               "Not written" is a state I have to change, and labelling it
+               locked would blame the map for something it is honestly showing. */
+            const cls = hasLadder ? '' : 'is-empty';
+            const state = !hasLadder
+              ? 'unauthored'
+              : r.mastered > 0
+              ? 'mastered'
+              : r.started > 0
+              ? 'active'
+              : open
+              ? 'ready'
+              : 'locked';
+            return `
+            <button class="mapnode ${cls} ${hasLadder && !open ? 'is-locked' : ''}" data-topic="${t.id}" ${hasLadder ? '' : 'disabled'}>
+              <span class="mn-step">${t.step}</span>
+              <span class="mn-body">
+                <span class="mn-name">${esc(t.name)}</span>
+                <span class="mn-blurb">${esc(t.blurb)}</span>
+                ${
+                  t.needs.length
+                    ? `<span class="mn-needs">needs ${t.needs.map((n) => esc(byId[n].name)).join(', ')}</span>`
+                    : '<span class="mn-needs free">no prerequisites</span>'
+                }
+              </span>
+              <span class="mn-right">
+                <span class="mn-state" data-state="${state}">${state}</span>
+                <span class="mn-count">${
+                  hasLadder ? `${r.started}/${r.total}` : t.publishedTotal ? `0 of ${t.publishedTotal} on the sheet` : 'no published count'
+                }</span>
+              </span>
+            </button>`;
+          }).join('')}
+        </div>
+      </section>`
+      )
+      .join('')}
+  </div>
+
+  <div class="note">
+    <h4>How far this goes, honestly</h4>
+    <p>The topic spine spans the full Striver A2Z sheet: ${SPINE.topics.length} topics, ${SPINE.edges.length} prerequisite edges, in dependency order. Authored complexity ladders currently cover <strong>${authored} problems across ${SPINE.topics.filter((t) => reached[t.id].total > 0).length} topics</strong>, out of the ${problemsTotal} written up in the app.</p>
+    <p style="margin-top:8px">A topic showing <code>not written</code> is in the map because it belongs to the sheet, not because a walkthrough exists for it. The count next to each one is the sheet's own published total where known, so the gap is visible rather than implied.</p>
+    <p style="margin-top:8px">Written up so far: ${SPINE.topics
+      .filter((t) => reached[t.id].total > 0)
+      .map((t) => esc(t.name))
+      .join(', ')}.</p>
+  </div>`;
 }
 
 /* ---------- views ---------- */
@@ -644,6 +780,7 @@ function render() {
   if (app.view === 'problem' && PROBLEM_BY_ID[app.problemId]) {
     main = viewProblem(PROBLEM_BY_ID[app.problemId], s);
   } else if (app.view === 'learn') main = viewLearn(s);
+  else if (app.view === 'map') main = viewMap(s);
   else if (app.view === 'practice') main = viewPractice(s);
   else if (app.view === 'patterns') main = viewPatterns(s);
   else if (app.view === 'progress') main = viewProgress(s);
@@ -673,7 +810,7 @@ function startTimer() {
 /* ---------- events ---------- */
 
 document.addEventListener('click', (e) => {
-  const t = e.target.closest('[data-nav],[data-open],[data-lang],[data-diff],[data-pattern],[data-pattern-clear],[data-tier-toggle],[data-hint],[data-grade],[data-back],[data-act],[data-unfreeze]');
+  const t = e.target.closest('[data-nav],[data-open],[data-lang],[data-diff],[data-pattern],[data-topic],[data-pattern-clear],[data-tier-toggle],[data-hint],[data-grade],[data-back],[data-act],[data-unfreeze]');
   if (!t) return;
 
   if (t.dataset.nav) {
@@ -710,6 +847,15 @@ document.addEventListener('click', (e) => {
 
   if (t.dataset.diff) {
     app.difficulty = t.dataset.diff;
+    return render();
+  }
+
+  /* A map node jumps to the problem list filtered to that topic, so the map is
+     a way in rather than a diagram that only describes itself. */
+  if (t.dataset.topic) {
+    app.pattern = t.dataset.topic;
+    app.difficulty = 'all';
+    app.view = 'learn';
     return render();
   }
 
@@ -825,8 +971,9 @@ subscribe(render);
 root.innerHTML = `<div class="empty" style="margin:40px auto;max-width:340px"><h4>Loading problems</h4><p>Fetching the dataset.</p></div>`;
 
 loadData()
-  .then((json) => {
-    DATA = json;
+  .then(({ problems, spine }) => {
+    DATA = problems;
+    SPINE = spine;
     PATTERN_BY_ID = Object.fromEntries(DATA.patterns.map((p) => [p.id, p]));
     CARD_BY_PATTERN = Object.fromEntries(DATA.syntaxCards.map((c) => [c.pattern, c]));
     PROBLEM_BY_ID = Object.fromEntries(DATA.problems.map((p) => [p.id, p]));
@@ -858,6 +1005,10 @@ window.__strided = {
   get ready() {
     return !!DATA;
   },
+  get spine() {
+    return SPINE;
+  },
+  spineStatus: () => (SPINE ? spineStatus() : null),
 };
 
 /* Test surface for the flows that promise the learner their data is never

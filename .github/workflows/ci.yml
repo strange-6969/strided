@@ -25,13 +25,16 @@ jobs:
       - name: Spaced repetition suite
         run: python3 tools/test_srs.py
 
-      - name: Dataset integrity
+      - name: Build the dependency spine
+        run: python3 tools/build_spine.py
+
+      - name: Dataset and spine integrity
         run: python3 tools/validate_dataset.py
 
       # Catches a template hole or a typo'd import before it reaches a deploy.
       - name: Module syntax
         run: |
-          for f in app/js/*.js tools/shots.js tools/e2e.js tools/prod_check.js; do
+          for f in app/js/*.js tools/shots.js tools/e2e.js tools/prod_check.js tools/flows.js tools/map_test.js; do
             node --check "$f"
           done
 
@@ -90,6 +93,9 @@ jobs:
 
       - name: Mastery, release, export and import
         run: node tools/flows.js
+
+      - name: Dependency map is a real graph
+        run: node tools/map_test.js
 
       - name: Every problem renders in every language
         run: node tools/e2e.js
